@@ -1,0 +1,30 @@
+body {
+  background: #FFDDDD;
+}
+
+div.toolbar {
+  background: #FF7777;
+}
+
+table.grid {
+  border: 2px solid #FFAAAA;
+}
+
+table.grid td {
+  border: 1px solid #FFAAAA;
+}
+
+table.grid th {
+  border: 1px solid #FFAAAA;
+  background: #FFAAAA;
+}
+
+div.menu {
+  padding: 5px 10px 5px 5px;
+  width: 180px;
+}
+
+div.menu h2 {
+  font-size: 12px;
+  margin-bottom: 3px;
+}

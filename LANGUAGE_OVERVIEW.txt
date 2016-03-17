@@ -1,0 +1,121 @@
+Multilanguage Support Overview
+------------------------------
+
+Concepts
+--------
+"Default" language
+
+    The package uses the concept of a "default" language. This is the language
+    that the Smarty templates and literal strings within the PHP scripts are
+    written in. The package uses English as its default language, and defines
+    a constant, DEFAULT_LANGUAGE with the value "en" in the config.php file.
+
+languages table
+
+    A languages table in the database contains one row for each language
+    defined to the application. The installation program initializes this
+    table with one row for the default languages. Additional languages can be
+    added by the application administrator using the "Maintain Languages"
+    function on the admin page.
+
+"Current" language
+
+    The "current" language is the current user's selected language. It must be
+    one of the languages in the languages table.
+
+language_texts table
+
+    The language_texts table holds translations of text phrases from the
+    templates and scripts. (In order to assist the translation process, it
+    also can contain the default language text strings. However, the database
+    is not accessed if the current language is the default language.)
+
+UTF-8
+
+    All database tables use UTF-8 encoding. All templates and PHP scripts are
+    assumed to use UTF-8 encoding. All HTML output by the application uses
+    UTF-8 encoding. This is the easiest way to keep the representation of
+    non-ASCII characters consistient throughout the application.
+
+Marking Strings for Translation
+-------------------------------
+The process for identifying text strings that should be displayed in multiple
+languages is quite simple.
+
+For Smarty Templates: Just enclose the text in ##...## pairs. Example:
+
+   <h1>##Home Page##</h1>
+
+When this page is rendered, the ## are removed and the phrase "Home Page" will
+be translated to the current language if possible. If no translation is
+present (or if the current language is the default language), the English text
+from the template will be used. Placing texts inside templates like this is
+very efficient, because the translation occurs at compile time, and separate
+compiled versions of each template are maintained by language (using the
+Smarty "compile id" feature). Once the page has been translated once, no
+further database access are needed in order to display the page.
+
+For PHP Scripts: Use the $lang->language_translate() method. Example:
+
+    $foo = $lang->language_translate("##Unable to open## $fname");
+
+All words/phrases enclosed in ##...## pairs within the passed string will be
+translated if possible and the ## will be stripped.
+
+
+How is Current Language Assigned?
+---------------------------------
+The current langauge is assigned within includes/init.inc.php (which is called
+by config.php), using the following algorithm:
+
+1. If a lang=xx request parameter is present, set the current language to xx,
+if that language exists.
+
+2. Otherwise, if a cookie is present (LANGUAGE_COOKIE_NAME), set the current
+language to the language code from the cookie, if the language exists.
+
+3. Otherwise, extract the first ISO 639-1 language code from the
+HTTP_ACCEPT_LANGUAGE server parameter and set the current language to that
+language, if the langauge exists.
+
+4. If none of the above appply, set the current language to the default
+language.
+
+
+Creating a Language Translation
+-------------------------------
+Here are the basic steps to add a second language to the application:
+
+1. Run "Update Language Texts" from the admin page. This will scan through all
+the Smarty templates and application PHP files, looking for the ##-enclosed
+strings. These are added to the language_text table under the default language
+code.
+
+2. Run "Maintain Languages" and add the new language. For the code, use the
+ISO 639-1 2-letter language code (e.g. "en" for English, "de" for German,
+etc.)
+
+3. Run "Export Language Texts" for the new language. This creates an XML file
+in the temp/ directory with all of the language texts discovered in step 1
+that need translation into the new language. The English text is written to
+the XML file enclosed in an XML comment (<!--...-->) to help with the
+translation.
+
+4. Edit the XML file and add the foreign language translation for each text.
+Not all of the translations need to be done at once; you can do a few and then
+import those to check the application.
+
+5. Run "Import Language Texts" to import the translations from the XML file
+back into the database.
+
+6. Run "Clear Compiled Templates" to clear any previous language-specific
+compiled templates.
+
+7. Set the current language to the new language and check the application to
+see that the strings are now showing in the new language.
+
+8. Repeat steps 4..7 until all texts have been translated.
+
+If you ever add to or change the templates or PHP scripts, you should re-run
+"Update Language Texts" to pick up any changes, and then run "Export Language
+Texts" to write out a new XML file with the newly-added texts.

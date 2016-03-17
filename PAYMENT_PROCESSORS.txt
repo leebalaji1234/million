@@ -1,0 +1,46 @@
+GPix, the GPL Pixel Ad Script
+Payment Processors Overview
+
+This document explains the technical details of how the payment processors are
+integrated into the application.
+
+PAYPAL
+======
+
+1. Configuration
+
+Key paypal configuration items are:
+
+  PayPal ID: email address of your merchant account. payments are made to this
+  account.
+
+  PayPal URL: URL for posing commands to PayPal. By default, this is the live
+  PayPal site, but you can change it to the PayPal sandbox site for testing.
+
+  Use IPN? If set, PayPal's Instant Payment Notification (IPN) process will be
+  used, and a verification post will be made back to PayPal to verify the
+  authenticity of the payment. Using IPN is strongly recommended, but it
+  requires the cURL PHP extension, and it requires OpenSSL if a https:// IPN
+  verification post is to be made (as recommended). If cURL is available but
+  OpenSSL is not, a standard http:// IPN verification post can be made.
+
+2. Process
+
+PayPal payments are made using PayPal's "Buy-it-now" process. At the "Select
+Payment Method" screen in the "Get Pixels" process, a form containing the
+necessary variables is created to post to the PayPal URL. A payment_id number
+is allocated and passed along with the PayPal form for tracking the payment
+back into the database.
+
+When the user selects "Pay with PayPal", the PayPal site handles the payment
+and returns via a post to the paypal_return.php script.
+
+Meanwhile, if IPN is enabled, PayPal will issue a separate post to the
+paypal_ipn.php script. This script verifies the IPN with a post back to PayPal
+and then records the IPN results in the payment record.
+
+The paypal_return.php script waits up to 60 seconds for the IPN to be recorded
+in the database (if IPN is enabled). It then marks the payment as complete and
+invokes the next step in the get_pixels.php script, which stores the region
+and links the completed payment to the region. If IPN is not used, the
+paypal_return.php also marks the payment as verified.
