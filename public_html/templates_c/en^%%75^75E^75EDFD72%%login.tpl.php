@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-03-16 01:19:17
+<?php /* Smarty version 2.6.12, created on 2016-03-18 11:38:10
          compiled from admin/login.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'admin/login.tpl', 5, false),array('function', 'show_errors', 'admin/login.tpl', 7, false),array('function', 'start_form', 'admin/login.tpl', 8, false),array('function', 'end_form', 'admin/login.tpl', 22, false),)), $this); ?>

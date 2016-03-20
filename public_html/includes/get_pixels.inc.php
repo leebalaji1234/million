@@ -512,6 +512,14 @@ function assign_payment_options()
       if ($module->conf['MODULE_PAYMENT_PAYPAL_USE_IPN'])
         $module->hidden['notify_url'] = $app->url('/paypal_ipn.php', false, true, true);
       break;
+    case 'instamojo':
+      $module->action = $module->conf['MODULE_PAYMENT_INSTAMOJO_FORM_URL'].'?a='.base64_encode(param('amount'));
+      $module->hidden = array(
+        'amount' => base64_encode(param('amount')."_"),
+        'email' => param('email')
+      );
+       
+      break;
 
     case 'nochex':
       $module->action = $module->conf['MODULE_PAYMENT_NOCHEX_URL'];

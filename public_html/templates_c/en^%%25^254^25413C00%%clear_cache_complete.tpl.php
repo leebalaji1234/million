@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-03-16 01:37:21
+<?php /* Smarty version 2.6.12, created on 2016-03-20 13:12:54
          compiled from admin/clear_cache_complete.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'admin/clear_cache_complete.tpl', 4, false),)), $this); ?>

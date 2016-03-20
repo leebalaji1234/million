@@ -136,20 +136,26 @@ if ($step == 4) {
   exit;
 } 
 
-// from this point forward, we must be logged in if user accounts enabled
-if ($app->setting->user_accounts) {
-  $app->check_login('<p>##Please log in before proceeding##</p>');
-}
+// // from this point forward, we must be logged in if user accounts enabled
+// if ($app->setting->user_accounts) {
+//   $app->check_login('<p>##Please log in before proceeding##</p>');
+// }
 
 // step 5 (user accounts enabled): carry email from user account
-if ($step == 5 && $app->setting->user_accounts) {
-  $_REQUEST['email'] = @$_SESSION['email'];
-  save_params('email');
-  next_step();
-}
+// if ($step == 5 && $app->setting->user_accounts) {
+//   $_REQUEST['email'] = @$_SESSION['email'];
+//   save_params('email');
+//   next_step();
+// }
 
 // step 5 (no user accounts): show email form
 if ($step == 5) {
+ // if (isset($_SESSION) && $_SESSION['email']) {
+ //   $_REQUEST['email'] = @$_SESSION['email'];
+    
+ //   save_params('email');
+ //   next_step();
+ //  }
   if ($app->is_post()) {
     if (empty($_REQUEST['email']))
       $app->error('##Please enter your e-mail address##');
@@ -168,10 +174,18 @@ if ($step == 5) {
   load_params('w', 'h');
   $smarty->display('get_pixels_email.tpl');
   exit;
+}
+if ($step == 6 ) {
+  if ($app->is_post()) { 
+    save_params('drawingid');
+    next_step(); 
+   }
+  $smarty->display('get_pixels_drawing.tpl');
+  exit;
 } 
 
-// step 6: get payment
-if ($step == 6) {
+// step 7: get payment
+if ($step == 7) {
   if ($app->is_post()) {
     if ($type = process_payment()) {
       store_region();
@@ -202,8 +216,8 @@ if ($step == 6) {
   exit;
 } 
 
-// step 7: thank you
-if ($step == 7) {
+// step 8: thank you
+if ($step == 8) {
   load_params('region_id');
   unset($_SESSION['order_status']);        // we can't go back from this step
   $smarty->clear_all_cache();

@@ -21,7 +21,7 @@
 </table>
 
 <br />
-<div align="center"><a target="_blank" style="font-size:10px;color:#999999;font-family: Arial;" href="http://www.tufat.com/millionpixelscript.php">Powered by GPix</a></div>
+<div align="center"><!-- <a target="_blank" style="font-size:10px;color:#999999;font-family: Arial;" href="http://www.tufat.com/millionpixelscript.php">Powered by GPix</a> --></div>
 
 
 {include file='wz_tooltip.inc.tpl'}

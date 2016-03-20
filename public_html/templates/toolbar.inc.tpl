@@ -4,21 +4,10 @@
       <td>
         <a href="{url|escape href='/index.php'}">##Home##</a>
         &nbsp;&nbsp;
-        <a href="{url|escape href='/get_pixels.php'}">##Get Pixels##</a>
+        <a href="{url|escape href='/get_pixels.php'}">##Become Sponsor##</a>
         &nbsp;&nbsp;
-        <a href="{url|escape href='/pixel_list.php'}">##Pixel List##</a>
-        &nbsp;&nbsp;
-        <a href="{url|escape href='/tell_a_friend.php'}">##Tell a Friend##</a>
-        &nbsp;&nbsp;
-        {if $app->setting->link_to_us_enabled}
-        <a href="{url|escape href='/link_to_us.php'}">##Link to Us##</a>
-        &nbsp;&nbsp;
-        {/if}
-        <a href="{url|escape href='/blog.php'}">##Blog##</a>
-        {if $app->setting->rss_feeds_enabled()}
-        &nbsp;&nbsp;
-        <a href="{url|escape href='/rss.php'}">##RSS##</a>
-        {/if}
+        <a href="{url|escape href='/drawings.php'}">##Drawings##</a>
+         
       </td>
       <td align="right">
         {if $app->setting->user_accounts}

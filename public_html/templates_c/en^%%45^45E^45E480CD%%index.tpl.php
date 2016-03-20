@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-03-16 00:27:06
+<?php /* Smarty version 2.6.12, created on 2016-03-18 11:28:54
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'number_format', 'index.tpl', 11, false),array('modifier', 'escape', 'index.tpl', 11, false),)), $this); ?>
@@ -47,7 +47,7 @@ Pixels Sold: <?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['pixe
 </table>
 
 <br />
-<div align="center"><a target="_blank" style="font-size:10px;color:#999999;font-family: Arial;" href="http://www.tufat.com/millionpixelscript.php">Powered by GPix</a></div>
+<div align="center"><!-- <a target="_blank" style="font-size:10px;color:#999999;font-family: Arial;" href="http://www.tufat.com/millionpixelscript.php">Powered by GPix</a> --></div>
 
 
 <?php $_smarty_tpl_vars = $this->_tpl_vars;

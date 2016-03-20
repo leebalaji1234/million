@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-03-16 00:27:02
+<?php /* Smarty version 2.6.12, created on 2016-03-20 13:12:51
          compiled from admin/toolbar.inc.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'admin/toolbar.inc.tpl', 4, false),array('function', 'language_selector', 'admin/toolbar.inc.tpl', 7, false),array('modifier', 'escape', 'admin/toolbar.inc.tpl', 4, false),)), $this); ?>
