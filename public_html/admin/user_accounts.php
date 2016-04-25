@@ -88,7 +88,7 @@ if (isset($id)) {
 
 // show list of all users
 $users = $tbl_user->find_all('order by last_name, first_name');
-
+// print_r($users);exit;
 $smarty->assign_by_ref('users', $users);
 $smarty->display('admin/user_accounts.tpl');
 

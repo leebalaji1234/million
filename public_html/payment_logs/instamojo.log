@@ -1,0 +1,679 @@
+[22-04-2016 01:10:34 am]INFO : Payment url redirects amount[1862.15] pay_id[1] url[https://www.instamojo.com/@e3006866/0db7865832444024ab67de531554e661]
+[22-04-2016 01:11:48 am]INFO : Payment url redirects amount[1862.15] pay_id[1] url[https://www.instamojo.com/@e3006866/0db7865832444024ab67de531554e661]
+[22-04-2016 01:12:27 am]INFO : Payment Details Received : amount[399.03] pay_id[1] url[https://www.instamojo.com/@e3006866/1f7afcf613b5440f88bec71ac6640929]
+[22-04-2016 01:17:58 am]INFO : Payment Details Received : amount[133.01] pay_id[1] url[https://www.instamojo.com/@e3006866/cce7e87fdcaa48b999c35fe41cd0293d]
+[22-04-2016 01:22:04 am]INFO : Payment url redirects amount[133.01] pay_id[3] url[https://www.instamojo.com/@e3006866/cce7e87fdcaa48b999c35fe41cd0293d]
+[22-04-2016 01:22:26 am]INFO : Payment Details Received : amount[133.01] pay_id[4] url[https://www.instamojo.com/@e3006866/27f7a3973f2b482b926e576e035483f2]
+[22-04-2016 01:54:23 am]INFO : Payment Details Received : amount[133.01] pay_id[5] url[https://www.instamojo.com/@e3006866/3fcd5cc602e344dab0f965ceb0e0e7cf]
+[22-04-2016 01:55:49 am]INFO : Payment url redirects amount[133.01] pay_id[7] url[https://www.instamojo.com/@e3006866/3fcd5cc602e344dab0f965ceb0e0e7cf]
+[22-04-2016 01:58:05 am]INFO : Payment url redirects amount[133.01] pay_id[8] url[https://www.instamojo.com/@e3006866/3fcd5cc602e344dab0f965ceb0e0e7cf]
+[22-04-2016 01:59:23 am]INFO : PAYMENT HOOK PAYSTATUS[Success] payment_id[] : GET[Array
+(
+)
+] POST[Array
+(
+    [buyer] => leebalaji@gmail.com
+    [fees] => 0.00
+    [amount] => 9.00
+    [buyer_name] => balaji
+    [shorturl] => https://imjo.in/NsUhS
+    [payment_request_id] => 3fcd5cc602e344dab0f965ceb0e0e7cf
+    [buyer_phone] => 9791718441
+    [longurl] => https://www.instamojo.com/@e3006866/3fcd5cc602e344dab0f965ceb0e0e7cf
+    [currency] => INR
+    [mac] => f83acae154286acd3395c5e9890bcc28aed6f5f6
+    [status] => Credit
+    [payment_id] => MOJO6421005U24787926
+    [purpose] => Buy Pixel
+)
+]
+[22-04-2016 01:59:23 am]INFO : PAYMENT HOOK SAVED : GET[Array
+(
+)
+] POST[Array
+(
+    [buyer] => leebalaji@gmail.com
+    [fees] => 0.00
+    [amount] => 9.00
+    [buyer_name] => balaji
+    [shorturl] => https://imjo.in/NsUhS
+    [payment_request_id] => 3fcd5cc602e344dab0f965ceb0e0e7cf
+    [buyer_phone] => 9791718441
+    [longurl] => https://www.instamojo.com/@e3006866/3fcd5cc602e344dab0f965ceb0e0e7cf
+    [currency] => INR
+    [mac] => f83acae154286acd3395c5e9890bcc28aed6f5f6
+    [status] => Credit
+    [payment_id] => MOJO6421005U24787926
+    [purpose] => Buy Pixel
+)
+]
+[22-04-2016 01:59:24 am]ERROR : missing payment_id : GET[Array
+(
+    [payment_id] => MOJO6421005U24787926
+    [payment_request_id] => 3fcd5cc602e344dab0f965ceb0e0e7cf
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 02:08:31 am]INFO : Payment Details Received : amount[332.53] pay_id[9] url[https://www.instamojo.com/@e3006866/34e89ec3454f4dbcadcc173c7a26306f]
+[22-04-2016 02:10:10 am]INFO : PAYMENT HOOK PAYSTATUS[Success] payment_id[9] : GET[Array
+(
+)
+] POST[Array
+(
+    [buyer] => leebalaji@gmail.com
+    [fees] => 0.00
+    [amount] => 9.00
+    [buyer_name] => balaji
+    [shorturl] => https://imjo.in/NsUhH
+    [payment_request_id] => 34e89ec3454f4dbcadcc173c7a26306f
+    [buyer_phone] => 9791718441
+    [longurl] => https://www.instamojo.com/@e3006866/34e89ec3454f4dbcadcc173c7a26306f
+    [currency] => INR
+    [mac] => 5a10c136913ba88c86be6cdfc9374ea918f2e5cb
+    [status] => Credit
+    [payment_id] => MOJO6421005U24787941
+    [purpose] => Buy Pixel
+)
+]
+[22-04-2016 02:10:10 am]INFO : PAYMENT HOOK SAVED : GET[Array
+(
+)
+] POST[Array
+(
+    [buyer] => leebalaji@gmail.com
+    [fees] => 0.00
+    [amount] => 9.00
+    [buyer_name] => balaji
+    [shorturl] => https://imjo.in/NsUhH
+    [payment_request_id] => 34e89ec3454f4dbcadcc173c7a26306f
+    [buyer_phone] => 9791718441
+    [longurl] => https://www.instamojo.com/@e3006866/34e89ec3454f4dbcadcc173c7a26306f
+    [currency] => INR
+    [mac] => 5a10c136913ba88c86be6cdfc9374ea918f2e5cb
+    [status] => Credit
+    [payment_id] => MOJO6421005U24787941
+    [purpose] => Buy Pixel
+)
+]
+[22-04-2016 02:10:11 am]ERROR : RETURN PAY ::  missing payment_id : GET[Array
+(
+    [payment_id] => MOJO6421005U24787941
+    [payment_request_id] => 34e89ec3454f4dbcadcc173c7a26306f
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:34:06 pm]INFO : Payment Details Received : amount[399.9] pay_id[10] url[https://www.instamojo.com/@e3006866/c6b066083a3845a5b46df972df9a923b]
+-----------------------------------------__*****************************************-------------------------------
+
+
+
+
+
+[22-04-2016 11:39:41 pm]INFO : Payment Details Received : amount[399.9] pay_id[11] url[https://www.instamojo.com/@e3006866/aa5a2aa9ae9642ddb18a252f53756dab]
+[22-04-2016 11:40:53 pm]INFO : PAYMENT HOOK PAYSTATUS[Success] payment_id[11] : GET[Array
+(
+)
+] POST[Array
+(
+    [amount] => 9.00
+    [longurl] => https://www.instamojo.com/@e3006866/aa5a2aa9ae9642ddb18a252f53756dab
+    [shorturl] => https://imjo.in/NsmbA
+    [status] => Credit
+    [payment_id] => MOJO6422005U08639482
+    [buyer_name] => balaji
+    [buyer] => leebalaji@gmail.com
+    [fees] => 0.00
+    [mac] => 29e1002439f051ca2eb9e2543d54d6ff544f576e
+    [currency] => INR
+    [purpose] => Buy Pixel
+    [buyer_phone] => 9791718441
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+)
+]
+[22-04-2016 11:40:53 pm]INFO : PAYMENT HOOK SAVED : GET[Array
+(
+)
+] POST[Array
+(
+    [amount] => 9.00
+    [longurl] => https://www.instamojo.com/@e3006866/aa5a2aa9ae9642ddb18a252f53756dab
+    [shorturl] => https://imjo.in/NsmbA
+    [status] => Credit
+    [payment_id] => MOJO6422005U08639482
+    [buyer_name] => balaji
+    [buyer] => leebalaji@gmail.com
+    [fees] => 0.00
+    [mac] => 29e1002439f051ca2eb9e2543d54d6ff544f576e
+    [currency] => INR
+    [purpose] => Buy Pixel
+    [buyer_phone] => 9791718441
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+)
+]
+[22-04-2016 11:48:50 pm]INFO : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:49:10 pm]INFO : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:49:12 pm]INFO : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:49:14 pm]INFO : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:49:53 pm]INFO : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:49:55 pm]INFO : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:58:09 pm]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:58:13 pm]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:58:45 pm]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:59:05 pm]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[22-04-2016 11:59:19 pm]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:02:56 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:07:54 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:14:20 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:14:20 am]ERROR : RETURN PAY ::  missing payment_id : GET[Array
+(
+    [step] => 1
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:15:07 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:15:08 am]ERROR : RETURN PAY ::  missing payment_id : GET[Array
+(
+    [step] => 1
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:15:57 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:15:57 am]ERROR : RETURN PAY ::  missing payment_id : GET[Array
+(
+    [step] => 1
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:18:11 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:20:33 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:21:14 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:21:14 am]ERROR : RETURN PAY ::  missing payment_id : GET[Array
+(
+    [step] => 1
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:21:28 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:23:28 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:23:46 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:23:46 am]ERROR : RETURN PAY ::  missing payment_id : GET[Array
+(
+    [step] => 1
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:24:43 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:24:44 am]ERROR : RETURN PAY ::  missing payment_id : GET[Array
+(
+    [step] => 1
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:25:50 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:26:22 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:27:18 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:29:01 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:29:21 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:29:35 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:29:57 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:40:18 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 12:40:47 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:02:00 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => aa5a2aa9ae9642ddb18a252f53756dab
+    [payment_id] => MOJO6422005U08639482
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:03:09 am]INFO : PAYMENT MODULE : Payment Details Received : amount[533.24] pay_id[13] url[https://www.instamojo.com/@e3006866/070179cb62cc40b1824ae2b27b1d3b56]
+[23-04-2016 01:04:51 am]ERROR : PAYMENT MODULE : Payment Request Failed :()
+[23-04-2016 01:07:59 am]INFO : PAYMENT MODULE : Payment Details Received : amount[599.9] pay_id[15] url[https://www.instamojo.com/@e3006866/c1c52e3d0da04973a34782094acc6e80]
+[23-04-2016 01:09:13 am]INFO : PAYMENT HOOK PAYSTATUS[Success] payment_id[15] : GET[Array
+(
+)
+] POST[Array
+(
+    [buyer] => leebalaji@gmail.com
+    [fees] => 0.00
+    [purpose] => Buy Pixel
+    [currency] => INR
+    [mac] => 92b692dbf1a68dde9381f5daa0bd19106f408341
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [buyer_phone] => 9791718441
+    [amount] => 9.00
+    [shorturl] => https://imjo.in/NsmLi
+    [longurl] => https://www.instamojo.com/@e3006866/c1c52e3d0da04973a34782094acc6e80
+    [status] => Credit
+    [buyer_name] => balaji
+    [payment_id] => MOJO6422005U08639724
+)
+]
+[23-04-2016 01:09:14 am]INFO : PAYMENT HOOK SAVED : GET[Array
+(
+)
+] POST[Array
+(
+    [buyer] => leebalaji@gmail.com
+    [fees] => 0.00
+    [purpose] => Buy Pixel
+    [currency] => INR
+    [mac] => 92b692dbf1a68dde9381f5daa0bd19106f408341
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [buyer_phone] => 9791718441
+    [amount] => 9.00
+    [shorturl] => https://imjo.in/NsmLi
+    [longurl] => https://www.instamojo.com/@e3006866/c1c52e3d0da04973a34782094acc6e80
+    [status] => Credit
+    [buyer_name] => balaji
+    [payment_id] => MOJO6422005U08639724
+)
+]
+[23-04-2016 01:09:14 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [payment_id] => MOJO6422005U08639724
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:12:07 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [payment_id] => MOJO6422005U08639724
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:14:10 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [payment_id] => MOJO6422005U08639724
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:14:19 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [payment_id] => MOJO6422005U08639724
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:14:26 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [payment_id] => MOJO6422005U08639724
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:15:12 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [payment_id] => MOJO6422005U08639724
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:19:49 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [payment_id] => MOJO6422005U08639724
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:22:00 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [payment_id] => MOJO6422005U08639724
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:24:28 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => c1c52e3d0da04973a34782094acc6e80
+    [payment_id] => MOJO6422005U08639724
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:29:35 am]INFO : PAYMENT MODULE : Payment Details Received : amount[52124.6] pay_id[15] url[https://www.instamojo.com/@e3006866/dfce05430b2d4e82a0ecaab698a315c6]
+[23-04-2016 01:31:00 am]INFO : PAYMENT HOOK PAYSTATUS[Success] payment_id[15] : GET[Array
+(
+)
+] POST[Array
+(
+    [payment_request_id] => dfce05430b2d4e82a0ecaab698a315c6
+    [fees] => 0.00
+    [buyer_phone] => 9791718441
+    [mac] => 20b474f14d08e3d33f13260404d5d067e7468b68
+    [buyer] => leebalaji@gmail.com
+    [payment_id] => MOJO6422005U08639753
+    [amount] => 9.00
+    [purpose] => Buy Pixel
+    [longurl] => https://www.instamojo.com/@e3006866/dfce05430b2d4e82a0ecaab698a315c6
+    [shorturl] => https://imjo.in/NsmLa
+    [status] => Credit
+    [buyer_name] => nalaji
+    [currency] => INR
+)
+]
+[23-04-2016 01:31:00 am]INFO : PAYMENT HOOK SAVED : GET[Array
+(
+)
+] POST[Array
+(
+    [payment_request_id] => dfce05430b2d4e82a0ecaab698a315c6
+    [fees] => 0.00
+    [buyer_phone] => 9791718441
+    [mac] => 20b474f14d08e3d33f13260404d5d067e7468b68
+    [buyer] => leebalaji@gmail.com
+    [payment_id] => MOJO6422005U08639753
+    [amount] => 9.00
+    [purpose] => Buy Pixel
+    [longurl] => https://www.instamojo.com/@e3006866/dfce05430b2d4e82a0ecaab698a315c6
+    [shorturl] => https://imjo.in/NsmLa
+    [status] => Credit
+    [buyer_name] => nalaji
+    [currency] => INR
+)
+]
+[23-04-2016 01:31:01 am]INFO : PAYMENT MODULE : PAYMENT SAVED : GET[Array
+(
+    [payment_request_id] => dfce05430b2d4e82a0ecaab698a315c6
+    [payment_id] => MOJO6422005U08639753
+)
+] POST[Array
+(
+)
+]
+[23-04-2016 01:37:22 am]ERROR : PAYMENT MODULE : Payment Request Failed :()
+[23-04-2016 01:37:34 am]ERROR : PAYMENT MODULE : Payment Request Failed :()
+[23-04-2016 01:39:07 am]ERROR : PAYMENT MODULE : Payment Request Failed :Something went wrong. cURL raised an error with number: 7 and message: Failed to connect to www.instamojo.com port 443: Network is unreachable.
+

@@ -119,6 +119,11 @@ class App{
     header('Location: ' . $this->url($url, $attrs, true, true));
     exit;
   }
+  function redirect_url($url = false, $attrs = false)
+  {
+     return $this->url($url, $attrs, true, true);
+     
+  }
 
   // convert an assoc array to a string of element attributes,
   // with each attribute value HTML-escaped

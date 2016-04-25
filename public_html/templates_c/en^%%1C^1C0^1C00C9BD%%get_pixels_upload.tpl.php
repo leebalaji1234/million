@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.12, created on 2016-03-18 11:29:04
+<?php /* Smarty version 2.6.12, created on 2016-04-24 23:44:37
          compiled from get_pixels_upload.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'get_pixels_upload.tpl', 5, false),array('function', 'show_errors', 'get_pixels_upload.tpl', 10, false),array('function', 'start_form', 'get_pixels_upload.tpl', 11, false),array('function', 'end_form', 'get_pixels_upload.tpl', 45, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'get_pixels_upload.tpl', 9, false),array('function', 'show_errors', 'get_pixels_upload.tpl', 15, false),array('function', 'start_form', 'get_pixels_upload.tpl', 16, false),array('function', 'end_form', 'get_pixels_upload.tpl', 58, false),)), $this); ?>
 <?php $this->assign('page_title', 'Upload Your Image'); ?>
 <?php $this->assign('scripts', "/tabber.js"); ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -10,8 +10,13 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 
-<h1><?php echo ((is_array($_tmp=$this->_tpl_vars['page_title'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-</h1>
+<div class="section">
+  <div class="container">
+    <div class="row">
+          <div class="col-md-12">
+<h3 class="text-info"><?php echo ((is_array($_tmp=$this->_tpl_vars['page_title'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</h3>
+<hr/>
 
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "get_pixels_order_status.inc.tpl", 'smarty_include_vars' => array()));
@@ -22,23 +27,27 @@ unset($_smarty_tpl_vars);
 
 <?php echo smarty_function_show_errors(array(), $this);?>
 
-<?php echo smarty_function_start_form(array('enctype' => "multipart/form-data"), $this);?>
+<?php echo smarty_function_start_form(array('enctype' => "multipart/form-data",'class' => "form-horizontal"), $this);?>
 
 <input type="hidden" name="MAX_FILE_SIZE" value="200000" />
 <?php if ($this->_tpl_vars['app']->setting->upload_images): ?>
-<p>Upload a GIF, JPG, or PNG image. It will automatically be converted to PNG
+<blockquote>
+<p class="text-warning">Upload a GIF, JPG, or PNG image. It will automatically be converted to PNG
 format and resized to the region size of <?php echo ((is_array($_tmp=$_REQUEST['w'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
  x
 <?php echo ((is_array($_tmp=$_REQUEST['h'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
  pixels.</p>
-<table>
+</blockquote>
 
-<tr>
-    <td class="label">Image File:</td>
-    <td><input name="file" type="file" size="80" /></td>
-  </tr>
-
-</table>
+<div class="form-group">
+  <div class="col-sm-3">
+    <label class="control-label" >Image File:</label>
+  </div>
+  <div class="col-sm-5"> 
+   <input name="file" type="file" size="80" />
+  </div>
+</div>
+ 
 <?php endif; ?>
 <input type="hidden" name="step" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['step'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 " />
@@ -48,12 +57,16 @@ format and resized to the region size of <?php echo ((is_array($_tmp=$_REQUEST['
 " />
 
 <?php if ($this->_tpl_vars['app']->setting->upload_images): ?>
-  <p>
-  <input name="submit_button" type="submit" value="Continue &gt;&gt;" />&nbsp;&nbsp;
-  </p>
+  <div class="form-group">
+<div class="col-sm-offset-3 col-sm-6">
+   
+
+   <input type="submit" value="Continue &gt;&gt;" class="btn btn-primary" name="submit_button"> 
+</div>
+</div>
 <?php endif; ?>
   
-<?php if ($this->_tpl_vars['grid']->images_gallery): ?>
+<!-- <?php if ($this->_tpl_vars['grid']->images_gallery): ?>
 	<?php if ($this->_tpl_vars['app']->setting->upload_images): ?>
 	<p>Or select from one of the predefined images below:</p>
 	<?php else: ?>
@@ -65,7 +78,7 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 <?php endif; ?>
-
+ -->
 <?php echo smarty_function_end_form(array(), $this);?>
 
 

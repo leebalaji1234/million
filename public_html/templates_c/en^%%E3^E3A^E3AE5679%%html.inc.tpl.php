@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-03-20 13:12:51
+<?php /* Smarty version 2.6.12, created on 2016-04-24 03:41:35
          compiled from html.inc.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'html.inc.tpl', 2, false),array('modifier', 'default', 'html.inc.tpl', 2, false),array('function', 'url', 'html.inc.tpl', 13, false),)), $this); ?>
@@ -44,8 +44,26 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'h
   <title><?php echo ((is_array($_tmp=$this->_tpl_vars['site_title'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));  if ($this->_tpl_vars['page_title']): ?> - <?php echo ((is_array($_tmp=$this->_tpl_vars['page_title'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));  endif; ?></title>
 
   <!-- drawing module dependencies -->
-   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+   <script type="text/javascript" src="custom_lib/cdn/jquery.min.js"></script>
+    <script type="text/javascript" src="custom_lib/cdn/bootstrap.min.js"></script>
+   <link href="custom_lib/cdn/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+     <link href="custom_lib/cdn/bootstrap.css" rel="stylesheet" type="text/css">
+     
+    <script type="text/javascript" src="js/custom.js"></script>
+    <!--<script type="text/javascript" src="twitter_plugin/tweecool.js"></script>-->
+    <script type="text/javascript" src="twitter_plugin/twitterfeeds.js"></script>
+
+    <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css"> 
+    <script type="text/javascript" src="js/custom.js"></script>-->
+<!-- angular js includes 
+        <script type='text/javascript' src='angular_includes/js/angular.js'></script>
+        <script type='text/javascript' src='angular_includes/js/angular-route.js'></script>
+        <script type='text/javascript' src='angular_includes/js/angular-animate.js'></script>
+        <script type='text/javascript' src='angular_includes/js/angular-resource.js'></script>
+        <script type='text/javascript' src='angular_includes/js/angular-cookies.js'></script>
+        <script type='text/javascript' src='angular_includes/js/dirPagination.js'></script>   
+         <script type="text/javascript" src="angular_includes/js/app.js"></script> -->
 </head>

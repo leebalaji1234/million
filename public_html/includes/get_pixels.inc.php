@@ -228,8 +228,10 @@ function process_payment() {
   if ($module->module_key == 'offline') {
     $payment->is_verified = 0;
   }
-
+  $payment->drawing_id = param('drawing_id')?param('drawing_id'):0;
   $payment->save();
+   
+  
 
   return true;
 }
@@ -248,7 +250,7 @@ function store_region() {
   // create the region
   $region = new Region;
   $region->grid_id = param('grid_id');
-  if ($app->setting->user_accounts) $region->user_id = $_SESSION['user_id'];
+  // if ($app->setting->user_accounts) $region->user_id = $_SESSION['user_id'];
   $region->x = param('x');
   $region->y = param('y');
   $region->width = param('w');
@@ -275,7 +277,9 @@ function store_region() {
     $region->status = REGION_PENDING;
   if (!$payment->is_verified || $payment->is_error)
     $region->status = REGION_PENDING;
-
+  if(!$payment->is_error)
+    $region->status = REGION_ACTIVE;
+   
   // save region and mark grid dirty
   $region->save();
   $grid->is_dirty = 1;
@@ -286,6 +290,7 @@ function store_region() {
   $payment->region_id = param('region_id');
   $payment->email = param('email');
   $payment->amount = param('amount');
+  $payment->drawing_id = param('drawing_id')?param('drawing_id'):0;
   $payment->save();
 
   // this payment is now finished
@@ -334,6 +339,7 @@ function renew_region()
   $payment->region_id = param('region_id');
   $payment->email = param('email');
   $payment->amount = param('amount');
+  $payment->drawing_id = param('drawing_id')?param('drawing_id'):0;
   $payment->save();
 
   // this payment is now finished
@@ -419,6 +425,13 @@ function next_step()
   $order_status['step']++;
   header('Location: ' . payment_controller_url());
   exit;
+}
+function next_step_url()
+{
+  global $app, $step, $order_status, $payment_controller;
+  $order_status['step']++;
+   return payment_controller_url();
+  // exit;
 }
 
 // allocate a payment id for this transaction
@@ -513,10 +526,16 @@ function assign_payment_options()
         $module->hidden['notify_url'] = $app->url('/paypal_ipn.php', false, true, true);
       break;
     case 'instamojo':
-      $module->action = $module->conf['MODULE_PAYMENT_INSTAMOJO_FORM_URL'].'?a='.base64_encode(param('amount'));
+      
+    $amount_var = round(($_SESSION['inrRate'] * param('amount')),2);
+      $module->action = $module->conf['MODULE_PAYMENT_INSTAMOJO_FORM_URL'].'?a='.base64_encode($amount_var);
       $module->hidden = array(
-        'amount' => base64_encode(param('amount')."_"),
-        'email' => param('email')
+        'amount' => base64_encode($amount_var."_"),
+        'email' => param('email'),
+        'w' => param('w'),
+        'h' => param('h'),
+        'x' => param('x'),
+        'y' => param('y')
       );
        
       break;

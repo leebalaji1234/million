@@ -308,6 +308,9 @@ class Util
     } else {
 
     	// make sure we have a valid file
+      // error_reporting(E_ALL);
+      // ini_set('display_errors',1);
+      // echo @$_FILES['file']['tmp_name'];exit;
     	if (!is_uploaded_file(@$_FILES[$name]['tmp_name'])
         || @$_FILES[$name]['size'] == 0) {
         $app->error('##Please upload a valid file##');
@@ -315,9 +318,13 @@ class Util
       }
 
       // move the upload to the temp dir (in case open_basedir in effect)
-      $fname = TEMP_DIR . basename($_FILES[$name]['tmp_name']);
+      $fname = TEMP_DIR . basename($_FILES[$name]['tmp_name']); 
+       
+     // echo $fname;exit;
       if (!@move_uploaded_file($_FILES[$name]['tmp_name'], $fname))
       $app->abort('##Unable to move uploaded file to temp dir##');
+
+
 
     }
 

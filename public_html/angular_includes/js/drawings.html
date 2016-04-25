@@ -1,0 +1,211 @@
+ 
+<!-- <input ng-model="searcher.theme">
+<input ng-model="searcher.country"> -->
+ 
+<div class="col-md-3" ng-repeat="drawing in drawings|filter:{title: search, theme_id: searcher.theme,country:searcher.country}|filter:ageFilter |limitTo:totalDisplayed|orderBy:sortKey:reverse">
+  <div class="well" >
+          <a   data-toggle="modal" data-target="#model_{{drawing.id}}" ng-click="onDoClick(drawing.id)">
+            <img ng-src="{{drawing.image}}" class="img-responsive" style="height:94px;" ></a>
+          <hr/>
+          
+          <h4 ng-click="onDoClick(drawing.id)"><a class="text-primary" data-toggle="modal" data-target="#model_{{drawing.id}}" >{{drawing.title}}</a><span ng-class="{'sponsor-success':drawing.is_sponsored}" ng-show="drawing.is_sponsored"><i class="fa fa-fw fa-graduation-cap fa-1x"></i></span></h4>
+         <!--  <p style="word-wrap: break-word;">{{drawing.description}}
+          </p> -->
+          <p class="text-left text-success"><i class="fa fa-fw fa-child "></i> {{drawing.username}}</p>
+          <p class="text-default">
+            <i class="mentioncaption fa fa-fw fa-hand-o-up " onmouseout="$(this).removeClass('text-primary');" ng-click="onDoClick(drawing.id)" onmouseover="$(this).addClass('text-primary');"></i><span id="click_{{drawing.id}}">{{drawing.clicks}}</span> 
+            &nbsp; &nbsp;&nbsp;
+
+            <i class="mentioncaption fa fa-fw fa-heart" ng-click="onDoLike(drawing.id)" onmouseout="$(this).removeClass('text-primary');" onmouseover="$(this).addClass('text-primary');"></i><span id="like_{{drawing.id}}">{{drawing.likes}}</span>&nbsp; &nbsp;&nbsp;
+            <a class="text-danger " ng-click="onDoReport(drawing.id)" data-toggle="modal" data-target="#reportmodel_{{drawing.id}}"><i class="fa fa-icon fa-flag"></i> Report</a> 
+          </p>
+          <p> 
+<!-- AddToAny BEGIN -->
+<!-- <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+</div>
+-->
+<!-- AddToAny END -->
+
+<!-- AddToAny BEGIN with share link page-->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="http://{{sitehost}}/drawing.php?id={{drawing.id}}" data-a2a-title="{{drawing.title}}">
+<a class="a2a_dd"  ></a>
+<a class="a2a_button_facebook" ></a>
+<a class="a2a_button_twitter"   ></a>
+<a class="a2a_button_google_plus" ></a>
+</div>
+
+<!-- AddToAny END -->
+</p>
+           
+        <p>
+          <div class="text-right"> 
+          
+          <a class="btn btn-primary col-md-12"   ng-click="onDoSponsor(drawing.id)"><i class="fa fa-fw fa-graduation-cap fa-1x"></i>Sponsor</a>
+          </div>
+        </p> 
+ </div>
+        <hr/>
+      
+        <!-- model starts -->
+        <div id="model_{{drawing.id}}" class="modal fade">
+      <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            
+            <p class="text-center text-primary"><i class="fa fa-fw fa-child fa-3x"></i> {{drawing.username}}  <i class="fa fa-fw fa-hand-o-up fa-3x"></i>Clicks : {{drawing.clicks}} <i class="fa fa-fw fa-heart fa-3x"></i>Likes : {{drawing.likes}} </p>
+            <p class="text-left text-warning"><i class="fa fa-fw fa-graduation-cap fa-3x"></i>Sponsors : {{drawing.sponsors.title.join(", ")}}</p>
+          </div>
+          <div class="modal-body " >
+          	<p><h3 class="modal-title text-info">{{drawing.title}}</h3><img ng-src="{{drawing.image}}" class="img-responsive"></p>
+            <p class="well">{{drawing.description}}</p>
+            <hr/>
+            <h3 class="well text-info" id="expandmk_{{drawing.id}}" ng-click="viewMakeOfart(drawing.id,drawing.proof)" ng-show="drawing.proof">Make Of Art <span style="float:right;"><i class="fa fa-caret-down"></i></span></h3>
+            <p class="makeofwindow text-center"> <!-- <iframe width="660" height="315" ng-src="{{drawing.proof}}" frameborder="0" allowfullscreen>
+</iframe>  --></p>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-default" data-dismiss="modal">Close</a>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- model ends -->
+         <!-- report model starts -->
+        <div id="reportmodel_{{drawing.id}}" class="modal fade">
+          <form name="reportForm"  id="reportForm_{{drawing.id}}" role="form" ng-submit="submitReport(drawing.id)" novalidate>
+      <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 class="modal-title text-info"> Report this <{{drawing.title}}></h3>
+            
+          </div>
+           <div class="modal-footer text-right">
+            <button class="btn btn-danger"><i class="fa fa-icon fa-flag"></i> Send Report</button>  
+          </div>
+          <div class="modal-body " >
+             <div class="form-group" > 
+                      <label for="name" class="control-label">Your Name</label>
+                   
+                      <input  name="name"   class="form-control name" palceholder="Enter name here ..." value=""   />
+                      <input type="hidden" name="drawing_id" value="{{drawing.id}}" />
+                     
+             </div>
+             <div class="form-group">
+                    
+                      <label for="email" class="control-label">Your Email</label>
+                    
+                      <input  name="email"  class="form-control email" palceholder="Enter email here ..." value="" />
+                     
+             </div>
+              <h3> What is the issue?* </h3>
+             <div class="form-group">
+              <label><input type="radio" name="issue_type" value="sexual"/> Sexual content Includes graphic sexual activity, nudity, and other sexual content. </label>  
+               <select name="sexual_issue" class="form-control">  
+                 <option value="Graphic sexual activity">Graphic sexual activity</option>
+                 <option value="Nudity">Nudity</option>
+                 <option value="Suggestive, but without nudity">Suggestive, but without nudity</option>
+                 <option value="Content involving minors">Content involving minors</option>
+                 <option value="Other sexual content">Other sexual content</option>
+               </select> 
+             </div>
+
+             <div class="form-group">
+              <label><input type="radio" name="issue_type" value="violent"/> Violent or repulsive content Violent or graphic content, or content posted to shock viewers.</label>  
+               <select name="violent_issue" class="form-control"> 
+                  <option value="Adults fighting">Adults fighting</option>
+                  <option value="Physical attack">Physical attack</option>
+                  <option value="Youth violence">Youth violence</option>
+                  <option value="Animal abuse">Animal abuse</option>
+                  <option value="Promotes terrorism">Promotes terrorism</option>
+               </select> 
+             </div>
+           
+
+             <div class="form-group">
+              <label><input type="radio" name="issue_type" value="hateful"/> Hateful or abusive content Content that promotes hatred against protected groups, abuses vulnerable individuals, or engages in cyberbullying.</label>  
+               <select name="hateful_issue" class="form-control"> 
+                  <option value="Promotes hatred or violence">Promotes hatred or violence</option>
+                  <option value="Abusing vulnerable individuals">Abusing vulnerable individuals</option>
+                  <option value="Bullying">Bullying</option>
+               </select> 
+             </div>
+      
+            <div class="form-group">
+              <label><input type="radio" name="issue_type" value="harmful"/> Harmful dangerous acts Content that includes acts that may result in physical harm.</label>  
+               <select name="harmful_issue" class="form-control"> 
+                  <option value="Pharmaceutical or drug abuse">Pharmaceutical or drug abuse</option>
+                  <option value="Abuse of fire or explosives">Abuse of fire or explosives</option>
+                  <option value="Suicide or self injury">Suicide or self injury</option>
+                  <option value="Other dangerous acts">Other dangerous acts</option>
+               </select> 
+             </div>
+ 
+            <div class="form-group">
+              <label><input type="radio" name="issue_type" value="childabuse"/> Child abuse Content that includes sexual, predatory or abusive communications towards minors.</label>  
+            </div>
+            <div class="form-group">
+              <label><input type="radio" name="issue_type" value="spam"/> Spam or misleading Content that is massively posted or otherwise misleading in nature.</label>  
+               <select name="spam_issue" class="form-control">  
+                  <option value="Mass advertising">Mass advertising</option>
+                  <option value="Pharmaceutical drugs for sale">Pharmaceutical drugs for sale</option>
+                  <option value="Misleading text">Misleading text</option>
+                  <option value="Misleading thumbnail">Misleading thumbnail</option>
+                  <option value="Scams / fraud">Scams / fraud</option>
+               </select> 
+             </div>
+
+             <div class="form-group">
+              <label><input type="radio" name="issue_type" value="copyright"/>Infringes my rights Privacy, copyright and other legal complaints.</label>  
+               <select name="copyright_issue" class="form-control"> 
+                  <option value="Infringes my copyright">Infringes my copyright</option>
+                  <option value="Invades my privacy">Invades my privacy</option>
+               </select> 
+             </div>
+
+            <div class="form-group">
+              <label><input type="radio" name="issue_type" value="caption"/> Captions issue.</label>  
+               <select name="caption_issue" class="form-control"> 
+                  <option  value="Captions are missing">Captions are missing</option>
+                  <option value="Captions are inaccurate">Captions are inaccurate</option>
+                  <option value="Captions are abusive">Captions are abusive</option>
+               </select> 
+             </div>
+             <h3>Please provide additional details about:</h3>
+           <div class="form-group">
+                <textarea name="additional_details" class="form-control">  </textarea>
+         </div>
+
+      
+
+ 
+           
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary">Submit</button>
+            <a class="btn btn-default modelclose" data-dismiss="modal">Close</a>
+             
+          </div>
+        </div>
+      </div>
+       </form>
+    </div>
+        <!-- model ends -->
+ </div>
+ <div class="col-md-10">
+<p class="text-center"><button class="btn btn-warning"  ng-click="loadMore()"><i class="fa fa-arrow-down"></i>Load more</button></p>  
+     </div>   
+    <script>
+    
+// var a2a_config = a2a_config || {};
+// a2a_config.linkname = "Million Dollar Drawings";
+// a2a_config.linkurl = '';
+ 
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script> 

@@ -1,0 +1,7 @@
+<div class="col-md-3" ng-repeat="drawing in drawings">
+          <img ng-src="{{drawing.image}}" class="img-responsive">
+          <h2>{{drawing.name}}</h2>
+          <p style="word-wrap: break-word;">{{drawing.description}}
+          </p>
+          <p><button class="btn btn-danger text-left" ng-click="onDoReport(drawing.id)"><i class="fa fa-icon fa-report"></i>Report</button><button class="btn btn-info text-right" ng-click="onDoSponsor(drawing.id)">Sponsor</button></p>
+        </div>

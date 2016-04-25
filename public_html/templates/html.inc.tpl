@@ -27,8 +27,26 @@
   <title>{$site_title|escape}{if $page_title} - {$page_title|escape}{/if}</title>
 
   <!-- drawing module dependencies -->
-   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+   <script type="text/javascript" src="custom_lib/cdn/jquery.min.js"></script>
+    <script type="text/javascript" src="custom_lib/cdn/bootstrap.min.js"></script>
+   <link href="custom_lib/cdn/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+     <link href="custom_lib/cdn/bootstrap.css" rel="stylesheet" type="text/css">
+     
+    <script type="text/javascript" src="js/custom.js"></script>
+    <!--<script type="text/javascript" src="twitter_plugin/tweecool.js"></script>-->
+    <script type="text/javascript" src="twitter_plugin/twitterfeeds.js"></script>
+
+    <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css"> 
+    <script type="text/javascript" src="js/custom.js"></script>-->
+<!-- angular js includes 
+        <script type='text/javascript' src='angular_includes/js/angular.js'></script>
+        <script type='text/javascript' src='angular_includes/js/angular-route.js'></script>
+        <script type='text/javascript' src='angular_includes/js/angular-animate.js'></script>
+        <script type='text/javascript' src='angular_includes/js/angular-resource.js'></script>
+        <script type='text/javascript' src='angular_includes/js/angular-cookies.js'></script>
+        <script type='text/javascript' src='angular_includes/js/dirPagination.js'></script>   
+         <script type="text/javascript" src="angular_includes/js/app.js"></script> -->
 </head>

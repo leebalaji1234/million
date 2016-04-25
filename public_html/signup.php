@@ -2,6 +2,7 @@
 
 require_once('config.php');
 require_once('util.class.php');
+require_once('country.class.php');
 
 // if admin has not enabled user accounts, redirect to home page
 if (!$app->setting->user_accounts) $app->redirect('/index.php');
@@ -22,7 +23,12 @@ if ($app->is_post()) {
     $app->error('##Please create a password of at least 5 characters##');
   elseif ($_REQUEST['pass_confirm'] != $_REQUEST['pass'])
     $app->error('##Your re-entered password does not match; please check##');
-
+  if (empty($_REQUEST['country']))
+     $app->error('##Please enter country##');
+  if (empty($_REQUEST['state']))
+     $app->error('##Please enter state##');
+  if (empty($_REQUEST['city']))
+     $app->error('##Please enter city##'); 
   if (empty($app->errors)) {
 
     // make sure user doesn't already exist, and create user row.
@@ -39,6 +45,9 @@ if ($app->is_post()) {
       $user->pass = $_REQUEST['pass'];
       $user->first_name = $_REQUEST['first_name'];
       $user->last_name = $_REQUEST['last_name'];
+      $user->country = $_REQUEST['country'];
+      $user->state = $_REQUEST['state'];
+      $user->city = $_REQUEST['city'];
       $user->created_at = Util::epoch_to_datetime();
       $user->is_confirmed = 0;
       $user->digest = $app->digest(array(rand()));
@@ -64,6 +73,9 @@ if ($app->is_post()) {
     }
   }
 }
+$tbl_country = new Countrie;
+$countries = $tbl_country->find_all();  
+$smarty->assign_by_ref('countries', $countries); 
 
 $smarty->display('signup.tpl', 'signup|'.$cache_id);
 

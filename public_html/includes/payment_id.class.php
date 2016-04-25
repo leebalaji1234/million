@@ -13,6 +13,7 @@ class Payment_Id extends Model
   {
     $tbl = new Payment_Id;
     $row = $tbl->get(1, false);
+    // print_r($row);exit;
     @$row->payment_id++;
     $row->save();
     return $row->payment_id;

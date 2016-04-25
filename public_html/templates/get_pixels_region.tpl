@@ -2,16 +2,16 @@
 {assign var="scripts" value=','|explode:'/gr.js,/rubberband.js,/Dom.js'}
 {assign var="body_attr" value="onLoad=\"moveCanvas('grid')\""}
 {include file="header.inc.tpl"}
-
-<h1>{$page_title|escape}</h1>
-
-{include file="get_pixels_order_status.inc.tpl"}
-
+ 
+<div class="well"  >
+	 
 {show_errors}
 {start_form}
-<p>##Click and drag your mouse to select a region of pixels.##&nbsp;&nbsp;<input type="submit" value="##Continue## &gt;&gt;" />
+
+<span class="text-primary"><strong>##Selected##: <span id="selection">(##none##)</span></span></strong>
+<p class="text-info text-left">##Click and drag your mouse to select a region of pixels.## <span class="col-md-offset-5"><input type="submit" class="btn btn-primary"value="## >> Continue##  " /></span>
 </p>
-<p>##Selected##: <strong><span id="selection">(##none##)</span></strong></p>
+<!-- <p>##Selected##: <strong><span id="selection">(##none##)</span></strong></p> -->
 <input type="hidden" name="step" value="{$step|escape}" />
 <input type="hidden" name="grid_id" value="{$smarty.request.grid_id|escape}" />
 <input type="hidden" name="x" value="0" />
@@ -32,6 +32,8 @@
 
 <div id="grid" style="width: {$grid->width|escape}px; height: {$grid->height|escape}px;">
 <div id="canvas" style="background-image: url('{$grid->url(true)|escape}'); position: absolute; left: 0; top: 0; width: {$grid->width|escape}px; height: {$grid->height|escape}px; overflow: hidden; visibility: hidden;" onMouseDown="startLine();" onMouseUp="stopLine();"></div>
+   
+ </div>
 </div>
 
 {include file="footer.inc.tpl"}

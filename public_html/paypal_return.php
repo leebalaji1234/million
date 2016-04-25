@@ -33,6 +33,7 @@ $tbl = new Payment;
 $timeout = time() + 60;
 while (true) {
   $tbl->lock();
+
   $payment = $tbl->get($_SESSION['payment_id'], false);
 
   // if IPN is enabled, wait up to 60 seconds for IPN
@@ -49,6 +50,7 @@ $payment->id = $_SESSION['payment_id'];
 $payment->payment_method = $module->module_key;
 
 // update completed status
+
 $payment->is_completed = 1;
 $payment->completed_at = Util::epoch_to_datetime();
 if (empty($payment->txn_id) && !empty($_REQUEST['txn_id'])) 
@@ -57,7 +59,7 @@ if (empty($payment->txn_id) && !empty($_REQUEST['txn_id']))
 // save payment
 $payment->save();
 $tbl->unlock();
-
+ 
 require(postback_payment_controller());
 
 ?>

@@ -13,34 +13,58 @@
 <table>
 
   <tr>
-    <td class="label">##Enter your E-Mail Address##:</td>
+    <!-- class="label" -->
+    <td >##Enter your E-Mail Address##:</td>
     <td><input name="email" size="80" value="{$smarty.request.email|escape}" /></td>
   </tr>
 
   <tr>
-    <td class="label">##Re-enter your E-Mail Address##:</td>
+    <td >##Re-enter your E-Mail Address##:</td>
     <td><input name="email_confirm" size="80" value="{$smarty.request.email_confirm|escape}" /></td>
   </tr>
 
   <tr>
-    <td class="label">##First Name##:</td>
+    <td >##First Name##:</td>
     <td><input name="first_name" size="20" value="{$smarty.request.first_name|escape}" /></td>
   </tr>
 
   <tr>
-    <td class="label">##Last Name##:</td>
+    <td >##Last Name##:</td>
     <td><input name="last_name" size="20" value="{$smarty.request.last_name|escape}" /></td>
   </tr>
 
   <tr>
-    <td class="label">##Create a Password##:</td>
+    <td >##Create a Password##:</td>
     <td><input type="password" name="pass" size="20" value="{$smarty.request.pass|escape}" /> ##(Must be at least 5 characters long)##</td>
   </tr>
 
   <tr>
-    <td class="label">##Re-enter Password##:</td>
+    <td >##Re-enter Password##:</td>
     <td><input type="password" name="pass_confirm" size="20" value="{$smarty.request.pass_confirm|escape}" /></td>
   </tr>
+  
+  <tr>
+    <td >##Country##:</td>
+    <td><select name="country" id="theme1" class="form-control" onchange="countrySelect(this.value);" >
+                      <option value="">Choose country</option> 
+                        {foreach item=country from=$countries}
+                        <option  value='{$country->id}' {if $smarty.request.country == $country->id} selected='selected' {/if} >{$country->name} </option>
+                        {/foreach}
+                      </select></td>
+  </tr>
+  <tr>
+    <td >##State##:</td>
+    <td><select name="state" id="state" class="form-control" onchange="stateSelect(this.value);"> 
+                         
+                      </select></td>
+  </tr>
+  <tr>
+    <td >##City##:</td>
+    <td><select name="city" id="city" class="form-control" > 
+                         
+                      </select></td>
+  </tr>
+
 
 </table>
 <p>

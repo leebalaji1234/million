@@ -43,7 +43,7 @@ $vars = array();
 $_REQUEST['cmd'] = '_notify-validate';
 foreach ($_REQUEST as $name => $val)
   $vars[] = rawurlencode($name) . '=' . rawurlencode($val);
-
+// file_put_contents('payment_logs/paypal.log', data)
 $c = curl_init($conf['MODULE_PAYMENT_PAYPAL_VERIFY_URL']);
 curl_setopt($c, CURLOPT_POST, 1);
 curl_setopt($c, CURLOPT_POSTFIELDS, implode('&', $vars));

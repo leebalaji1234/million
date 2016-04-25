@@ -92,6 +92,7 @@ class InstamojoPayment {
         $options[CURLOPT_URL] = $request_url;
 
         $this->curl = curl_init();
+        
         $setopt = curl_setopt_array($this->curl, $options);
         $response = curl_exec($this->curl);
         $headers = curl_getinfo($this->curl);

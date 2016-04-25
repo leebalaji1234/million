@@ -30,6 +30,7 @@ if (($o != 2 && $a == 0) || ($o == 2 && $a == 1)) $order = "$order desc";
 
 $regions = $tbl_region->find_all('where status=? and if(title=\'\',url,title) like ? order by !', array(REGION_ACTIVE, "%$q%", $order));
 
+
 $smarty->assign_by_ref('regions', $regions);
 $smarty->display('pixel_list.tpl', "index|search|$q|$o|$a|".$cache_id);
 

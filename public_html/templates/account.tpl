@@ -1,47 +1,53 @@
-{assign var="page_title" value="##Account##"}
+{assign var="page_title" value="##Your Account##"}
 {include file="header.inc.tpl"}
+<div class="section">
+  <div class="container">
+    <div class="row">
+          <div class="col-md-12">
+<h3 class="text-info" > {$page_title|escape} </h3> 
+<hr/>
+<p class="text-right"><a class="btn btn-info" href="{url|escape href='/account_details.php'}">##Edit Profile##</a></p>
+ <h4 class="text-info"> Drawings </h4> 
+<hr/>
+ 
 
-<h1>{$page_title|escape}</h1>
-
-<h2>##Your Pixels##</h2>
-
-<blockquote>
-
-<p>##Click on a site to update your pixels##</p>
-
-<table class="grid">
+<table class="table table-bordered table-condensed table-hover table-striped">
   <tr>
-    <th><a href="?o=1{if $smarty.request.o==1 && $smarty.request.a==0}&amp;a=1{/if}{if isset($smarty.request.q)}&amp;q={$smarty.request.q|escape}{/if}">##Date##</a></th>
-    <th><a href="?o=2{if $smarty.request.o==2 && $smarty.request.a==0}&amp;a=1{/if}{if isset($smarty.request.q)}&amp;q={$smarty.request.q|escape}{/if}">##Site##</a></th>
-    <th><a href="?o=3{if $smarty.request.o==3 && $smarty.request.a==0}&amp;a=1{/if}{if isset($smarty.request.q)}&amp;q={$smarty.request.q|escape}{/if}">##Pixels##</a></th>
+    <th class="text-primary"> Drawing</th>   
+    <th class="text-primary text-center"> Clicks</th>
+    <th class="text-primary text-center"> Likes</th>
+    <th class="text-primary text-center"> Reports</th>
+    <th class="text-primary text-center"> Sponsors</th>
+    <th class="text-primary text-center" > Amount</th>
+    <th class="text-primary text-center" > Status</th>
+    <th class="text-primary text-center"> Created</th>
+     
   </tr>
-  {section name=region loop=$regions}
+  {section name=drawing loop=$drawings}
+     
   <tr>
-    <td>{$regions[region]->created_on|datetime_to_date|escape}</td>
-    <td><a href="{url|escape href='/update.php'}?id={$regions[region]->id|escape}">{$regions[region]->title()|escape}</a></td>
-    <td style="text-align: right">{$regions[region]->width*$regions[region]->height|number_format|escape}</td>
+    <td><img src='{$drawings[drawing]->drawing_image}'  class="img-responsive" width="150" height="150"/><br/>{$drawings[drawing]->title}<br/>{$drawings[drawing]->description}</td>
+
+    <td class="text-center"> {$drawings[drawing]->clicks}</td>
+    <td class="text-center">{$drawings[drawing]->likes}</td>
+    <td class="text-center">{$drawings[drawing]->reports}</td>
+    <td class="text-center"> {foreach from=$allSponsor key=myId item=i}
+   {if $myId == $drawings[drawing]->id}{', '|implode:$i.title} {/if}</li>
+{/foreach}</td>
+    <td class="text-center">{foreach from=$allSponsor key=myId item=i}
+   {if $myId == $drawings[drawing]->id}{', '|implode:$i.amount} {/if}</li>
+{/foreach}</td>
+<td class="text-center">{if $drawings[drawing]->status != 0} <span class="label label-danger">Disabled</span> {else} <span class="label label-success">Enabled</span> {/if}</td>
+    <td class="text-center">{$drawings[drawing]->created_at|datetime_to_date|escape}</td>
+     
+     
   </tr>
   {/section}
 </table>
 
-</blockquote>
-
-<h2>##Your Details##</h2>
-
-<blockquote>
-
-<table>
-
-  <tr>
-    <td class="label">##E-Mail Address##:</td>
-    <td>{$user->email|escape}</td>
-  </tr>
-
-</table>
-<p>
-  <a href="{url|escape href='/account_details.php'}">##Edit Your Details##</a>
-</p>
-
-</blockquote>
-
+  
+</div>
+</div>
+</div>
+</div>
 {include file="footer.inc.tpl"}

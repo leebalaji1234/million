@@ -1,0 +1,19 @@
+<ul class="nav nav-pills nav-stacked" ng-repeat="theme in themes">
+          <!-- {foreach item=theme from=$themes}  -->
+            <li class="hastheme label-default text-default"  onclick="$('.hastheme').removeClass('active');$(this).addClass('active');" >
+              <!-- <a href="#">{$theme->name}</a> -->
+             <a href="#" onclick="getToggle(this);return void(0);"    >{{theme.name}}
+
+             	<span style="float:right;" ng-show="theme.themes"><i class="fa fa-caret-right"></i><span>
+
+             </a> 
+
+            </li>
+            <li class="hastheme1 label-default text-default" style="display:none;"   onclick="$('.hastheme1').removeClass('active');$(this).addClass('active');" ng-show="theme.themes" ng-repeat ="dtheme in theme.themes" ng-click="setTheme(dtheme.theme_id,dtheme.description); themesearch(dtheme.theme_id,dtheme.name)">
+            	<a href="#" onclick="return void(0);">{{dtheme.name}}</a>
+            </li>
+
+          <!-- {/foreach} -->
+          
+           <li class="divider"></li>         
+</ul>

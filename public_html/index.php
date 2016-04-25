@@ -7,6 +7,8 @@ else
 
 require_once('config.php');
 require_once('grid.class.php');
+require_once('drawing.class.php');
+require_once('volunteer.class.php');
 //clean cache init
 unset($grid);
 
@@ -27,17 +29,24 @@ if (isset($_REQUEST['magnify'])) {
 // handle clickthrough
 if (isset($_REQUEST['r'])) {
   require_once('region.class.php');
+  require_once('region_click.class.php');
   $tbl = new Region;
   $region = $tbl->get($_REQUEST['r'], false);
   if (is_null($region->id()) || $region->status != REGION_ACTIVE)
     $app->redirect();
 
-  if (empty($_SESSION['user_id']) && empty($_SESSION['is_admin'])) {
+  // if (empty($_SESSION['user_id']) && empty($_SESSION['is_admin'])) {
+  if (empty($_SESSION['is_admin'])) {
+    $tbl_clicks = new Region_click;
+    $tbl_clicks->region_id = $_REQUEST['r'];
+    $tbl_clicks->click_ip = $_SERVER['REMOTE_ADDR'];
+    $tbl_clicks->created_at = Util::epoch_to_datetime();
+    $tbl_clicks->save();
     $region->clicks++;
     $region->save();
     $smarty->clear_all_cache(null, 'index|search');
   }
-
+ 
   header("Location: " . $region->url);
   exit;
 }
@@ -87,7 +96,13 @@ while (!empty($grids)) {
   }
   $rows[] = $row;
 }
-
+$tbldrawings = new Drawing;
+$tblv = new Volunteer;
+$alldrawings = $tbldrawings->find_all('where status !=1 order by likes desc limit 6');
+// print_r($alldrawings);exit;
+$allvolunteers = $tblv->find_all('where status =1 order by drawings desc limit 6');
+$smarty->assign_by_ref('alldrawings', $alldrawings);
+$smarty->assign_by_ref('allvolunteers', $allvolunteers);
 
 $smarty->assign('rows', $rows);
 $smarty->display('index.tpl', 'index|'.(int)$_SESSION['magnify'].'|'.(int)$grid.'|'.$cache_id);

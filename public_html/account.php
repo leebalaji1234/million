@@ -1,35 +1,62 @@
 <?php
 
 require_once('config.php');
-require_once('grid.class.php');
+require_once('drawing.class.php');
 require_once('region.class.php');
+require_once('payment.class.php');
 require_once('user.class.php');
-
+$tbl_drawings = new Drawing;
+$tbl_sponsors = new Payment;
+$tbl_regions = new Region;
 $app->check_login();
 
 $tbl_user = new User;
 $user = $tbl_user->get($_SESSION['user_id']);
+$drawings = $tbl_drawings->find_all("where user_id=? ", array($_SESSION['user_id']));
+$allSponsor = [];
+foreach($drawings as $drawing){ 
+	$s = $tbl_sponsors->find_all("where drawing_id=? and is_completed=1",array($drawing->id));
+	
+	if($s){
+	
+		foreach($s as $s1){ 
 
-$tbl_region = new Region;
+		  $r = $tbl_regions->find_all("where status =1 and id=?",array($s1->region_id));
 
-// set default params
-$o =& $_REQUEST['o'];
-$a =& $_REQUEST['a'];
-$q =& $_REQUEST['q'];
-if (!isset($o)) $o = 3;
-if (!isset($a)) $a = 0;
+		  if($r){
+		  	foreach ($r as $r1) {
+		  		$allSponsor[$drawing->id]['title'][]= $r1->title;
+		  		$allSponsor[$drawing->id]['url']= $r1->url;
 
-// determine sort order
-$order = 'width*height';
-if ($o == 2) $order = "if(title='',url,title)";
-if ($o == 1) $order = 'created_on';
-if (($o != 2 && $a == 0) || ($o == 2 && $a == 1)) $order = "$order desc";
+		  		 
+		  	}
+		  	if($s1->payment_method != 'instamojo'){
+		  		$txt = '$';
+		  	}else{
+		  		$txt = '<i class="fa fa-inr"></i>';
+		  	}
+		  	$allSponsor[$drawing->id]['amount'][] = $txt. $s1->amount;
+		  }
+		  
+	    }
+	}
+	
+}
+ 
+ // if($allSponsor){
+ // 	$allSponsor = array_map('convertstring', $allSponsor);
+ // }
 
-$regions = $tbl_region->find_all('where user_id=? and status=? and if(title=\'\',url,title) like ? order by !', array($_SESSION['user_id'], REGION_ACTIVE, "%$q%", $order));
-
-$smarty->assign_by_ref('regions', $regions);
-$smarty->assign_by_ref('user', $user);
-
+ // function convertstring($val,$i){
+ // 	if($val){
+ // 		return implode(',',$val);
+ // 	}
+ // }
+// print_r($allSponsor);exit;
+ 
+$smarty->assign_by_ref('allSponsor', $allSponsor); 
+$smarty->assign_by_ref('drawings', $drawings);
+$smarty->assign_by_ref('user', $user); 
 $smarty->display('account.tpl', 'account|'.$cache_id);
 
 ?>

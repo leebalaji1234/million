@@ -66,6 +66,7 @@ class Region extends Model {
       return ' href="' . htmlspecialchars($this->url) . '" target="_blank"' .
         ' onclick="window.open(\'' . $app->url($href) .'?r=' . 
         htmlspecialchars($this->id()) . '\',\'_blank\');return false;"';
+      // return ' href="' . htmlspecialchars($app->url($href)) . '?r=' . htmlspecialchars($this->id()) . '" target="_blank"';
   }
 
   // returns an HTML <area> tag for this region. if $url is false (default),
@@ -86,8 +87,10 @@ class Region extends Model {
 			$clean_link = ' nohref="nohref" ';
 			$link = $clean_link;
 			if ($this->status == REGION_ACTIVE){
-				$clean_link = ' href="' . htmlspecialchars($this->url) . '" target="_blank" ';
-				$link = $clean_link.' onclick="window.open(\'?r=' . htmlspecialchars($this->id()) . '\',\'_blank\');return false;" ';
+				// $clean_link = ' href="' . htmlspecialchars($this->url) . '" target="_blank" ';
+        $clean_link = ' href="' . htmlspecialchars($app->url($href)) . '?r=' . htmlspecialchars($this->id()) . '" target="_blank"';
+				// $link = $clean_link.' onclick="window.open(\'?r=' . htmlspecialchars($this->id()) . '\',\'_blank\');return false;" ';
+        $link = $clean_link;
 			}
         
       // special escaping rules for wz_tooltip.js

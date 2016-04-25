@@ -1,13 +1,22 @@
-<p>
-  <img src="{url|escape href='images/PayPal_mark_60x38.gif'}" border="0" width="60" height="38" alt="PayPal" />
-</p>
-<blockquote>
+ 
+ <div class="row">
+  <div class="form-group">
+  	<div class="col-sm-6"> 
+     <img width="200" class="img-responsive" src="{url|escape href='images/pay.jpeg'}"   alt="PayPal" />
+   </div>
+   <div class="col-sm-6"> 
+ <blockquote>
 {start_form action=$module->action|escape}
 {foreach key=name item=item from=$module->hidden}
 <input type="hidden" name="{$name|escape}" value="{$item|escape}" />
 {/foreach}
 <p>
-  <input type="submit" value="##Pay with## {$module->name|escape} &gt;&gt;" />
+   
+  <button type="submit" class="btn btn-primary col-md-4" > >> ##Pay with## {$module->name|escape}</button>
 </p>
 {end_form}
 </blockquote>
+  </div>
+  </div>
+  </div>
+ 

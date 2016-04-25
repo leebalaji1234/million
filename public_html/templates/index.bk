@@ -1,0 +1,44 @@
+{assign var="meta_description" value=$app->setting->site_description}
+{if $smarty.session.magnify}{assign var="scripts" value='/tjpzoom.js'}{/if}
+{include file='header.inc.tpl'}
+
+<div class="text-muted" style="padding-bottom: 5px;font-weight:bold;">
+{if $links}
+{foreach item=link from=$links}
+{$link}&nbsp;&nbsp;&nbsp;
+{/foreach}
+{/if}
+##Pixels Sold##: {$pixels_used|number_format|escape} ##Available##: {$pixels_avail|number_format|escape}&nbsp;&nbsp;{if $smarty.session.magnify}<a href="index.php?magnify=0{if $smarty.request.grid>1}&amp;grid={$smarty.request.grid|escape}{/if}"><i class="fa fa-2x fa-search-minus"></i></a>{else}<a href="index.php?magnify=1{if $smarty.request.grid>1}&amp;grid={$smarty.request.grid|escape}{/if}"><i class="fa fa-2x fa-search-plus"></i></a>{/if}</div>
+  
+<table cellspacing="0" cellpadding="0">
+{foreach item=grids from=$rows}
+<tr>
+{foreach item=grid from=$grids}
+<td>
+	{if !$smarty.session.magnify}<map name="grid_{$grid->id}">{$grid->map()}</map>{/if}
+	<div style="float: left"{if $smarty.session.magnify} onmouseover="zoom_on(event,{$grid->width|escape},{$grid->height|escape},'{$grid->url()|escape}');" onmousemove="zoom_move(event);" onmouseout="zoom_off();"{/if}><img src="{$grid->url()|escape}" usemap="#grid_{$grid->id}" width="{$grid->width|escape}" height="{$grid->height|escape}" alt="" border="0" /></div><div style="clear: both"></div></td>
+<!-- twitter page -->
+<td >
+
+	<div class="panel panel-primary" style="height:968px;overflow-y:auto;">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <i class="fa fa-fw fa-twitter"></i>Sponsor Feeds</h3>
+              </div>
+              <div class="panel-body">
+              	<div id="tweecool"></div>
+              </div>
+          </div>
+</td>
+{/foreach}
+</tr>
+{/foreach}
+
+</table>
+
+<br />
+ 
+
+
+{include file='wz_tooltip.inc.tpl'}
+{include file='footer.inc.tpl'}

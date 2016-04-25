@@ -1,7 +1,11 @@
 {assign var="page_title" value="##Select Payment Method##"}
 {include file="header.inc.tpl"}
-
-<h1>{$page_title|escape}</h1>
+<div class="section">
+  <div class="container">
+    <div class="row">
+          <div class="col-md-12">
+<h3 class="text-info">{$page_title|escape}</h3>
+<hr/>
 
 {include file="get_pixels_order_status.inc.tpl"}
 
@@ -22,9 +26,23 @@
   <p><input type="submit" value="##Continue## &gt;&gt;" /></p>
 {end_form}
 {else }
-  {foreach item=module from=$modules}
-  <hr />
-  {include file=$module->form()}
-  {/foreach}
+ <div class="row">
+  <div class="col-md-12">
+    
+    {foreach item=module from=$modules} 
+    {include file=$module->form()} 
+    {/foreach}
+    
+  </div>
+</div>
 {/if}
+
+            
+               
+            
+          
+</div>
+</div>
+</div>
+</div>
 {include file="footer.inc.tpl"}

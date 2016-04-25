@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.12, created on 2016-03-18 11:28:58
+<?php /* Smarty version 2.6.12, created on 2016-04-24 23:44:34
          compiled from get_pixels_region.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'explode', 'get_pixels_region.tpl', 2, false),array('modifier', 'escape', 'get_pixels_region.tpl', 6, false),array('function', 'show_errors', 'get_pixels_region.tpl', 10, false),array('function', 'start_form', 'get_pixels_region.tpl', 11, false),array('function', 'end_form', 'get_pixels_region.tpl', 31, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'explode', 'get_pixels_region.tpl', 2, false),array('modifier', 'escape', 'get_pixels_region.tpl', 15, false),array('function', 'show_errors', 'get_pixels_region.tpl', 8, false),array('function', 'start_form', 'get_pixels_region.tpl', 9, false),array('function', 'end_form', 'get_pixels_region.tpl', 31, false),)), $this); ?>
 <?php $this->assign('page_title', 'Select Your Pixels'); ?>
 <?php $this->assign('scripts', ((is_array($_tmp=',')) ? $this->_run_mod_handler('explode', true, $_tmp, '/gr.js,/rubberband.js,/Dom.js') : explode($_tmp, '/gr.js,/rubberband.js,/Dom.js'))); ?>
 <?php $this->assign('body_attr', "onLoad=\"moveCanvas('grid')\""); ?>
@@ -10,23 +10,18 @@ $this->_smarty_include(array('smarty_include_tpl_file' => "header.inc.tpl", 'sma
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
-
-<h1><?php echo ((is_array($_tmp=$this->_tpl_vars['page_title'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-</h1>
-
-<?php $_smarty_tpl_vars = $this->_tpl_vars;
-$this->_smarty_include(array('smarty_include_tpl_file' => "get_pixels_order_status.inc.tpl", 'smarty_include_vars' => array()));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
-
+ 
+<div class="well"  >
+	 
 <?php echo smarty_function_show_errors(array(), $this);?>
 
 <?php echo smarty_function_start_form(array(), $this);?>
 
-<p>Click and drag your mouse to select a region of pixels.&nbsp;&nbsp;<input type="submit" value="Continue &gt;&gt;" />
+
+<span class="text-primary"><strong>Selected: <span id="selection">(none)</span></span></strong>
+<p class="text-info text-left">Click and drag your mouse to select a region of pixels. <span class="col-md-offset-5"><input type="submit" class="btn btn-primary"value=" >> Continue  " /></span>
 </p>
-<p>Selected: <strong><span id="selection">(none)</span></strong></p>
+<!-- <p>Selected: <strong><span id="selection">(none)</span></strong></p> -->
 <input type="hidden" name="step" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['step'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 " />
 <input type="hidden" name="grid_id" value="<?php echo ((is_array($_tmp=$_REQUEST['grid_id'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
@@ -64,6 +59,8 @@ px;">
 '); position: absolute; left: 0; top: 0; width: <?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->width)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 px; height: <?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->height)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 px; overflow: hidden; visibility: hidden;" onMouseDown="startLine();" onMouseUp="stopLine();"></div>
+   
+ </div>
 </div>
 
 <?php $_smarty_tpl_vars = $this->_tpl_vars;

@@ -1,88 +1,101 @@
-<?php /* Smarty version 2.6.12, created on 2016-03-18 11:56:42
+<?php /* Smarty version 2.6.12, created on 2016-04-24 04:03:04
          compiled from account.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'account.tpl', 4, false),array('modifier', 'datetime_to_date', 'account.tpl', 20, false),array('modifier', 'number_format', 'account.tpl', 22, false),array('function', 'url', 'account.tpl', 21, false),)), $this); ?>
-<?php $this->assign('page_title', 'Account'); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'account.tpl', 7, false),array('modifier', 'implode', 'account.tpl', 35, false),array('modifier', 'datetime_to_date', 'account.tpl', 41, false),array('function', 'url', 'account.tpl', 9, false),)), $this); ?>
+<?php $this->assign('page_title', 'Your Account'); ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.inc.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
+<div class="section">
+  <div class="container">
+    <div class="row">
+          <div class="col-md-12">
+<h3 class="text-info" > <?php echo ((is_array($_tmp=$this->_tpl_vars['page_title'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+ </h3> 
+<hr/>
+<p class="text-right"><a class="btn btn-info" href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/account_details.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
+">Edit Profile</a></p>
+ <h4 class="text-info"> Drawings </h4> 
+<hr/>
+ 
 
-<h1><?php echo ((is_array($_tmp=$this->_tpl_vars['page_title'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-</h1>
-
-<h2>Your Pixels</h2>
-
-<blockquote>
-
-<p>Click on a site to update your pixels</p>
-
-<table class="grid">
+<table class="table table-bordered table-condensed table-hover table-striped">
   <tr>
-    <th><a href="?o=1<?php if ($_REQUEST['o'] == 1 && $_REQUEST['a'] == 0): ?>&amp;a=1<?php endif;  if (isset ( $_REQUEST['q'] )): ?>&amp;q=<?php echo ((is_array($_tmp=$_REQUEST['q'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));  endif; ?>">Date</a></th>
-    <th><a href="?o=2<?php if ($_REQUEST['o'] == 2 && $_REQUEST['a'] == 0): ?>&amp;a=1<?php endif;  if (isset ( $_REQUEST['q'] )): ?>&amp;q=<?php echo ((is_array($_tmp=$_REQUEST['q'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));  endif; ?>">Site</a></th>
-    <th><a href="?o=3<?php if ($_REQUEST['o'] == 3 && $_REQUEST['a'] == 0): ?>&amp;a=1<?php endif;  if (isset ( $_REQUEST['q'] )): ?>&amp;q=<?php echo ((is_array($_tmp=$_REQUEST['q'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));  endif; ?>">Pixels</a></th>
+    <th class="text-primary"> Drawing</th>   
+    <th class="text-primary text-center"> Clicks</th>
+    <th class="text-primary text-center"> Likes</th>
+    <th class="text-primary text-center"> Reports</th>
+    <th class="text-primary text-center"> Sponsors</th>
+    <th class="text-primary text-center" > Amount</th>
+    <th class="text-primary text-center" > Status</th>
+    <th class="text-primary text-center"> Created</th>
+     
   </tr>
-  <?php unset($this->_sections['region']);
-$this->_sections['region']['name'] = 'region';
-$this->_sections['region']['loop'] = is_array($_loop=$this->_tpl_vars['regions']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
-$this->_sections['region']['show'] = true;
-$this->_sections['region']['max'] = $this->_sections['region']['loop'];
-$this->_sections['region']['step'] = 1;
-$this->_sections['region']['start'] = $this->_sections['region']['step'] > 0 ? 0 : $this->_sections['region']['loop']-1;
-if ($this->_sections['region']['show']) {
-    $this->_sections['region']['total'] = $this->_sections['region']['loop'];
-    if ($this->_sections['region']['total'] == 0)
-        $this->_sections['region']['show'] = false;
+  <?php unset($this->_sections['drawing']);
+$this->_sections['drawing']['name'] = 'drawing';
+$this->_sections['drawing']['loop'] = is_array($_loop=$this->_tpl_vars['drawings']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['drawing']['show'] = true;
+$this->_sections['drawing']['max'] = $this->_sections['drawing']['loop'];
+$this->_sections['drawing']['step'] = 1;
+$this->_sections['drawing']['start'] = $this->_sections['drawing']['step'] > 0 ? 0 : $this->_sections['drawing']['loop']-1;
+if ($this->_sections['drawing']['show']) {
+    $this->_sections['drawing']['total'] = $this->_sections['drawing']['loop'];
+    if ($this->_sections['drawing']['total'] == 0)
+        $this->_sections['drawing']['show'] = false;
 } else
-    $this->_sections['region']['total'] = 0;
-if ($this->_sections['region']['show']):
+    $this->_sections['drawing']['total'] = 0;
+if ($this->_sections['drawing']['show']):
 
-            for ($this->_sections['region']['index'] = $this->_sections['region']['start'], $this->_sections['region']['iteration'] = 1;
-                 $this->_sections['region']['iteration'] <= $this->_sections['region']['total'];
-                 $this->_sections['region']['index'] += $this->_sections['region']['step'], $this->_sections['region']['iteration']++):
-$this->_sections['region']['rownum'] = $this->_sections['region']['iteration'];
-$this->_sections['region']['index_prev'] = $this->_sections['region']['index'] - $this->_sections['region']['step'];
-$this->_sections['region']['index_next'] = $this->_sections['region']['index'] + $this->_sections['region']['step'];
-$this->_sections['region']['first']      = ($this->_sections['region']['iteration'] == 1);
-$this->_sections['region']['last']       = ($this->_sections['region']['iteration'] == $this->_sections['region']['total']);
+            for ($this->_sections['drawing']['index'] = $this->_sections['drawing']['start'], $this->_sections['drawing']['iteration'] = 1;
+                 $this->_sections['drawing']['iteration'] <= $this->_sections['drawing']['total'];
+                 $this->_sections['drawing']['index'] += $this->_sections['drawing']['step'], $this->_sections['drawing']['iteration']++):
+$this->_sections['drawing']['rownum'] = $this->_sections['drawing']['iteration'];
+$this->_sections['drawing']['index_prev'] = $this->_sections['drawing']['index'] - $this->_sections['drawing']['step'];
+$this->_sections['drawing']['index_next'] = $this->_sections['drawing']['index'] + $this->_sections['drawing']['step'];
+$this->_sections['drawing']['first']      = ($this->_sections['drawing']['iteration'] == 1);
+$this->_sections['drawing']['last']       = ($this->_sections['drawing']['iteration'] == $this->_sections['drawing']['total']);
 ?>
+     
   <tr>
-    <td><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['regions'][$this->_sections['region']['index']]->created_on)) ? $this->_run_mod_handler('datetime_to_date', true, $_tmp) : smarty_modifier_datetime_to_date($_tmp)))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+    <td><img src='<?php echo $this->_tpl_vars['drawings'][$this->_sections['drawing']['index']]->drawing_image; ?>
+'  class="img-responsive" width="150" height="150"/><br/><?php echo $this->_tpl_vars['drawings'][$this->_sections['drawing']['index']]->title; ?>
+<br/><?php echo $this->_tpl_vars['drawings'][$this->_sections['drawing']['index']]->description; ?>
 </td>
-    <td><a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/update.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
-?id=<?php echo ((is_array($_tmp=$this->_tpl_vars['regions'][$this->_sections['region']['index']]->id)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-"><?php echo ((is_array($_tmp=$this->_tpl_vars['regions'][$this->_sections['region']['index']]->title())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-</a></td>
-    <td style="text-align: right"><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['regions'][$this->_sections['region']['index']]->width*$this->_tpl_vars['regions'][$this->_sections['region']['index']]->height)) ? $this->_run_mod_handler('number_format', true, $_tmp) : smarty_modifier_number_format($_tmp)))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+
+    <td class="text-center"> <?php echo $this->_tpl_vars['drawings'][$this->_sections['drawing']['index']]->clicks; ?>
 </td>
+    <td class="text-center"><?php echo $this->_tpl_vars['drawings'][$this->_sections['drawing']['index']]->likes; ?>
+</td>
+    <td class="text-center"><?php echo $this->_tpl_vars['drawings'][$this->_sections['drawing']['index']]->reports; ?>
+</td>
+    <td class="text-center"> <?php $_from = $this->_tpl_vars['allSponsor']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['myId'] => $this->_tpl_vars['i']):
+?>
+   <?php if ($this->_tpl_vars['myId'] == $this->_tpl_vars['drawings'][$this->_sections['drawing']['index']]->id):  echo ((is_array($_tmp=', ')) ? $this->_run_mod_handler('implode', true, $_tmp, $this->_tpl_vars['i']['title']) : implode($_tmp, $this->_tpl_vars['i']['title'])); ?>
+ <?php endif; ?></li>
+<?php endforeach; endif; unset($_from); ?></td>
+    <td class="text-center"><?php $_from = $this->_tpl_vars['allSponsor']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['myId'] => $this->_tpl_vars['i']):
+?>
+   <?php if ($this->_tpl_vars['myId'] == $this->_tpl_vars['drawings'][$this->_sections['drawing']['index']]->id):  echo ((is_array($_tmp=', ')) ? $this->_run_mod_handler('implode', true, $_tmp, $this->_tpl_vars['i']['amount']) : implode($_tmp, $this->_tpl_vars['i']['amount'])); ?>
+ <?php endif; ?></li>
+<?php endforeach; endif; unset($_from); ?></td>
+<td class="text-center"><?php if ($this->_tpl_vars['drawings'][$this->_sections['drawing']['index']]->status != 0): ?> <span class="label label-danger">Disabled</span> <?php else: ?> <span class="label label-success">Enabled</span> <?php endif; ?></td>
+    <td class="text-center"><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['drawings'][$this->_sections['drawing']['index']]->created_at)) ? $this->_run_mod_handler('datetime_to_date', true, $_tmp) : smarty_modifier_datetime_to_date($_tmp)))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</td>
+     
+     
   </tr>
   <?php endfor; endif; ?>
 </table>
 
-</blockquote>
-
-<h2>Your Details</h2>
-
-<blockquote>
-
-<table>
-
-  <tr>
-    <td class="label">E-Mail Address:</td>
-    <td><?php echo ((is_array($_tmp=$this->_tpl_vars['user']->email)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-</td>
-  </tr>
-
-</table>
-<p>
-  <a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/account_details.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
-">Edit Your Details</a>
-</p>
-
-</blockquote>
-
+  
+</div>
+</div>
+</div>
+</div>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "footer.inc.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
