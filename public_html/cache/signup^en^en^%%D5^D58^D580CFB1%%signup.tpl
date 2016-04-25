@@ -1,14 +1,14 @@
 235
-a:4:{s:8:"template";a:5:{s:10:"signup.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolbar.inc.tpl";b:1;s:14:"header.inc.tpl";b:1;s:14:"footer.inc.tpl";b:1;}s:9:"timestamp";i:1461521800;s:7:"expires";i:1461525400;s:13:"cache_serials";a:0:{}}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+a:4:{s:8:"template";a:5:{s:10:"signup.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolbar.inc.tpl";b:1;s:14:"header.inc.tpl";b:1;s:14:"footer.inc.tpl";b:1;}s:9:"timestamp";i:1461613197;s:7:"expires";i:1461616797;s:13:"cache_serials";a:0:{}}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" type="text/css" href="http://c31c2e4c.ngrok.io/gp/public_html/style.css" />
-  <link rel="alternate" type="application/rss+xml" title= "Latest Pixels" href="http://c31c2e4c.ngrok.io/gp/public_html/rss_latest_pixels.php" />
-  <link rel="alternate" type="application/rss+xml" title= "Top Pixels" href="http://c31c2e4c.ngrok.io/gp/public_html/rss_top_pixels.php" />
-  <link rel="alternate" type="application/rss+xml" title= "Blog Articles" href="http://c31c2e4c.ngrok.io/gp/public_html/rss_blog_articles.php" />
-  <title>MD - Create Account</title>
+  <link rel="stylesheet" type="text/css" href="http://localhost/gp/public_html/style.css" />
+  <link rel="alternate" type="application/rss+xml" title= "Latest Pixels" href="http://localhost/gp/public_html/rss_latest_pixels.php" />
+  <link rel="alternate" type="application/rss+xml" title= "Top Pixels" href="http://localhost/gp/public_html/rss_top_pixels.php" />
+  <link rel="alternate" type="application/rss+xml" title= "Blog Articles" href="http://localhost/gp/public_html/rss_blog_articles.php" />
+  <title>MD - Sign Up</title>
 
   <!-- drawing module dependencies -->
    <script type="text/javascript" src="custom_lib/cdn/jquery.min.js"></script>
@@ -50,20 +50,20 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
           <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li >
-                <a href="http://c31c2e4c.ngrok.io/gp/public_html/index.php"><i class="fa fa-home"></i></a>
+                <a href="http://localhost/gp/public_html/index.php"><i class="fa fa-home"></i></a>
               </li>
               <li class="active">
-                <a href="http://c31c2e4c.ngrok.io/gp/public_html/get_pixels.php">Become Sponsor !</a>
+                <a href="http://localhost/gp/public_html/get_pixels.php">Become Sponsor !</a>
               </li>
               <li>
-                <a href="http://c31c2e4c.ngrok.io/gp/public_html/drawings.php">Drawings</a>
+                <a href="http://localhost/gp/public_html/drawings.php">Drawings</a>
               </li>
                <li >
-                <a href="http://c31c2e4c.ngrok.io/gp/public_html/volunteer.php">Volunteers</a>
+                <a href="http://localhost/gp/public_html/volunteer.php">Volunteers</a>
               </li>
-                                              <li><a href="http://c31c2e4c.ngrok.io/gp/public_html/login.php">Log In</a> </li>
+                                              <li><a href="http://localhost/gp/public_html/login.php">Log In</a> </li>
                 &nbsp;&nbsp;
-                <li><a href="http://c31c2e4c.ngrok.io/gp/public_html/signup.php">Register</a></li>
+                <li><a href="http://localhost/gp/public_html/signup.php">Register</a></li>
                 &nbsp;&nbsp;
                                
             </ul>
@@ -73,52 +73,80 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
 
 </div> 
 <div>
+<div class="section">
+  <div class="container">
+  <div class="row">
+<!-- <h1>Sign Up</h1> -->
+<div class="col-md-12">
+ 
 
-<h1>Create Account</h1>
+<!-- <blockquote>Your E-Mail address will be your account login.</blockquote> -->
 
-<p>Use this form to create an account on MD.
-If you already have an account, you may <a href="http://c31c2e4c.ngrok.io/gp/public_html/login.php">Log In</a> instead.</p>
+<p class="text-danger text-center"></p>
+<form method="post" action="/gp/public_html/signup.php" class="form-horizontal">
+ <div class="panel panel-default">
+              <div class="panel-heading">
+                <span class="text-primary ">  <strong>Sign Up</strong>  </span>
+                 
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                     <div class="col-md-2">
+                      <label   class="control-label">Email</label> 
+                      </div>
+                      <div class="col-md-5">
+                      <input  name="email"  size="80" class="form-control" palceholder="Enter email ..." value="" />
+                    </div>
+                  </div>
 
-<p>Your E-Mail address will be your account login.</p>
+                  <div class="form-group">
+                     <div class="col-md-2">
+                      <label   class="control-label">Confirm Email</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <input  name="email_confirm" size="80"  class="form-control" palceholder="Confirm email ..." value="" />
+                    </div>
+                  </div>
 
+                  <div class="form-group">
+                     <div class="col-md-2">
+                      <label   class="control-label">First Name</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <input  name="first_name" size="20" class="form-control" palceholder="First name here ..." value="" />
+                    </div>
+                  </div>
 
-<form method="post" action="/gp/public_html/signup.php">
-<table>
-
-  <tr>
-    <!-- class="label" -->
-    <td >Enter your E-Mail Address:</td>
-    <td><input name="email" size="80" value="" /></td>
-  </tr>
-
-  <tr>
-    <td >Re-enter your E-Mail Address:</td>
-    <td><input name="email_confirm" size="80" value="" /></td>
-  </tr>
-
-  <tr>
-    <td >First Name:</td>
-    <td><input name="first_name" size="20" value="" /></td>
-  </tr>
-
-  <tr>
-    <td >Last Name:</td>
-    <td><input name="last_name" size="20" value="" /></td>
-  </tr>
-
-  <tr>
-    <td >Create a Password:</td>
-    <td><input type="password" name="pass" size="20" value="" /> (Must be at least 5 characters long)</td>
-  </tr>
-
-  <tr>
-    <td >Re-enter Password:</td>
-    <td><input type="password" name="pass_confirm" size="20" value="" /></td>
-  </tr>
-  
-  <tr>
-    <td >Country:</td>
-    <td><select name="country" id="theme1" class="form-control" onchange="countrySelect(this.value);" >
+                  <div class="form-group">
+                     <div class="col-md-2">
+                      <label   class="control-label">First Name</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <input  name="last_name" size="20" class="form-control" palceholder="Last name here ..." value="" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-md-2">
+                      <label   class="control-label">Password</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <input type="password" name="pass" size="20" class="form-control" palceholder="password here ..." value=""  />(Must be at least 5 characters long)
+                    </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-md-2">
+                      <label   class="control-label">Confirm Password</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <input type="password" name="pass_confirm" size="20" class="form-control" palceholder="confirm password here ..." value=""  />(Must be at least 5 characters long)
+                    </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-md-2">
+                      <label   class="control-label">Country</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <select name="country" id="theme1" class="form-control" onchange="countrySelect(this.value);" >
                       <option value="">Choose country</option> 
                                                 <option  value='1'  >Afghanistan </option>
                                                 <option  value='2'  >Albania </option>
@@ -366,28 +394,47 @@ If you already have an account, you may <a href="http://c31c2e4c.ngrok.io/gp/pub
                                                 <option  value='244'  >Yugoslavia </option>
                                                 <option  value='245'  >Zambia </option>
                                                 <option  value='246'  >Zimbabwe </option>
-                                              </select></td>
-  </tr>
-  <tr>
-    <td >State:</td>
-    <td><select name="state" id="state" class="form-control" onchange="stateSelect(this.value);"> 
+                                              </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-md-2">
+                      <label   class="control-label">State</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <select name="state" id="state" class="form-control" onchange="stateSelect(this.value);"> 
                          
-                      </select></td>
-  </tr>
-  <tr>
-    <td >City:</td>
-    <td><select name="city" id="city" class="form-control" > 
+                      </select>
+                    </div>
+                  </div>
+                   <div class="form-group">
+                     <div class="col-md-2">
+                      <label   class="control-label">City</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <select name="city" id="city" class="form-control" > 
                          
-                      </select></td>
-  </tr>
+                      </select>
+                    </div>
+                  </div>
 
-
-</table>
-<p>
-  <input type="submit" value="Create Account" />
-</p>
+                   <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-3">
+                      <input name="submit_button" type="submit" class="btn btn-primary" value="Create Account &gt;&gt;" /> 
+                      
+                    </div>
+                    <div class="col-md-10">
+                      <p>Use this form to create an account on MD.
+If you already have an account, you may <a href="http://localhost/gp/public_html/login.php">Log In</a> instead.</p>
+                    </div>
+                  </div>
+ </div>
+            </div>
 </form>
-
+</div>
+</div>
+</div>
+</div>
 <!-- footer -->
 <div class="section">
   <div class="navbar navbar-default navbar-fixed-bottom" style="-webkit-box-shadow:inset 22px 22px 22px 22px #FC3059;
