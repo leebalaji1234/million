@@ -1,5 +1,5 @@
 236
-a:4:{s:8:"template";a:5:{s:11:"account.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolbar.inc.tpl";b:1;s:14:"header.inc.tpl";b:1;s:14:"footer.inc.tpl";b:1;}s:9:"timestamp";i:1461450784;s:7:"expires";i:1461454384;s:13:"cache_serials";a:0:{}}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+a:4:{s:8:"template";a:5:{s:11:"account.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolbar.inc.tpl";b:1;s:14:"header.inc.tpl";b:1;s:14:"footer.inc.tpl";b:1;}s:9:"timestamp";i:1463681367;s:7:"expires";i:1463684967;s:13:"cache_serials";a:0:{}}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,7 @@ a:4:{s:8:"template";a:5:{s:11:"account.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"to
      
     <script type="text/javascript" src="js/custom.js"></script>
     <!--<script type="text/javascript" src="twitter_plugin/tweecool.js"></script>-->
-    <script type="text/javascript" src="twitter_plugin/twitterfeeds.js"></script>
+    
 
     <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -53,7 +53,7 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
                 <a href="http://localhost/gp/public_html/index.php"><i class="fa fa-home"></i></a>
               </li>
               <li class="active">
-                <a href="http://localhost/gp/public_html/get_pixels.php">Become Sponsor !</a>
+                <a href="get_pixels.php?step=2">Become Sponsor !</a>
               </li>
               <li>
                 <a href="http://localhost/gp/public_html/drawings.php">Drawings</a>
@@ -102,85 +102,43 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
   </tr>
        
   <tr>
-    <td><img src='images/drawings/17.png'  class="img-responsive" width="150" height="150"/><br/>Million Dollar<br/>test</td>
+    <td><img src='images/drawings/1463552910.png'  class="img-responsive" width="150" height="150"/><br/>awesome<br/>adasdasd</td>
 
-    <td class="text-center"> 16</td>
-    <td class="text-center">1</td>
+    <td class="text-center"> 27</td>
+    <td class="text-center">2</td>
     <td class="text-center"></td>
     <td class="text-center"> </td>
     <td class="text-center"></td>
 <td class="text-center"> <span class="label label-success">Enabled</span> </td>
-    <td class="text-center">2016-04-20</td>
+    <td class="text-center">2016-05-18</td>
      
      
   </tr>
        
   <tr>
-    <td><img src='images/drawings/17.png'  class="img-responsive" width="150" height="150"/><br/>Million Dollar<br/>skdfskfkj</td>
+    <td><img src='images/drawings/1463553813.png'  class="img-responsive" width="150" height="150"/><br/>awesome test<br/>dfsdfdsfdsf</td>
 
-    <td class="text-center"> 7</td>
-    <td class="text-center">1</td>
-    <td class="text-center"></td>
-    <td class="text-center"> </td>
-    <td class="text-center"></td>
-<td class="text-center"> <span class="label label-success">Enabled</span> </td>
-    <td class="text-center">2016-04-20</td>
-     
-     
-  </tr>
-       
-  <tr>
-    <td><img src='images/drawings/17.png'  class="img-responsive" width="150" height="150"/><br/>Million Dollar<br/>sadsdsadasd</td>
-
-    <td class="text-center"> 25</td>
-    <td class="text-center">6</td>
-    <td class="text-center"></td>
-    <td class="text-center"> </td>
-    <td class="text-center"></td>
-<td class="text-center"> <span class="label label-success">Enabled</span> </td>
-    <td class="text-center">2016-04-20</td>
-     
-     
-  </tr>
-       
-  <tr>
-    <td><img src='images/drawings/17.png'  class="img-responsive" width="150" height="150"/><br/>Million Dollar<br/>Million Dollar is open for all kids</td>
-
-    <td class="text-center"> 12</td>
-    <td class="text-center">5</td>
-    <td class="text-center"></td>
-    <td class="text-center"> </td>
-    <td class="text-center"></td>
-<td class="text-center"> <span class="label label-success">Enabled</span> </td>
-    <td class="text-center">0000-00-00</td>
-     
-     
-  </tr>
-       
-  <tr>
-    <td><img src='images/drawings/17.png'  class="img-responsive" width="150" height="150"/><br/>Million Dollar<br/>Million Dollar 2</td>
-
-    <td class="text-center"> 15</td>
+    <td class="text-center"> 9</td>
     <td class="text-center">3</td>
     <td class="text-center"></td>
     <td class="text-center"> </td>
     <td class="text-center"></td>
 <td class="text-center"> <span class="label label-success">Enabled</span> </td>
-    <td class="text-center">0000-00-00</td>
+    <td class="text-center">2016-05-18</td>
      
      
   </tr>
        
   <tr>
-    <td><img src='images/drawings/1459527466.png'  class="img-responsive" width="150" height="150"/><br/>Innovation Title<br/>Innovation  Decription</td>
+    <td><img src='images/drawings/1463553882.png'  class="img-responsive" width="150" height="150"/><br/>awesome test2<br/>fsdfsdfssfdsfsdfsd</td>
 
-    <td class="text-center"> 10</td>
-    <td class="text-center">1</td>
+    <td class="text-center"> 6</td>
+    <td class="text-center">2</td>
     <td class="text-center"></td>
     <td class="text-center"> </td>
     <td class="text-center"></td>
 <td class="text-center"> <span class="label label-success">Enabled</span> </td>
-    <td class="text-center">2016-04-03</td>
+    <td class="text-center">2016-05-18</td>
      
      
   </tr>

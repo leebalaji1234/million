@@ -23,14 +23,14 @@
               </div>
               <div class="panel-body">
              
-                  <div class="form-group">
+                  <div class="form-group required">
                      <div class="col-sm-offset-3  col-md-5">
                       <label   class="control-label">##Email##</label> 
                      
                       <input  name="email"   class="form-control" palceholder="Enter email ..." value="{$smarty.request.email|escape}" />
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-offset-3  col-md-5"> 
                       <label  class="control-label">##Password##</label>
                     

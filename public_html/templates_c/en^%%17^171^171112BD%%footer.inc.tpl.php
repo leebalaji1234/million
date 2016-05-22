@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-24 03:43:50
+<?php /* Smarty version 2.6.12, created on 2016-05-18 23:07:11
          compiled from footer.inc.tpl */ ?>
 <!-- footer -->
 <div class="section">

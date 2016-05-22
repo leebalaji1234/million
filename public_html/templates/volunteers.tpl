@@ -36,7 +36,7 @@
                   <hr/>
               </div>
               <div class="panel-body">
-                <div class="form-group">
+                <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="file1" class="control-label">##Name##</label>
                     </div>
@@ -44,7 +44,7 @@
                       <input  name="name" id="title1" class="form-control" palceholder="Enter name ..." value="{$smarty.request.name|escape}" />
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="file1" class="control-label">##Email##</label>
                     </div>
@@ -60,7 +60,7 @@
                       <input  name="phone" id="title1" class="form-control" palceholder="Enter phone ..." value="{$smarty.request.phone|escape}" />
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="desc" class="control-label">##Address##</label>
                     </div>
@@ -69,12 +69,12 @@
                       <textarea name="address" id="desc" class="form-control" palceholder="address  here ..."  >{$smarty.request.address|escape}</textarea>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-2">
-                      <label for="title1" class="control-label">##Country##</label>
+                      <label for="title1" class="control-label">##Country##  </label>
                     </div>
                     <div class="col-sm-5"> 
-                      <select name="country" id="theme1" class="form-control" onchange="countrySelect(this.value);" >
+                      <select name="country" id="country" class="form-control" onchange="countrySelect(this.value);"  >
                       <option value="">Choose country</option> 
                         {foreach item=country from=$countries}
                         <option  value='{$country->id}' {if $smarty.request.country == $country->id} selected='selected' {/if} >{$country->name} </option>
@@ -82,25 +82,35 @@
                       </select>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-2">
-                      <label for="desc" class="control-label">##State##</label>
+                      <label for="desc" class="control-label">##State##  </label>
                     </div>
                     <div class="col-sm-5"> 
                        
-                      <select name="state" id="state" class="form-control" onchange="stateSelect(this.value);"> 
-                         
+                      <select name="state" id="state" class="form-control" onchange="stateSelect(this.value);"  > 
+                         <option value="">Choose state</option> 
+                        {foreach item=state from=$states}
+                        <option  value='{$state->id}' {if $smarty.request.state == $state->id} selected='selected' {/if} >{$state->name} </option>
+                        {/foreach}
                       </select>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="title1" class="control-label">##City##</label>
                     </div>
                     <div class="col-sm-5"> 
-                     <select name="city" id="city" class="form-control" > 
-                         
+                     <select name="city" id="city" class="form-control" onchange="citySelect(this.value);"> 
+                       <option value="">Choose city</option> 
+                       <option value="addnew" {if $smarty.request.city == 'addnew'} selected='selected' {/if} >Add city</option> 
+                        {foreach item=city from=$cities}
+                        <option  value='{$city->id}' {if $smarty.request.city == $city->id} selected='selected' {/if} >{$city->name} </option>
+                        {/foreach}  
                       </select>
+                      <span id="citymanualoption" >{if $smarty.request.city == 'addnew'}
+                      <input type="text" name="manualcity" class="form-control" placeholder="Enter city" value="{$smarty.request.manualcity|escape}"/>
+                      {/if} </span>
                     </div>
                   </div>
                   
@@ -109,7 +119,7 @@
                      
                     <div class="col-sm-5 col-sm-offset-2 well"> 
                      <input name="phrase" size="10" value="" />&nbsp;
-                     <img src="{$captcha_url|escape}" style="vertical-align: middle;border-radius:20px;border:2px solid grey;" alt="##CAPTCHA Image##" />
+                     <img id="captcha" src="{$captcha_url|escape}" style="vertical-align: middle;border-radius:20px;border:2px solid grey;" alt="##CAPTCHA Image##" /> <i class="fa fa-2x fa-refresh" style="margin-left:10px;" onclick="CaptchaRefresh();"></i>
                       <p class="text-muted">##Enter text from image at right##</p> 
                     </div>
                   </div>
@@ -133,4 +143,8 @@
 </div>
 </div>
 {include file="footer.inc.tpl"}
- 
+{if $smarty.request.state !=''}
+ <script type="text/javascript">
+ stateSelect({$smarty.request.state});
+  </script>
+ {/if}

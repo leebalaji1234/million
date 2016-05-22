@@ -17,25 +17,7 @@
                  
               </div>
               <div class="panel-body">
-                <div class="form-group">
-                     <div class="col-md-2">
-                      <label   class="control-label">##Email##</label> 
-                      </div>
-                      <div class="col-md-5">
-                      <input  name="email"  size="80" class="form-control" palceholder="Enter email ..." value="{$smarty.request.email|escape}" />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                     <div class="col-md-2">
-                      <label   class="control-label">##Confirm Email##</label> 
-                     </div>
-                      <div class="col-md-5">
-                      <input  name="email_confirm" size="80"  class="form-control" palceholder="Confirm email ..." value="{$smarty.request.email_confirm|escape}" />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
+              <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">##First Name##</label> 
                      </div>
@@ -44,15 +26,34 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group required">
                      <div class="col-md-2">
-                      <label   class="control-label">##First Name##</label> 
+                      <label   class="control-label">##Last Name##</label> 
                      </div>
                       <div class="col-md-5">
                       <input  name="last_name" size="20" class="form-control" palceholder="Last name here ..." value="{$smarty.request.last_name|escape}" />
                     </div>
                   </div>
-                  <div class="form-group">
+                <div class="form-group required">
+                     <div class="col-md-2">
+                      <label   class="control-label">##Email##</label> 
+                      </div>
+                      <div class="col-md-5">
+                      <input  name="email"  size="80" class="form-control" palceholder="Enter email ..." value="{$smarty.request.email|escape}" />
+                    </div>
+                  </div>
+
+                  <div class="form-group required">
+                     <div class="col-md-2">
+                      <label   class="control-label">##Confirm Email##</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <input  name="email_confirm" size="80"  class="form-control" palceholder="Confirm email ..." value="{$smarty.request.email_confirm|escape}" />
+                    </div>
+                  </div>
+
+                  
+                  <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">##Password##</label> 
                      </div>
@@ -60,7 +61,7 @@
                       <input type="password" name="pass" size="20" class="form-control" palceholder="password here ..." value="{$smarty.request.pass|escape}"  />##(Must be at least 5 characters long)##
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">##Confirm Password##</label> 
                      </div>
@@ -68,7 +69,7 @@
                       <input type="password" name="pass_confirm" size="20" class="form-control" palceholder="confirm password here ..." value="{$smarty.request.pass_confirm|escape}"  />##(Must be at least 5 characters long)##
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">##Country##</label> 
                      </div>
@@ -81,7 +82,7 @@
                       </select>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">##State##</label> 
                      </div>
@@ -91,7 +92,7 @@
                       </select>
                     </div>
                   </div>
-                   <div class="form-group">
+                   <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">##City##</label> 
                      </div>

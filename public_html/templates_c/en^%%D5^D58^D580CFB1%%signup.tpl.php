@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-26 01:09:57
+<?php /* Smarty version 2.6.12, created on 2016-05-21 13:00:54
          compiled from signup.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'signup.tpl', 6, false),array('function', 'show_errors', 'signup.tpl', 12, false),array('function', 'start_form', 'signup.tpl', 13, false),array('function', 'url', 'signup.tpl', 112, false),array('function', 'end_form', 'signup.tpl', 117, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'signup.tpl', 6, false),array('function', 'show_errors', 'signup.tpl', 12, false),array('function', 'start_form', 'signup.tpl', 13, false),array('function', 'url', 'signup.tpl', 113, false),array('function', 'end_form', 'signup.tpl', 118, false),)), $this); ?>
 <?php $this->assign('page_title', 'Sign Up'); ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.inc.tpl", 'smarty_include_vars' => array()));
@@ -29,27 +29,7 @@ unset($_smarty_tpl_vars);
                  
               </div>
               <div class="panel-body">
-                <div class="form-group">
-                     <div class="col-md-2">
-                      <label   class="control-label">Email</label> 
-                      </div>
-                      <div class="col-md-5">
-                      <input  name="email"  size="80" class="form-control" palceholder="Enter email ..." value="<?php echo ((is_array($_tmp=$_REQUEST['email'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-" />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                     <div class="col-md-2">
-                      <label   class="control-label">Confirm Email</label> 
-                     </div>
-                      <div class="col-md-5">
-                      <input  name="email_confirm" size="80"  class="form-control" palceholder="Confirm email ..." value="<?php echo ((is_array($_tmp=$_REQUEST['email_confirm'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-" />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
+              <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">First Name</label> 
                      </div>
@@ -59,16 +39,37 @@ unset($_smarty_tpl_vars);
                     </div>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group required">
                      <div class="col-md-2">
-                      <label   class="control-label">First Name</label> 
+                      <label   class="control-label">Last Name</label> 
                      </div>
                       <div class="col-md-5">
                       <input  name="last_name" size="20" class="form-control" palceholder="Last name here ..." value="<?php echo ((is_array($_tmp=$_REQUEST['last_name'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 " />
                     </div>
                   </div>
-                  <div class="form-group">
+                <div class="form-group required">
+                     <div class="col-md-2">
+                      <label   class="control-label">Email</label> 
+                      </div>
+                      <div class="col-md-5">
+                      <input  name="email"  size="80" class="form-control" palceholder="Enter email ..." value="<?php echo ((is_array($_tmp=$_REQUEST['email'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+" />
+                    </div>
+                  </div>
+
+                  <div class="form-group required">
+                     <div class="col-md-2">
+                      <label   class="control-label">Confirm Email</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <input  name="email_confirm" size="80"  class="form-control" palceholder="Confirm email ..." value="<?php echo ((is_array($_tmp=$_REQUEST['email_confirm'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+" />
+                    </div>
+                  </div>
+
+                  
+                  <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">Password</label> 
                      </div>
@@ -77,7 +78,7 @@ unset($_smarty_tpl_vars);
 "  />(Must be at least 5 characters long)
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">Confirm Password</label> 
                      </div>
@@ -86,7 +87,7 @@ unset($_smarty_tpl_vars);
 "  />(Must be at least 5 characters long)
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">Country</label> 
                      </div>
@@ -103,7 +104,7 @@ unset($_smarty_tpl_vars);
                       </select>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">State</label> 
                      </div>
@@ -113,7 +114,7 @@ unset($_smarty_tpl_vars);
                       </select>
                     </div>
                   </div>
-                   <div class="form-group">
+                   <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">City</label> 
                      </div>

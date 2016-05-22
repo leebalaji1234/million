@@ -46,7 +46,7 @@
 </div>
 </div>
 {/if}
-<p class="text-right"><button class="btn btn-primary" onclick="window.history.back();">Back</button></p>
+<!-- <p class="text-right"><button class="btn btn-primary" onclick="window.history.back();">Back</button></p> -->
 
 <!-- 
 

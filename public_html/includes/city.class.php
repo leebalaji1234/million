@@ -5,7 +5,7 @@
 
 require_once('model.class.php');
 
-class City extends Model
+class Citie extends Model
 {
 	
 

@@ -125,8 +125,8 @@ function zoom_move(evt) {
  document.getElementById(zoomid+'_container').style.margin=(((yy-zoomh/2 > 0)?(yy-zoomh/2):(0))-zbt)+'px 0px 0px '+(((xx-zoomw/2 > 0)?(xx-zoomw/2):(0))-zbl)+'px';
  
 
- document.getElementById(zoomid+'_padder').style.height=((Math.abs(yy)-Math.abs(yy-zoomh/2)+zoomh/2)/2+zoomh/2)+'px';
- document.getElementById(zoomid+'_padder').style.width=((Math.abs(xx)-Math.abs(xx-zoomw/2)+zoomw/2)/2+zoomw/2)+'px';
+ document.getElementById(zoomid+'_padder').style.height=  ((Math.abs(yy)-Math.abs(yy-zoomh/2)+zoomh/2)/2+zoomh/2)+'px';
+ document.getElementById(zoomid+'_padder').style.width="100%";//((Math.abs(xx)-Math.abs(xx-zoomw/2)+zoomw/2)/2+zoomw/2)+'px';
  w2=((xx+zoomw/2<objw)?((zoomw/2<xx)?(zoomw):(zoomw/2+xx)):(zoomw/2+objw-xx)); if(w2<0) {w2=0;} 
  document.getElementById(zoomid+'_container').style.width=(w2+zbl+zbr)+'px';
 
@@ -185,8 +185,12 @@ function zoom_on(evt,ow,oh,lowres,highres) {
  }
  lastover=thisid;
  
- document.getElementById(thisid).style.width=ow+'px';
- document.getElementById(thisid).style.height=(oh+((isopera)?(5):(0)))+'px';
+ document.getElementById(thisid).style.width="100%";//ow+'px';
+ // width:'+ow+'px; 
+  
+ $('.feedswidget').find('panel').css('height','');
+ $('.feedswidget').find('panel').css('height','1000px');
+ document.getElementById(thisid).style.height=oh+((isopera)?(5):(0))+'px';
  document.getElementById(thisid).style.overflow='hidden';
  document.getElementById(thisid).innerHTML=
  '<textarea id="'+thisid+'_trigger"  style="font-size:1px;position:absolute;width:100px;height:'+((isopera)?('4px'):('0; filter:alpha(opacity=0);'))+';border:0;margin:0;padding:0;overflow:hidden;z-index:0;"/></textarea>'+
@@ -196,7 +200,7 @@ function zoom_on(evt,ow,oh,lowres,highres) {
  '</div>'+
  '<img src="'+highres+'" alt="" id="'+thisid+'_clip" style="padding:0;margin:0;border:0;" onload="zoom_hidone();"/></div>'+
  '<div style="text-align:left;position:absolute; z-index:2;float:left; '+tooltipstyle+'" id="'+thisid+'_tooltip">Loading...</div>'+
- '<img src="'+lowres+'" id="'+thisid+'_pic" alt="" style="padding:0;margin:0;border:0;z-index:10;width:'+ow+'px; height: '+oh+'px"/>'
+ '<img src="'+lowres+'" id="'+thisid+'_pic" alt="" style="padding:0;margin:0;border:0;z-index:10;width:100%;height: '+oh+'px"/>'
 ;
  if(zoomw>objw) {zoomw=objw; zoomh=objw/zoomratio;}
  else if(zoomh>objh) {zoomh=objh; zoomw=objh*zoomratio}

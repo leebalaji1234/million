@@ -17,7 +17,7 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
                 <a href="{url|escape href='/index.php'}"><i class="fa fa-home"></i></a>
               </li>
               <li class="active">
-                <a href="{url|escape href='/get_pixels.php'}">Become Sponsor !</a>
+                <a href="get_pixels.php?step=2">Become Sponsor !</a>
               </li>
               <li>
                 <a href="{url|escape href='/drawings.php'}">Drawings</a>

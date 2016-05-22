@@ -5,16 +5,18 @@
 <div class="section">
   <div class="row" >
      
-<div class="col-md-12 label label-info text-muted toolinfo" style="font-weight:bold;padding-right:0px;">
+<div class="col-md-12 label label-info text-muted toolinfo" style="font-weight:bold; ">
+<h5 style="font-weight: 900;">1 Million Pixels . $1 Per Pixel . 50% sponsorship to Drawings</h5>
 {if $links}
 {foreach item=link from=$links}
 {$link}&nbsp;&nbsp;&nbsp;
 {/foreach}
 {/if}
-##Pixels Sold##: {$pixels_used|number_format|escape} ##Available##: {$pixels_avail|number_format|escape}&nbsp;&nbsp;{if $smarty.session.magnify}<a class="btn btn-default" href="index.php?magnify=0{if $smarty.request.grid>1}&amp;grid={$smarty.request.grid|escape}{/if}"><i class="fa fa-1x fa-search-minus"></i></a>{else}<a class="btn btn-default" href="index.php?magnify=1{if $smarty.request.grid>1}&amp;grid={$smarty.request.grid|escape}{/if}"><i class="fa fa-1x fa-search-plus"></i></a>{/if}
+<!-- ##Pixels Sold##: {$pixels_used|number_format|escape} ##Available##: {$pixels_avail|number_format|escape}&nbsp;&nbsp; -->
+<!-- {if $smarty.session.magnify}<a class="btn btn-default" href="index.php?magnify=0{if $smarty.request.grid>1}&amp;grid={$smarty.request.grid|escape}{/if}"><i class="fa fa-1x fa-search-minus"></i></a>{else}<a class="btn btn-default" href="index.php?magnify=1{if $smarty.request.grid>1}&amp;grid={$smarty.request.grid|escape}{/if}"><i class="fa fa-1x fa-search-plus"></i></a>{/if} -->
 </div>
 <!-- pixel board starts here -->
-  <div class="col-md-10 pixelboard">
+  <div class="col-md-10 pixelboard" style="padding-right:0px !important ;">
  
 {foreach item=grids from=$rows}
  
@@ -24,7 +26,7 @@
   <map name="grid_{$grid->id}">{$grid->map()}</map>
   {/if}
   <!-- float: left -->
-	<div style=""{if $smarty.session.magnify} onmouseover="zoom_on(event,{$grid->width|escape},{$grid->height|escape},'{$grid->url()|escape}');" onmousemove="zoom_move(event);" onmouseout="zoom_off();"{/if}><img class="img-responsive" width="100%" src="{$grid->url()|escape}" usemap="#grid_{$grid->id}"   alt="" border="0" /></div><div style="clear: both"></div>
+	<div style="" {if $smarty.session.magnify} onmouseover="zoom_on(event,1200,{$grid->height|escape},'{$grid->url()|escape}');" onmousemove="zoom_move(event);" onmouseout="zoom_off();"{/if}><img  width="100%" src="{$grid->url()|escape}" usemap="#grid_{$grid->id}"   alt="" border="0" /></div><div style="clear: both"></div>
 
   <!--  <div style="float: left"{if $smarty.session.magnify} onmouseover="zoom_on(event,{$grid->width|escape},{$grid->height|escape},'{$grid->url()|escape}');" onmousemove="zoom_move(event);" onmouseout="zoom_off();"{/if}><img   src="{$grid->url()|escape}" usemap="#grid_{$grid->id}" width="{$grid->width|escape}" height="{$grid->height|escape}" alt="" border="0" /></div><div style="clear: both"></div> --> 
  
@@ -37,12 +39,12 @@
 <!-- twitter page starts here-->
   
 <div class="col-md-2  feedswidget" style="display:none;padding-left:0px;">
-  <div class="panel panel-primary" style="height:1068px;overflow-y:auto;">
+  <div class="panel panel-primary" {if $smarty.session.magnify} style="height:1000px;overflow-y:auto;"{else} style="max-height:1084px;overflow-y:auto;"{/if}>
               <div class="panel-heading">
                 <h3 class="panel-title">
                   <i class="fa fa-fw fa-twitter"></i>Sponsor Feeds</h3>
               </div>
-              <div class="panel-body">
+              <div class="panel-body"  >
                 <div id="tweecool"></div>
               </div>
  </div>
@@ -63,7 +65,7 @@
        
           {foreach item=d from=$alldrawings}
           <div class="col-md-2">
-           <a href="drawing.php?id={$d->id|escape}"> <img src="{$d->drawing_image|escape}" class="center-block img-circle img-responsive">
+           <a href="drawing.php?id={$d->id|escape}"> <img src="{$d->drawing_image|escape}" class="center-block img-circle img-responsive" style="height:60px;" >
             <h3 class="text-center">{$d->title|escape}</h3>
           </a>
             <!-- <p class="text-center">View</a></p> -->
@@ -127,3 +129,4 @@
 </div>
 {include file='wz_tooltip.inc.tpl'}
 {include file='footer.inc.tpl'}
+<script type="text/javascript" src="twitter_plugin/twitterfeeds.js"></script>

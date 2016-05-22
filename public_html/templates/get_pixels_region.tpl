@@ -3,7 +3,7 @@
 {assign var="body_attr" value="onLoad=\"moveCanvas('grid')\""}
 {include file="header.inc.tpl"}
  
-<div class="well"  >
+<div class="col-md-10 well"  >
 	 
 {show_errors}
 {start_form}
@@ -31,9 +31,52 @@
 {end_form}
 
 <div id="grid" style="width: {$grid->width|escape}px; height: {$grid->height|escape}px;">
-<div id="canvas" style="background-image: url('{$grid->url(true)|escape}'); position: absolute; left: 0; top: 0; width: {$grid->width|escape}px; height: {$grid->height|escape}px; overflow: hidden; visibility: hidden;" onMouseDown="startLine();" onMouseUp="stopLine();"></div>
+<div id="canvas" style="background-image: url('{$grid->url(true)|escape}'); position: absolute; left: 0; top: 0; width: {$grid->width|escape}px; height: {$grid->height|escape}px; overflow: hidden; visibility: hidden;" onMouseDown="startLine();" onMouseUp="stopLine();">
+</div>
    
  </div>
 </div>
+<div class="col-md-2 well">
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	<h3 class="panel-title text-center badge">1</h3>
+	</div>
+	<div class="panel-body">
+	  
+	  <strong>Allow you to post an image/logo</strong> with your <strong>Company Name, Company Message, Charity Chosen, Pixels Sponsored</strong> and your <strong>Website Address</strong> with a <strong>LINK</strong> linking back to your website. 
+
+	  
+	</div>
+	</div>
+
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	<h3 class="panel-title text-center badge">2</h3>
+	</div>
+	<div class="panel-body">
+	  
+	 <strong>You will own this space for 4 years from the websites launch date.</strong> The website is guaranteed to be up for 4 years from its launch date. 
+   
+  
+	</div>
+	</div>
+
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	<h3 class="panel-title text-center badge">3</h3>
+	</div>
+	<div class="panel-body">
+	  
+	<strong>You will never pay per click</strong> no matter how many click throughs you get from the life of your sponsorship.
+   
+  
+	</div>
+	</div>
+ 
+
+
+
+</div>
 
 {include file="footer.inc.tpl"}
+ 

@@ -21,7 +21,7 @@ URL) will be used.##</p>
 {show_errors}
 {start_form class="form-horizontal"}
 
-<div class="form-group">
+<div class="form-group required">
   <div class="col-sm-2">
     <label class="control-label" >##URL for Your Site##:</label>
   </div>
@@ -30,7 +30,7 @@ URL) will be used.##</p>
   </div>
 </div>
 
-<div class="form-group">
+<div class="form-group required">
   <div class="col-sm-2">
     <label class="control-label" >##Title for Your Pixels##:</label>
   </div>
@@ -40,7 +40,7 @@ URL) will be used.##</p>
   </div>
 </div>
 
-<div class="form-group">
+<div class="form-group required">
   <div class="col-sm-2">
     <label class="control-label" >##Mouseover display text for Your Pixels##:</label>
   </div>

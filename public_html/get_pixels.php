@@ -173,14 +173,14 @@ if ($step == 5) {
  //   save_params('email');
  //   next_step();
  //  }
-
+ // print_r($_REQUEST);exit;
   if(!empty(param('theme_id'))){
       
       $_REQUEST['amount'] = param('realamount');
       $order_status['amount'] = $_REQUEST['amount'];
       save_params('amount');  
   }
-  if ($app->is_post()) {
+  if ($app->is_post() ) {
 
     if (empty($_REQUEST['email']))
       $app->error('##Please enter your e-mail address##');
@@ -239,10 +239,17 @@ if ($step == 5) {
      }
 
 
-        
-      next_step();
+        if(!isset($_REQUEST['own_theme']) && $_REQUEST['submit_button'] == 'Continue >>'){
+          next_step();
+        }else{ 
+
+          clear_params('drawing_id'); 
+          $order_status['step'] = 6; 
+          header('Location:'.next_step_url());
+        }
+      
     }
-  }
+  } 
   else
     clear_params('email');
   clear_params('region_id');
@@ -251,7 +258,7 @@ if ($step == 5) {
   exit;
 }
 if ($step == 6 ) {
-    
+   
    if($app->is_post() && isset($_REQUEST['payment_id'])){ 
       $step = 7;
       goto payment;

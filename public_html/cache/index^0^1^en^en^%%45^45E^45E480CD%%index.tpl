@@ -1,5 +1,5 @@
 263
-a:4:{s:8:"template";a:6:{s:9:"index.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolbar.inc.tpl";b:1;s:14:"header.inc.tpl";b:1;s:18:"wz_tooltip.inc.tpl";b:1;s:14:"footer.inc.tpl";b:1;}s:9:"timestamp";i:1461611163;s:7:"expires";i:1461614763;s:13:"cache_serials";a:0:{}}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+a:4:{s:8:"template";a:6:{s:9:"index.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolbar.inc.tpl";b:1;s:14:"header.inc.tpl";b:1;s:18:"wz_tooltip.inc.tpl";b:1;s:14:"footer.inc.tpl";b:1;}s:9:"timestamp";i:1463816433;s:7:"expires";i:1463820033;s:13:"cache_serials";a:0:{}}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,7 @@ a:4:{s:8:"template";a:6:{s:9:"index.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolb
      
     <script type="text/javascript" src="js/custom.js"></script>
     <!--<script type="text/javascript" src="twitter_plugin/tweecool.js"></script>-->
-    <script type="text/javascript" src="twitter_plugin/twitterfeeds.js"></script>
+    
 
     <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -33,7 +33,7 @@ a:4:{s:8:"template";a:6:{s:9:"index.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolb
         <script type='text/javascript' src='angular_includes/js/angular-cookies.js'></script>
         <script type='text/javascript' src='angular_includes/js/dirPagination.js'></script>   
          <script type="text/javascript" src="angular_includes/js/app.js"></script> -->
-</head><body  ng-app="md">
+</head><body  ng-app="md"  >
 <div class="section">
   <div class="navbar navbar-default navbar-fixed-top" style="-webkit-box-shadow:inset 22px 22px 22px 22px #FC3059;
 box-shadow:inset 22px 22px 22px 22px #ffffff;">
@@ -53,7 +53,7 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
                 <a href="http://localhost/gp/public_html/index.php"><i class="fa fa-home"></i></a>
               </li>
               <li class="active">
-                <a href="http://localhost/gp/public_html/get_pixels.php">Become Sponsor !</a>
+                <a href="get_pixels.php?step=2">Become Sponsor !</a>
               </li>
               <li>
                 <a href="http://localhost/gp/public_html/drawings.php">Drawings</a>
@@ -77,18 +77,21 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
 <div class="section">
   <div class="row" >
      
-<div class="col-md-12 label label-info text-muted toolinfo" style="font-weight:bold;padding-right:0px;">
-Pixels Sold: 80,600 Available: 919,400&nbsp;&nbsp;<a class="btn btn-default" href="index.php?magnify=1"><i class="fa fa-1x fa-search-plus"></i></a></div>
+<div class="col-md-12 label label-info text-muted toolinfo" style="font-weight:bold; ">
+<h5>1 Million Pixels . $1 Per Pixel . 50% sponsorship to Drawings</h5>
+<!-- Pixels Sold: 80,600 Available: 919,400&nbsp;&nbsp; -->
+<!-- <a class="btn btn-default" href="index.php?magnify=1"><i class="fa fa-1x fa-search-plus"></i></a> -->
+</div>
 <!-- pixel board starts here -->
-  <div class="col-md-10 pixelboard">
+  <div class="col-md-10 pixelboard" style="padding-right:0px !important ;">
  
  
  
 	  <map name="grid_2"><area shape="rect" coords="180,10,210,20" href="?r=1" target="_blank"onclick="window.open('?r=1','_blank');return false;" alt="wallexpress" title="awesome"  onmouseover="return escape('awesome');"  /><area shape="rect" coords="230,10,290,30" href="?r=2" target="_blank"onclick="window.open('?r=2','_blank');return false;" alt="wallexpress" title="awesome"  onmouseover="return escape('awesome');"  /><area shape="rect" coords="470,0,500,30" href="?r=3" target="_blank"onclick="window.open('?r=3','_blank');return false;" alt="wallexpress" title="awesome"  onmouseover="return escape('awesome');"  /><area shape="rect" coords="540,0,1000,170" href="?r=4" target="_blank"onclick="window.open('?r=4','_blank');return false;" alt="wallexpress" title="awesome"  onmouseover="return escape('awesome');"  /></map>
     <!-- float: left -->
-	<div style=""><img class="img-responsive" width="100%" src="http://localhost/gp/public_html/grids/grid_2.png?x=1461611163" usemap="#grid_2"   alt="" border="0" /></div><div style="clear: both"></div>
+	<div style="" ><img  width="100%" src="http://localhost/gp/public_html/grids/grid_2.png?x=1463816433" usemap="#grid_2"   alt="" border="0" /></div><div style="clear: both"></div>
 
-  <!--  <div style="float: left"><img   src="http://localhost/gp/public_html/grids/grid_2.png?x=1461611163" usemap="#grid_2" width="1000" height="1000" alt="" border="0" /></div><div style="clear: both"></div> --> 
+  <!--  <div style="float: left"><img   src="http://localhost/gp/public_html/grids/grid_2.png?x=1463816433" usemap="#grid_2" width="1000" height="1000" alt="" border="0" /></div><div style="clear: both"></div> --> 
  
  
 </div>
@@ -97,12 +100,12 @@ Pixels Sold: 80,600 Available: 919,400&nbsp;&nbsp;<a class="btn btn-default" hre
 <!-- twitter page starts here-->
   
 <div class="col-md-2  feedswidget" style="display:none;padding-left:0px;">
-  <div class="panel panel-primary" style="height:1068px;overflow-y:auto;">
+  <div class="panel panel-primary"  style="overflow-y:auto;">
               <div class="panel-heading">
                 <h3 class="panel-title">
                   <i class="fa fa-fw fa-twitter"></i>Sponsor Feeds</h3>
               </div>
-              <div class="panel-body">
+              <div class="panel-body" style="height: calc(178vh - 100px);">
                 <div id="tweecool"></div>
               </div>
  </div>
@@ -122,38 +125,20 @@ Pixels Sold: 80,600 Available: 919,400&nbsp;&nbsp;<a class="btn btn-default" hre
         <div class="row">
        
                     <div class="col-md-2">
-           <a href="drawing.php?id=4"> <img src="images/drawings/17.png" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
+           <a href="drawing.php?id=22"> <img src="images/drawings/1463553813.png" class="center-block img-circle img-responsive" style="height:60px;" >
+            <h3 class="text-center">awesome test</h3>
           </a>
             <!-- <p class="text-center">View</a></p> -->
           </div> 
                     <div class="col-md-2">
-           <a href="drawing.php?id=5"> <img src="images/drawings/17.png" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
+           <a href="drawing.php?id=21"> <img src="images/drawings/1463552910.png" class="center-block img-circle img-responsive" style="height:60px;" >
+            <h3 class="text-center">awesome</h3>
           </a>
             <!-- <p class="text-center">View</a></p> -->
           </div> 
                     <div class="col-md-2">
-           <a href="drawing.php?id=6"> <img src="images/drawings/17.png" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
-          </a>
-            <!-- <p class="text-center">View</a></p> -->
-          </div> 
-                    <div class="col-md-2">
-           <a href="drawing.php?id=2"> <img src="images/drawings/17.png" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
-          </a>
-            <!-- <p class="text-center">View</a></p> -->
-          </div> 
-                    <div class="col-md-2">
-           <a href="drawing.php?id=1"> <img src="images/drawings/17.png" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
-          </a>
-            <!-- <p class="text-center">View</a></p> -->
-          </div> 
-                    <div class="col-md-2">
-           <a href="drawing.php?id=3"> <img src="images/drawings/17.png" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
+           <a href="drawing.php?id=23"> <img src="images/drawings/1463553882.png" class="center-block img-circle img-responsive" style="height:60px;" >
+            <h3 class="text-center">awesome test2</h3>
           </a>
             <!-- <p class="text-center">View</a></p> -->
           </div> 
@@ -175,37 +160,19 @@ Pixels Sold: 80,600 Available: 919,400&nbsp;&nbsp;<a class="btn btn-default" hre
        
                     <div class="col-md-2">
             <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="center-block img-circle img-responsive" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
+            <h3 class="text-center">awesome test</h3>
            
             <!-- <p class="text-center">View</a></p> -->
           </div> 
                     <div class="col-md-2">
             <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="center-block img-circle img-responsive" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
+            <h3 class="text-center">awesome</h3>
            
             <!-- <p class="text-center">View</a></p> -->
           </div> 
                     <div class="col-md-2">
             <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="center-block img-circle img-responsive" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
-           
-            <!-- <p class="text-center">View</a></p> -->
-          </div> 
-                    <div class="col-md-2">
-            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="center-block img-circle img-responsive" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
-           
-            <!-- <p class="text-center">View</a></p> -->
-          </div> 
-                    <div class="col-md-2">
-            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="center-block img-circle img-responsive" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
-           
-            <!-- <p class="text-center">View</a></p> -->
-          </div> 
-                    <div class="col-md-2">
-            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="center-block img-circle img-responsive" class="center-block img-circle img-responsive">
-            <h3 class="text-center">Million Dollar</h3>
+            <h3 class="text-center">awesome test2</h3>
            
             <!-- <p class="text-center">View</a></p> -->
           </div> 
@@ -287,4 +254,4 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
       </div>
     </div>
   </body>
-</html>
+</html><script type="text/javascript" src="twitter_plugin/twitterfeeds.js"></script>

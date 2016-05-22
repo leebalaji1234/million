@@ -1,11 +1,19 @@
 {assign var="page_title" value="##Upload Art##"}
 {include file="header.inc.tpl"}
+<link rel="stylesheet" href="custom_lib/datepicker/css/datepicker.css" type="text/css" />
+ 
+ 
+
+<script type="text/javascript" src="custom_lib/datepicker/js/datepicker.js"></script>
+<script type="text/javascript" src="custom_lib/datepicker/js/eye.js"></script>
+<script type="text/javascript" src="custom_lib/datepicker/js/utils.js"></script>
+<script type="text/javascript" src="custom_lib/datepicker/js/layout.js?ver=1.0.2"></script>
 <div class="section">
   <div class="container">
 <!-- <h1>{$page_title|escape}</h1> -->  
 {show_errors}
 {start_form enctype="multipart/form-data" class="form-horizontal"}
-<input type="hidden" name="MAX_FILE_SIZE" value="200000" /> 
+<input type="hidden" name="MAX_FILE_SIZE" value="100000" /> 
 {if $app->setting->upload_images} 
 <!--  <div class="col-md-12">
             <span class="alert alert-dismissable alert-info">
@@ -24,18 +32,20 @@ format and resized to the region size of## {$smarty.request.w|escape} x
           <div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <span class="text-primary"> <strong>Upload Drawing</strong> </span>
+                <span class="text-primary"> <strong>Upload Art Work</strong> </span>
               </div>
               <div class="panel-body">
-                <div class="form-group">
+                <div class="form-group required">
                     <div class="col-sm-2">
-                      <label for="file1" class="control-label">##Upload Art Image##</label>
+                      <label for="picture" class="control-label">##Upload Art Image##</label>
                     </div>
                     <div class="col-sm-5"> 
-                      <input  class="form-control" id="file1" name="file" type="file" size="180" />
+                      <input  class="form-control"   name="file" type="file" size="180" id="picture" required />
+                      <p id="pic_error1" style="display:none; color:#FF0000;">Image formats should be JPG, JPEG, PNG or GIF.</p>
+   <p id="pic_error2" style="display:none; color:#FF0000;">Max file size should be 1MB.</p>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="title1" class="control-label">##Art Title##</label>
                     </div>
@@ -43,7 +53,7 @@ format and resized to the region size of## {$smarty.request.w|escape} x
                       <input  name="title" id="title1" class="form-control" palceholder="Art title here ..." value="{$smarty.request.title|escape}" />
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="desc" class="control-label">##Art Description##</label>
                     </div>
@@ -52,7 +62,7 @@ format and resized to the region size of## {$smarty.request.w|escape} x
                       <textarea name="description" id="desc" class="form-control" palceholder="Art description here ..."  >{$smarty.request.description|escape}</textarea>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="theme1" class="control-label">## Choice of Theme##</label>
                     </div>
@@ -67,28 +77,28 @@ format and resized to the region size of## {$smarty.request.w|escape} x
                   
                   <!-- dob -->
                   {if $dobdisplay == 'enable'}
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-2">
-                      <label for="dob1" class="control-label">## Date of Birth##</label>
+                      <label for="inputDate" class="control-label">## Date of Birth##</label>
                     </div>
                     <div class="col-sm-5">  
-                     <input name="dob" id="dob1" class="form-control" placeholder="mm/dd/YYYY" onchange="ajaxCallToCreateAge(this.value);"   />
+                     <input name="dob"   id="inputDate" class="form-control inputDate" placeholder="mm/dd/YYYY"  value="01/01/2016" onchange="ajaxCallToCreateAge(this.value);"   />
                      <small>mm/dd/YYYY</small>
                     </div>
                   </div>
                    {/if}
                    <!-- parent -->
                     {if $parentdisplay == 'enable'}
-                  <div class="form-group parent_placeholder" style="display:{$parentdisplay == 'enable'?'block':'none'};">
+                  <div class="form-group parent_placeholder required" style="display:{$parentdisplay == 'enable'?'block':'none'};">
                     <div class="col-sm-2">
                       <label for="dob1" class="control-label">##  Guardian Name##</label>
                     </div>
                     <div class="col-sm-5">  
-                     <input name="parent_name" class="form-control" placeholder="parent / guardian name here"  value="{$smarty.request.parent_name|escape}" />
+                     <input name="parent_name" class="form-control" placeholder="Parent (or) Guardian name here"  value="{$smarty.request.parent_name|escape}" />
                     </div>
                   </div>
 
-                  <div class="form-group parent_placeholder" style="display:{$parentdisplay == 'enable'?'block':'none'};">
+                  <div class="form-group parent_placeholder required" style="display:{$parentdisplay == 'enable'?'block':'none'};">
                     <div class="col-sm-2">
                       <label for="dob1" class="control-label">## Guardian Details##</label>
                     </div>
@@ -114,16 +124,16 @@ format and resized to the region size of## {$smarty.request.w|escape} x
                   </div>
                   <div class="form-group">
                     <div class="col-md-offset-2 col-sm-6"> 
-                    <label  ><input type="checkbox" name="is_watermark"   {if $smarty.request.is_watermark != ''} checked="checked"{/if}/> Art have “milliondolardrawings” as alphabet drawing at the right bottom </label>
+                    <label  ><input type="checkbox" name="is_watermark"   {if $smarty.request.is_watermark } checked="checked"{/if}/> Art have “milliondolardrawings” as alphabet drawing at the right bottom </label>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-md-offset-2 col-sm-6"> 
-                    <label  ><input type="checkbox" name="proof" id="proof" onchange="onProofSelection();" {if $smarty.request.proof_file != ''} checked="checked"{/if}/> Proof for Make of art in youtube</label>
+                    <label  ><input type="checkbox" name="proof" id="proof" onchange="onProofSelection();" {if $smarty.request.proof} checked="checked"{/if}/> Proof for Make of art in youtube</label>
                     </div>
                      
                   </div>
-                   <div class="form-group proof_placeholder" style="display:{if $smarty.request.proof_file != ''} block{/if}{if $smarty.request.proof_file == ''} none{/if};">
+                   <div class="form-group proof_placeholder" {if $smarty.request.proof} style="display:block;"{/if}{if !$smarty.request.proof} style="display:none;"{/if};>
                     <div class="col-sm-2">
                       <label for="dob1" class="control-label">## Youtube video link##</label>
                     </div>
@@ -136,7 +146,7 @@ format and resized to the region size of## {$smarty.request.w|escape} x
                      
                     <div class="col-sm-5 col-sm-offset-2 well"> 
                      <input name="phrase" size="10" value="" />&nbsp;
-                     <img src="{$captcha_url|escape}" style="vertical-align: middle;border-radius:20px;border:2px solid grey;" alt="##CAPTCHA Image##" />
+                     <img id="captcha" src="{$captcha_url|escape}" style="vertical-align: middle;border-radius:20px;border:2px solid grey;" alt="##CAPTCHA Image##" /> <i class="fa fa-2x fa-refresh" style="margin-left:10px;" onclick="CaptchaRefresh();"></i>
                       <p class="text-muted">##Enter text from image at right##</p> 
                     </div>
                   </div>

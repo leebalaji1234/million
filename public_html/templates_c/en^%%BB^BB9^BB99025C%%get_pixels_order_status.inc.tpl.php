@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-24 23:44:37
+<?php /* Smarty version 2.6.12, created on 2016-05-18 23:39:35
          compiled from get_pixels_order_status.inc.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'snippet', 'get_pixels_order_status.inc.tpl', 7, false),array('function', 'url', 'get_pixels_order_status.inc.tpl', 45, false),array('modifier', 'escape', 'get_pixels_order_status.inc.tpl', 7, false),array('modifier', 'number_format', 'get_pixels_order_status.inc.tpl', 8, false),)), $this); ?>
@@ -59,7 +59,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'snippet', '
 </div>
 </div>
 <?php endif; ?>
-<p class="text-right"><button class="btn btn-primary" onclick="window.history.back();">Back</button></p>
+<!-- <p class="text-right"><button class="btn btn-primary" onclick="window.history.back();">Back</button></p> -->
 
 <!-- 
 

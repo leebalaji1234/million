@@ -1,5 +1,5 @@
 233
-a:4:{s:8:"template";a:5:{s:9:"login.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolbar.inc.tpl";b:1;s:14:"header.inc.tpl";b:1;s:14:"footer.inc.tpl";b:1;}s:9:"timestamp";i:1461611951;s:7:"expires";i:1461615551;s:13:"cache_serials";a:0:{}}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+a:4:{s:8:"template";a:5:{s:9:"login.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolbar.inc.tpl";b:1;s:14:"header.inc.tpl";b:1;s:14:"footer.inc.tpl";b:1;}s:9:"timestamp";i:1463815941;s:7:"expires";i:1463819541;s:13:"cache_serials";a:0:{}}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,7 @@ a:4:{s:8:"template";a:5:{s:9:"login.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolb
      
     <script type="text/javascript" src="js/custom.js"></script>
     <!--<script type="text/javascript" src="twitter_plugin/tweecool.js"></script>-->
-    <script type="text/javascript" src="twitter_plugin/twitterfeeds.js"></script>
+    
 
     <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -33,7 +33,7 @@ a:4:{s:8:"template";a:5:{s:9:"login.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolb
         <script type='text/javascript' src='angular_includes/js/angular-cookies.js'></script>
         <script type='text/javascript' src='angular_includes/js/dirPagination.js'></script>   
          <script type="text/javascript" src="angular_includes/js/app.js"></script> -->
-</head><body  ng-app="md">
+</head><body  ng-app="md" style="height: 100%;">
 <div class="section">
   <div class="navbar navbar-default navbar-fixed-top" style="-webkit-box-shadow:inset 22px 22px 22px 22px #FC3059;
 box-shadow:inset 22px 22px 22px 22px #ffffff;">
@@ -53,7 +53,7 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
                 <a href="http://localhost/gp/public_html/index.php"><i class="fa fa-home"></i></a>
               </li>
               <li class="active">
-                <a href="http://localhost/gp/public_html/get_pixels.php">Become Sponsor !</a>
+                <a href="get_pixels.php?step=2">Become Sponsor !</a>
               </li>
               <li>
                 <a href="http://localhost/gp/public_html/drawings.php">Drawings</a>
@@ -96,14 +96,14 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
               </div>
               <div class="panel-body">
              
-                  <div class="form-group">
+                  <div class="form-group required">
                      <div class="col-sm-offset-3  col-md-5">
                       <label   class="control-label">Email</label> 
                      
                       <input  name="email"   class="form-control" palceholder="Enter email ..." value="" />
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group required">
                     <div class="col-sm-offset-3  col-md-5"> 
                       <label  class="control-label">Password</label>
                     

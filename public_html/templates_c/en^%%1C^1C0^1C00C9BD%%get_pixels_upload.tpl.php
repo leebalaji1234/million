@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-24 23:44:37
+<?php /* Smarty version 2.6.12, created on 2016-05-18 23:39:35
          compiled from get_pixels_upload.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'get_pixels_upload.tpl', 9, false),array('function', 'show_errors', 'get_pixels_upload.tpl', 15, false),array('function', 'start_form', 'get_pixels_upload.tpl', 16, false),array('function', 'end_form', 'get_pixels_upload.tpl', 58, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'get_pixels_upload.tpl', 9, false),array('function', 'show_errors', 'get_pixels_upload.tpl', 15, false),array('function', 'start_form', 'get_pixels_upload.tpl', 16, false),array('function', 'end_form', 'get_pixels_upload.tpl', 60, false),)), $this); ?>
 <?php $this->assign('page_title', 'Upload Your Image'); ?>
 <?php $this->assign('scripts', "/tabber.js"); ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -29,7 +29,7 @@ unset($_smarty_tpl_vars);
 
 <?php echo smarty_function_start_form(array('enctype' => "multipart/form-data",'class' => "form-horizontal"), $this);?>
 
-<input type="hidden" name="MAX_FILE_SIZE" value="200000" />
+<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
 <?php if ($this->_tpl_vars['app']->setting->upload_images): ?>
 <blockquote>
 <p class="text-warning">Upload a GIF, JPG, or PNG image. It will automatically be converted to PNG
@@ -39,12 +39,14 @@ format and resized to the region size of <?php echo ((is_array($_tmp=$_REQUEST['
  pixels.</p>
 </blockquote>
 
-<div class="form-group">
+<div class="form-group required">
   <div class="col-sm-3">
     <label class="control-label" >Image File:</label>
   </div>
   <div class="col-sm-5"> 
-   <input name="file" type="file" size="80" />
+   <input name="file" type="file" size="80" id="picture" required />
+   <p id="pic_error1" style="display:none; color:#FF0000;">Image formats should be JPG, JPEG, PNG or GIF.</p>
+   <p id="pic_error2" style="display:none; color:#FF0000;">Max file size should be 1MB.</p>
   </div>
 </div>
  

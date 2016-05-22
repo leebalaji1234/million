@@ -12,14 +12,22 @@
         </div>  -->
         
       <!-- title bar ends -->
-<div class="row">
+ <div class="row">
+ <div class="col-md-12">
+ <div class="well text-center">
+ <img src="images/ellipsis.gif" />
+<p> Please wait loading grid.....</p>
+ </div>
+ </div>
+ </div>     
+<div class="row" style="display: none;">
           <div class="col-md-12">
-            <div  > 
+            <div   > 
               {section name=grid loop=$grids}
 
    <!-- buy button starts -->
    {if $grids[grid]->allow_free_paid != 'true' && $grids[grid]->pixel_price >= 0}
-   {start_form}
+   {start_form id="sectionstep1"}
     <input type="hidden" name="step" value="{$step|escape}" />
   <input type="hidden" name="grid_id" value="{$grids[grid]->id|escape}" />
     {if $grids[grid]->pixel_price == 0}
@@ -85,3 +93,4 @@
   </div>
 </div>
 {include file="footer.inc.tpl"}
+ 

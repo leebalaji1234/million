@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-24 23:44:34
+<?php /* Smarty version 2.6.12, created on 2016-05-18 23:26:41
          compiled from get_pixels_region.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'explode', 'get_pixels_region.tpl', 2, false),array('modifier', 'escape', 'get_pixels_region.tpl', 15, false),array('function', 'show_errors', 'get_pixels_region.tpl', 8, false),array('function', 'start_form', 'get_pixels_region.tpl', 9, false),array('function', 'end_form', 'get_pixels_region.tpl', 31, false),)), $this); ?>
@@ -11,7 +11,7 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
  
-<div class="well"  >
+<div class="col-md-10 well"  >
 	 
 <?php echo smarty_function_show_errors(array(), $this);?>
 
@@ -58,13 +58,56 @@ px;">
 <div id="canvas" style="background-image: url('<?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->url(true))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 '); position: absolute; left: 0; top: 0; width: <?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->width)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 px; height: <?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->height)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-px; overflow: hidden; visibility: hidden;" onMouseDown="startLine();" onMouseUp="stopLine();"></div>
+px; overflow: hidden; visibility: hidden;" onMouseDown="startLine();" onMouseUp="stopLine();">
+</div>
    
  </div>
+</div>
+<div class="col-md-2 well">
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	<h3 class="panel-title text-center badge">1</h3>
+	</div>
+	<div class="panel-body">
+	  
+	  <strong>Allow you to post an image/logo</strong> with your <strong>Company Name, Company Message, Charity Chosen, Pixels Sponsored</strong> and your <strong>Website Address</strong> with a <strong>LINK</strong> linking back to your website. 
+
+	  
+	</div>
+	</div>
+
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	<h3 class="panel-title text-center badge">2</h3>
+	</div>
+	<div class="panel-body">
+	  
+	 <strong>You will own this space for 4 years from the websites launch date.</strong> The website is guaranteed to be up for 4 years from its launch date. 
+   
+  
+	</div>
+	</div>
+
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	<h3 class="panel-title text-center badge">3</h3>
+	</div>
+	<div class="panel-body">
+	  
+	<strong>You will never pay per click</strong> no matter how many click throughs you get from the life of your sponsorship.
+   
+  
+	</div>
+	</div>
+ 
+
+
+
 </div>
 
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "footer.inc.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
- ?>
+ ?>
+ 

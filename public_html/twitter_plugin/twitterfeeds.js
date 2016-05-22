@@ -10,10 +10,13 @@ $(document).ready(function(){
            
     });
     setTimeout(function(){
-        mytweet('@OaSathya','5');
+        mytweet('@Gazal_Sathiya','1');
         $('.feedswidget').toggle("slide");
-        $('.pixelboard').removeClass('col-md-12'); 
-        $('.pixelboard').addClass('col-md-10');
+        // $('.pixelboard').removeClass('col-md-12'); 
+        // $('.pixelboard').addClass('col-md-10');
+        $.each(alltwitters,function(i,v){
+                  mytweet(v,'5'); 
+              }); 
     },5000);
 
   // var refreshId = setInterval( function(){ 

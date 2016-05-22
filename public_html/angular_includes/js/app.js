@@ -41,7 +41,7 @@
              $scope.selected_age2 = 100;
              $scope.searcher = {};
              $scope.searcherAge = {};
-             $scope.searcherAge.ageMin = 0;
+             $scope.searcherAge.ageMin = -1;
              $scope.searcherAge.ageMax = 100;
 
              $scope.defaultload = 4;
@@ -65,6 +65,7 @@
                          clickval = parseInt($('#click_' + did).text());
                          clickval++;
                          $('#click_' + did).text(clickval);
+                         $('#click1_' + did).text(clickval);
                      }
 
 
@@ -79,6 +80,7 @@
                          likeval = parseInt($('#like_' + did).text());
                          likeval++;
                          $('#like_' + did).text(likeval);
+                         $('#like1_' + did).text(likeval);
                      }
                      if (response == 'disable') {
                          alert('Oops! It seems you already like it');

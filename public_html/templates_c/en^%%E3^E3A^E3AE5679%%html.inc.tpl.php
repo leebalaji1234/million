@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-24 03:41:35
+<?php /* Smarty version 2.6.12, created on 2016-05-18 23:07:09
          compiled from html.inc.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'html.inc.tpl', 2, false),array('modifier', 'default', 'html.inc.tpl', 2, false),array('function', 'url', 'html.inc.tpl', 13, false),)), $this); ?>
@@ -51,7 +51,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'h
      
     <script type="text/javascript" src="js/custom.js"></script>
     <!--<script type="text/javascript" src="twitter_plugin/tweecool.js"></script>-->
-    <script type="text/javascript" src="twitter_plugin/twitterfeeds.js"></script>
+    
 
     <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

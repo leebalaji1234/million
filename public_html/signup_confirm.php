@@ -28,6 +28,6 @@ $_SESSION['email'] = $user->email;
 $_SESSION['first_name'] = $user->first_name;
 $_SESSION['last_name'] = $user->last_name;
 
-$smarty->display('volunteer_confirm.tpl');
+$smarty->display('signup_confirm.tpl');
 
 ?>

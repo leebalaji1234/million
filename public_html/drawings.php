@@ -91,7 +91,7 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
                 <a href="index.php"><i class="fa fa-home"></i></a>
               </li>
               <li >
-                <a href="get_pixels.php">Become Sponsor !</a>
+                <a href="get_pixels.php?step=2">Become Sponsor !</a>
               </li>
                <li class="active">
                 <a href="drawings.php">Drawings</a>
@@ -193,22 +193,22 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
  <?php if($_SESSION['drawing']['error'] ==1) {
           $_SESSION['drawing']['error'] = 0;
       ?>
-      <div class="section"  >
-      <div class="alert alert-danger col-md-12 text-center">
-        <button contenteditable="false" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+       
+      <div class="alert alert-danger col-md-12 text-center" style="z-index: 99999;">
+        <button contenteditable="false" type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$(this).parent().slideToggle();">×</button>
         Maximum upload limit reached. contact administrator for further details
       </div>
-    </div>
+    
     <?php }?>
     <?php if($_SESSION['drawing']['success'] ==1) {
           $_SESSION['drawing']['success'] = 0;
       ?>
-      <div class="section"  >
-      <div class="alert alert-success col-md-12 text-center">
-        <button contenteditable="false" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+     
+      <div class="alert alert-success col-md-12 text-center" style="z-index: 99999;">
+        <button contenteditable="false" type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="$(this).parent().slideToggle();">×</button>
         Thanks for your upload! upload Process completed !
       </div>
-    </div>
+     
     <?php }?>
 	<div class="section"  >
 
@@ -232,29 +232,30 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
                         <option  value="<?php echo $c->id; ?>"><?php echo $c->name; ?> </option>
                         <?php } ?>
                       </select>
-          <a href="#" class="filters btn btn-success" onclick="$('.filters').removeClass('active');$(this).addClass('active');$('.agecategory').toggle();">Age</a>
-          <a href="#" class="filters agecategory btn btn-default" onclick="$('.filters').removeClass('active');" style="display:none;" ng-click="agesearch(6,9)" >Age 6 - 9</a>
-          <a href="#" class="filters agecategory btn btn-default" onclick="$('.filters').removeClass('active');" style="display:none;" ng-click="agesearch(10,18)">Age 10 - 18</a>
-          <a href="#" class="filters agecategory btn btn-default" onclick="$('.filters').removeClass('active');" style="display:none;" ng-click="agesearch(18,100)">Age above 18</a> 
+          <a href="#" class="filters btn btn-success" onclick="$('.filters').removeClass('active');$(this).addClass('active');$('.agecategory').toggle();">Age <i class="fa fa-caret-right"></i></a>
+          <a href="#" class="filters agecategory btn btn-default" onclick="$('.filters').removeClass('active');" style="display:none;" ng-click="agesearch(6,9)" >6 - 9</a>
+          <a href="#" class="filters agecategory btn btn-default" onclick="$('.filters').removeClass('active');" style="display:none;" ng-click="agesearch(10,13)">10 - 13</a>
+           <a href="#" class="filters agecategory btn btn-default" onclick="$('.filters').removeClass('active');" style="display:none;" ng-click="agesearch(14,18)">14 - 18</a>
+          <a href="#" class="filters agecategory btn btn-default" onclick="$('.filters').removeClass('active');" style="display:none;" ng-click="agesearch(18,100)">Above 18</a> 
           
           <input type="text" ng-model="search" placeholder="Search drawing name here..." class="btn btn-default">
            
           <a href="upload_drawing.php" class="btn btn-warning">Upload Drawing</a>
          <?php if($_SESSION['order_status']['w'] && $_SESSION['order_status']['h'] && $_SESSION['order_status']['step'] && $_SESSION['order_status']['grid_id']){ ?>
-          <a   class="btn btn-warning" ng-click="onSkipSponsor()" >Skip Sponsor</a>
-          <button class="btn btn-primary" onclick="window.history.back();">Back</button> 
+          <a   class="btn btn-warning" ng-click="onSkipSponsor()" >Just want to be a part of this innovation >> </a>
+         <!--  <button class="btn btn-primary" onclick="window.history.back();">Back</button>  -->
           <?php } ?>
         </div>
 
         <ul id="breadcrumb" class="breadcrumb" style="color:white;display:none;background:none;">
               <li class="allfilters theme_all">
-                <span class="theme"> </span>
+                <span class="theme"> -</span>
               </li>
               <li class="allfilters country_all" >
-                <span class="country"> </span>
+                <span class="country"> -</span>
               </li>
               <li class="allfilters age_all">
-                <span class="age"></span>
+                <span class="age">-</span>
               </li>
               
         </ul>

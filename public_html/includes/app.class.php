@@ -207,7 +207,8 @@ class App{
     }
 
     // send the mail
-    
+   // echo "mail::".$to_addr.":subject::".$subject.":body:".$body."from".$from_addr;
+   // exit;
     $this->send_mail($to_addr, $subject, $body, $from_addr);
   }
 

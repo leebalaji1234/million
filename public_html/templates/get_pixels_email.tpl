@@ -16,20 +16,20 @@
 </blockquote>
 
 {show_errors}
-{start_form class="form-horizontal"}
+{start_form class="form-horizontal" id="sponsoremailstep"}
 
-<div class="form-group">
+<div class="form-group required">
   <div class="col-sm-3">
-    <label class="control-label" >##Your E-Mail Address##:</label>
+    <label class="control-label " >##Your E-Mail Address##</label>
   </div>
   <div class="col-sm-5"> 
    <input name="email" class="form-control" size="80" placeholder="Enter email address here..." value="{$smarty.request.email|escape}" />
   </div>
 </div>
 
-<div class="form-group">
+<div class="form-group required">
   <div class="col-sm-3">
-    <label class="control-label" >##Re-Enter E-Mail Address##:</label>
+    <label class="control-label" >##Re-Enter E-Mail Address##</label>
   </div>
   <div class="col-sm-5"> 
    <input name="email_confirm" class="form-control" placeholder="Confirm email address here..." size="80" value="{$smarty.request.email_confirm|escape}" />
@@ -46,10 +46,10 @@
 <div class="form-group">
   
   <div class="col-sm-offset-3 col-sm-5"> 
-  <label class="control-label" > <input name="own_theme" id="own_theme" type="checkbox" onchange="ownThemeOptionEnabler();"/> I like to have my own drawing theme on this site</label>
+  <label class="control-label" > <input name="own_theme" id="own_theme" type="checkbox" onchange="ownThemeOptionEnabler();" {if $smarty.request.own_theme} checked="checked" {/if}/> Specify your own Brand theme</label>
   </div>
 </div>
-<div class="form-group theme_options" style="display:none;">
+<div class="form-group theme_options" {if !$smarty.request.own_theme} style="display:none;"{/if}>
    
   <div class="col-sm-offset-3 col-sm-5"> 
   <blockquote>
@@ -58,7 +58,7 @@
     
   </div>
 </div>
-<div class="form-group theme_options" style="display:none;">
+<div class="form-group theme_options required" {if !$smarty.request.own_theme} style="display:none;"{/if}>
   <div class="col-sm-3">
     <label class="control-label" >  ##Theme Name##:</label>
   </div>
@@ -68,7 +68,7 @@
 
   </div>
 </div>
-<div class="form-group theme_options" style="display:none;">
+<div class="form-group theme_options " {if !$smarty.request.own_theme} style="display:none;"{/if}>
   <div class="col-sm-3">
     <label class="control-label" >  ##Theme Description##:</label>
   </div>
@@ -82,7 +82,9 @@
    
   <input type="hidden" name="step" value="{$step|escape}" />
 
-   <input type="submit" value="Continue &gt;&gt;" class="btn btn-primary" name="submit_button"> 
+   <input type="submit" value="Continue &gt;&gt;" class="btn btn-primary" name="submit_button">
+   <input type="submit" value="Just want to be a part of this innovation &gt;&gt;" class="btn btn-primary" name="submit_button">  
+   
 </div>
 </div>
  

@@ -29,30 +29,52 @@ function onProofSelection(){
         $('.proof_placeholder').hide();
      }
 }
+function CaptchaRefresh(){
+  $.get('captcha.php',function(response){
+    $('#captcha').prop('src',response);
+  });
+}
 function countrySelect(id){
     $.post('ajax_geo.php',{'country':id},function(response){
         objVal = JSON.parse(response);
-        conTxt = '';
-        $('#state').html('<option value="">Select State</option>');
-        $('#city').html('<option value="">Select City</option>');
+        conTxt = '<option value="">Select State</option>';
+        $('#state').html(''); 
+         
         $.each(objVal,function(i,v){
-          conTxt += '<option value='+v.id+'>'+v.name+'</option>';    
+           
+            conTxt += '<option value='+v.id+'>'+v.name+'</option>';  
+          
+              
         });
         $('#state').append(conTxt);
     });
 }
 function stateSelect(id){
+  id = parseInt(id);
     $.post('ajax_geo.php',{'state':id},function(response){
         objVal = JSON.parse(response);
         conTxt = '<option value="">Select City</option>';
+        conTxt += '<option value="addnew">Add city</option>';
         $('#city').html('');
+         // alert(id+"======called jerere");
         $.each(objVal,function(i,v){
-          conTxt += '<option value='+v.id+'>'+v.name+'</option>';    
+           
+            conTxt += '<option value='+v.id+'>'+v.name+'</option>';  
+              
         });
         $('#city').append(conTxt);
     });
 }
-
+ 
+function citySelect(id){
+   $('#citymanualoption').html('');
+  if(id == 'addnew'){
+    $('#citymanualoption').html('<input type="text" name="manualcity" class="form-control" placeholder="Enter city" />');
+  }else{
+    $('#citymanualoption').html('');
+  }
+  return true;
+}
 function getVolunteercode(email){
     $.post('ajax_code.php',{'email':email},function(response){
         alert(response);
@@ -95,11 +117,15 @@ function ownThemeOptionEnabler(){
   // });
    
 $(document).ready(function() { 
-  $('.toolinfo').hide();
+  //$('.toolinfo').hide();
   $('.pixelboard').mouseover(function() {
     // alert("testtt");
-    $('.toolinfo').show();
+    //$('.toolinfo').show();
   });
+  // var getCountry = $('#country').val();
+  // if(getCountry != ''){
+  //   countrySelect($('#country').val());
+  // }
 //     alert("tetst");     
 // $(".mentioncaption").click(function() {   
 // alert("tetst");           
@@ -110,4 +136,23 @@ $(document).ready(function() {
 //     }).mouseleave(function () {     
 //         $(".mentioncaption").removeClass('fa-6x');  
 //     });
+
+var a=0; 
+ $('#picture').bind('change', function() {
+   
+if ($('input:submit').attr('disabled',false)) {$('input:submit').attr('disabled',true);}  
+var ext = $('#picture').val().split('.').pop().toLowerCase();
+    if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1)
+    { $('#pic_error1').slideDown("slow"); $('#pic_error2').slideUp("slow"); a=0;} else { 
+    var picsize = (this.files[0].size);
+    if (picsize > 1000000)
+    { $('#pic_error2').slideDown("slow"); a=0;} else { a=1; $('#pic_error2').slideUp("slow"); }
+$('#pic_error1').slideUp("slow");
+if (a==1) {$('input:submit').attr('disabled',false);}
+}
+});
+});
+
+$(window).load(function() {
+  $("#sectionstep1").submit();
 });

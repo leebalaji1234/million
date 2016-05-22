@@ -11,8 +11,7 @@ $tbl_drawings = new Drawing;
 $tbl_user = new User;
 $tbl_parent = new Parent_Detail;
 $tbl_volunteer = new Volunteer;
-Util::captcha_create();
-$smarty->assign('captcha_url', Util::captcha_url());
+
 if ($app->setting->user_accounts) {
    $app->check_login('<p>##Please log in before proceeding##</p>');
 }
@@ -58,13 +57,18 @@ if ($app->is_post()) {
     // $app->error('##Please select a region##');
     // print_r($_REQUEST);exit;
 // 
-
-    if($_REQUEST['dob'] && $user->dob == ''){
-       $user->dob = $_REQUEST['dob'];
+$error = false;
+ 
+    if(isset($_REQUEST['dob']) && !empty($_REQUEST['dob']) && $user->dob == ''){
+      
        $req_age  = calculateAge($_REQUEST['dob']);
        if($req_age < 13){
         $parent_field_display = 'enable';
        }
+       // list($mm,$dd,$yyyy) = explode('/',trim($_REQUEST['dob']));
+       //  if (!checkdate($mm,$dd,$yyyy)) {
+       //          $error = true;
+       //  }
     } else{
       $req_age  =  $user->age;
        if($req_age < 13){
@@ -77,34 +81,38 @@ if ($app->is_post()) {
       // $code = $_REQUEST['volunteer_id']? str_replace('MDD', '', $_REQUEST['volunteer_id']):'';
       $code = $_REQUEST['volunteer_id'];
       $v = $tbl_volunteer->find('where id=?', array($code));
-      $v->drawings = $v->drawings+1;
-      $v->save();
+      // print_r($v);exit;
     }
     
-    if (isset($_REQUEST['volunteer_id']) && !empty($_REQUEST['volunteer_id']) &&  $_REQUEST['volunteer_id']){
-      if(!$v->_new_row ){
+    if (isset($_REQUEST['volunteer_id']) && !empty($_REQUEST['volunteer_id']) &&   empty($v->id)){
+
+       
         $app->error('##Volunteer code not found.##');
-      } 
+       
     } 
     else if($user->uploads == 3){
        $app->error('## maximum upload reached##');
    }else if(isset($_FILES) && empty($_FILES['file']['tmp_name'])){
-      $app->error('## Please upload drawing file##');
-    }else if(isset($_FILES) && (empty($_FILES['file']['size']) || $_FILES['file']['size'] > 2000000)){
-      $app->error('## Please upload file below 2 MB##');
+      $app->error('## Please upload art file##');
+    }else if(isset($_FILES) && (empty($_FILES['file']['size']) || $_FILES['file']['size'] > 1000000)){
+      $app->error('## Please upload file below 1 MB##');
     }else if(empty($_REQUEST['title'])){
-      $app->error('## Please enter drawing title##');
+      $app->error('## Please enter art title##');
     }else if(empty($_REQUEST['description'])){
-      $app->error('## Please enter drawing description##');
-    }else if(empty($user->dob) &&  empty($_REQUEST['dob'])){
-      $app->error('## Please enter Date of Birth mm/dd/YYYY##');
-    }else if($parent_field_display == 'enable' && empty($_REQUEST['parent_name'])){
-      
+      $app->error('## Please enter art description##');
+    }else if($user->dob =='' && $_REQUEST['dob']==''){
+       
+      $app->error('Please enter Date of Birth with format [mm/dd/YYYY]');
+    }else if(!empty($user->dob) &&  !empty($_REQUEST['dob']) && $error == true){
+      $app->error('## Please enter valid Date of Birth mm/dd/YYYY##');
+    }else if($parent_field_display == 'enable' && empty($_REQUEST['parent_name'])){      
       $app->error('## Please fill parent name##');
     }else if($parent_field_display == 'enable' && empty($_REQUEST['parent_details'])){ 
       $app->error('## Please fill parent details <address> , <phone>, <email> ..etc##');
-    }else if (@$_REQUEST['phrase'] != Util::captcha_phrase())
+    }else if (@$_REQUEST['phrase'] != Util::captcha_phrase()){
+
      $app->error('##The text from the image was not entered correctly##');
+    }
     else{
 
     if(isset($_FILES) && $_FILES['file']['tmp_name']){
@@ -130,6 +138,7 @@ if ($app->is_post()) {
         $tbl_drawings->save();
         // volunteer drawing count updation
         // user details updation 
+        $user->dob = $_REQUEST['dob'];
         $user->age = $req_age;
         $user->uploads = $user->uploads+1;
         $user->save();
@@ -139,6 +148,15 @@ if ($app->is_post()) {
         $tbl_parent->details = $_REQUEST['parent_details'];
         $tbl_parent->save();
 
+       
+        if(!empty($_REQUEST['volunteer_id']) && $_REQUEST['volunteer_id']){
+
+        $code = $_REQUEST['volunteer_id'];
+        $v = $tbl_volunteer->find('where id=?', array($code));
+         $v->drawings = $v->drawings+1;
+        $v->save();
+        // print_r($v);exit;
+        }
         // $tbl_volunteer->user_id = $_SESSION['user_id'];
         // $tbl_volunteer->drawing_id = $tbl_drawings->id;
         // $tbl_volunteer->name = $_REQUEST['volunteer_name'];
@@ -158,6 +176,7 @@ if ($app->is_post()) {
   	unset($_SESSION['drawing_image']);
   	// unset($_SESSION['proof_image']);
   }
+
  if($user->dob == ''){
       $dob_field_display  ='enable';
  }
@@ -166,6 +185,9 @@ if ($app->is_post()) {
  }
 // var_dump($dob_field_display);exit;
  // $regions = $tbl_region->find_all('where status=? and if(title=\'\',url,title) like ? order by !', array(REGION_ACTIVE, "%$q%", $order));
+
+Util::captcha_create();
+$smarty->assign('captcha_url', Util::captcha_url());
 $themes = $tbl_themes->find_all('where status !=1');  
 $vcodes = $tbl_volunteer->find_all('where status=1');
 $smarty->assign_by_ref('vcodes', $vcodes);

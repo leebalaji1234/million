@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-24 04:04:02
+<?php /* Smarty version 2.6.12, created on 2016-05-18 23:10:46
          compiled from get_pixels.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'get_pixels.tpl', 9, false),array('modifier', 'number_format', 'get_pixels.tpl', 30, false),array('function', 'start_form', 'get_pixels.tpl', 22, false),array('function', 'snippet', 'get_pixels.tpl', 27, false),array('function', 'end_form', 'get_pixels.tpl', 39, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'get_pixels.tpl', 9, false),array('modifier', 'number_format', 'get_pixels.tpl', 38, false),array('function', 'start_form', 'get_pixels.tpl', 30, false),array('function', 'snippet', 'get_pixels.tpl', 35, false),array('function', 'end_form', 'get_pixels.tpl', 47, false),)), $this); ?>
 <?php $this->assign('page_title', 'Become a Sponsor'); ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.inc.tpl", 'smarty_include_vars' => array()));
@@ -21,9 +21,17 @@ unset($_smarty_tpl_vars);
         </div>  -->
         
       <!-- title bar ends -->
-<div class="row">
+ <div class="row">
+ <div class="col-md-12">
+ <div class="well text-center">
+ <img src="images/ellipsis.gif" />
+<p> Please wait loading grid.....</p>
+ </div>
+ </div>
+ </div>     
+<div class="row" style="display: none;">
           <div class="col-md-12">
-            <div  > 
+            <div   > 
               <?php unset($this->_sections['grid']);
 $this->_sections['grid']['name'] = 'grid';
 $this->_sections['grid']['loop'] = is_array($_loop=$this->_tpl_vars['grids']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -51,7 +59,7 @@ $this->_sections['grid']['last']       = ($this->_sections['grid']['iteration'] 
 
    <!-- buy button starts -->
    <?php if ($this->_tpl_vars['grids'][$this->_sections['grid']['index']]->allow_free_paid != 'true' && $this->_tpl_vars['grids'][$this->_sections['grid']['index']]->pixel_price >= 0): ?>
-   <?php echo smarty_function_start_form(array(), $this);?>
+   <?php echo smarty_function_start_form(array('id' => 'sectionstep1'), $this);?>
 
     <input type="hidden" name="step" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['step'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 " />
@@ -155,4 +163,5 @@ $this->_sections['grid']['last']       = ($this->_sections['grid']['iteration'] 
 $this->_smarty_include(array('smarty_include_tpl_file' => "footer.inc.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
- ?>
+ ?>
+ 

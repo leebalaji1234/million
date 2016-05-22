@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.12, created on 2016-04-26 00:36:03
+<?php /* Smarty version 2.6.12, created on 2016-05-21 13:10:33
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'number_format', 'index.tpl', 14, false),array('modifier', 'escape', 'index.tpl', 14, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'number_format', 'index.tpl', 15, false),array('modifier', 'escape', 'index.tpl', 15, false),)), $this); ?>
 <?php $this->assign('meta_description', $this->_tpl_vars['app']->setting->site_description); ?>
 <?php if ($_SESSION['magnify']):  $this->assign('scripts', '/tjpzoom.js');  endif; ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -13,7 +13,8 @@ unset($_smarty_tpl_vars);
 <div class="section">
   <div class="row" >
      
-<div class="col-md-12 label label-info text-muted toolinfo" style="font-weight:bold;padding-right:0px;">
+<div class="col-md-12 label label-info text-muted toolinfo" style="font-weight:bold; ">
+<h5>1 Million Pixels . $1 Per Pixel . 50% sponsorship to Drawings</h5>
 <?php if ($this->_tpl_vars['links']): ?>
 <?php $_from = $this->_tpl_vars['links']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['link']):
@@ -22,12 +23,13 @@ unset($_smarty_tpl_vars);
 &nbsp;&nbsp;&nbsp;
 <?php endforeach; endif; unset($_from); ?>
 <?php endif; ?>
-Pixels Sold: <?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['pixels_used'])) ? $this->_run_mod_handler('number_format', true, $_tmp) : smarty_modifier_number_format($_tmp)))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+<!-- Pixels Sold: <?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['pixels_used'])) ? $this->_run_mod_handler('number_format', true, $_tmp) : smarty_modifier_number_format($_tmp)))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
  Available: <?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['pixels_avail'])) ? $this->_run_mod_handler('number_format', true, $_tmp) : smarty_modifier_number_format($_tmp)))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-&nbsp;&nbsp;<?php if ($_SESSION['magnify']): ?><a class="btn btn-default" href="index.php?magnify=0<?php if ($_REQUEST['grid'] > 1): ?>&amp;grid=<?php echo ((is_array($_tmp=$_REQUEST['grid'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));  endif; ?>"><i class="fa fa-1x fa-search-minus"></i></a><?php else: ?><a class="btn btn-default" href="index.php?magnify=1<?php if ($_REQUEST['grid'] > 1): ?>&amp;grid=<?php echo ((is_array($_tmp=$_REQUEST['grid'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));  endif; ?>"><i class="fa fa-1x fa-search-plus"></i></a><?php endif; ?>
+&nbsp;&nbsp; -->
+<!-- <?php if ($_SESSION['magnify']): ?><a class="btn btn-default" href="index.php?magnify=0<?php if ($_REQUEST['grid'] > 1): ?>&amp;grid=<?php echo ((is_array($_tmp=$_REQUEST['grid'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));  endif; ?>"><i class="fa fa-1x fa-search-minus"></i></a><?php else: ?><a class="btn btn-default" href="index.php?magnify=1<?php if ($_REQUEST['grid'] > 1): ?>&amp;grid=<?php echo ((is_array($_tmp=$_REQUEST['grid'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));  endif; ?>"><i class="fa fa-1x fa-search-plus"></i></a><?php endif; ?> -->
 </div>
 <!-- pixel board starts here -->
-  <div class="col-md-10 pixelboard">
+  <div class="col-md-10 pixelboard" style="padding-right:0px !important ;">
  
 <?php $_from = $this->_tpl_vars['rows']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['grids']):
@@ -43,10 +45,9 @@ Pixels Sold: <?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['pixe
 </map>
   <?php endif; ?>
   <!-- float: left -->
-	<div style=""<?php if ($_SESSION['magnify']): ?> onmouseover="zoom_on(event,<?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->width)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-,<?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->height)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+	<div style="" <?php if ($_SESSION['magnify']): ?> onmouseover="zoom_on(event,1200,<?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->height)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 ,'<?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->url())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-');" onmousemove="zoom_move(event);" onmouseout="zoom_off();"<?php endif; ?>><img class="img-responsive" width="100%" src="<?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->url())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+');" onmousemove="zoom_move(event);" onmouseout="zoom_off();"<?php endif; ?>><img  width="100%" src="<?php echo ((is_array($_tmp=$this->_tpl_vars['grid']->url())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 " usemap="#grid_<?php echo $this->_tpl_vars['grid']->id; ?>
 "   alt="" border="0" /></div><div style="clear: both"></div>
 
@@ -68,12 +69,12 @@ Pixels Sold: <?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['pixe
 <!-- twitter page starts here-->
   
 <div class="col-md-2  feedswidget" style="display:none;padding-left:0px;">
-  <div class="panel panel-primary" style="height:1068px;overflow-y:auto;">
+  <div class="panel panel-primary" <?php if ($_SESSION['magnify']): ?> style="height:1000px;overflow-y:auto;"<?php else: ?> style="overflow-y:auto;"<?php endif; ?>>
               <div class="panel-heading">
                 <h3 class="panel-title">
                   <i class="fa fa-fw fa-twitter"></i>Sponsor Feeds</h3>
               </div>
-              <div class="panel-body">
+              <div class="panel-body" style="height: calc(178vh - 100px);">
                 <div id="tweecool"></div>
               </div>
  </div>
@@ -98,7 +99,7 @@ Pixels Sold: <?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['pixe
           <div class="col-md-2">
            <a href="drawing.php?id=<?php echo ((is_array($_tmp=$this->_tpl_vars['d']->id)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 "> <img src="<?php echo ((is_array($_tmp=$this->_tpl_vars['d']->drawing_image)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-" class="center-block img-circle img-responsive">
+" class="center-block img-circle img-responsive" style="height:60px;" >
             <h3 class="text-center"><?php echo ((is_array($_tmp=$this->_tpl_vars['d']->title)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 </h3>
           </a>
@@ -177,4 +178,5 @@ unset($_smarty_tpl_vars);
 $this->_smarty_include(array('smarty_include_tpl_file' => 'footer.inc.tpl', 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
- ?>
+ ?>
+<script type="text/javascript" src="twitter_plugin/twitterfeeds.js"></script>

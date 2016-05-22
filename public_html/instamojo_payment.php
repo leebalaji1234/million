@@ -1,5 +1,4 @@
 <?php
-
 require_once("instamojo_plugin/instamojo.php");
 require_once('config.php');
 require_once('util.class.php'); 

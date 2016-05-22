@@ -677,3 +677,5 @@
 [23-04-2016 01:37:34 am]ERROR : PAYMENT MODULE : Payment Request Failed :()
 [23-04-2016 01:39:07 am]ERROR : PAYMENT MODULE : Payment Request Failed :Something went wrong. cURL raised an error with number: 7 and message: Failed to connect to www.instamojo.com port 443: Network is unreachable.
 
+[27-04-2016 11:01:06 pm]INFO : PAYMENT MODULE : Payment Details Received : amount[7983.29] pay_id[] url[https://www.instamojo.com/@e3006866/e26110707a5c4d1b8a205f23642304f9]
+[27-04-2016 11:48:31 pm]INFO : PAYMENT MODULE : Payment url redirects amount[7983.29] pay_id[] url[https://www.instamojo.com/@e3006866/e26110707a5c4d1b8a205f23642304f9]
