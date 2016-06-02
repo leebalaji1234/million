@@ -3,12 +3,31 @@
 require_once('config.php');
 require_once('util.class.php');
 require_once('country.class.php');
+function calculateAge($dob){
+if(isset($dob) && $dob){
+  $birthDate = $_POST['dob'];//"12/17/1987"//mm/dd/YYYY; 
+    $birthDate = explode("/", $birthDate); 
+   $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md")
+    ? ((date("Y") - $birthDate[2]) - 1)
+    : (date("Y") - $birthDate[2])); 
+   $arrage['currentage'] = $age;
+   return $age;
+} else{
+  return false;
+}
 
+}
 // if admin has not enabled user accounts, redirect to home page
 if (!$app->setting->user_accounts) $app->redirect('/index.php');
-
+$error = false;
 if ($app->is_post()) {
 	$smarty->caching = false;
+   if(isset($_REQUEST['dob']) && !empty($_REQUEST['dob'])){
+    list($mm,$dd,$yyyy) = explode('/',trim($_REQUEST['dob']));
+        if (!checkdate($mm,$dd,$yyyy)) {
+                $error = true;
+        }
+   }
   if (empty($_REQUEST['email']))
     $app->error('##Please enter your e-mail address##');
   elseif (!Util::valid_email($_REQUEST['email']))
@@ -19,10 +38,14 @@ if ($app->is_post()) {
     $app->error('##Please enter your first name##');
   if (empty($_REQUEST['last_name']))
     $app->error('##Please enter your last name##');
-  if (strlen(@$_REQUEST['pass']) < 5)
-    $app->error('##Please create a password of at least 5 characters##');
+  if (strlen(@$_REQUEST['pass']) < 8)
+    $app->error('##Please create a password of at least 8 characters##');
   elseif ($_REQUEST['pass_confirm'] != $_REQUEST['pass'])
     $app->error('##Your re-entered password does not match; please check##');
+  if($_REQUEST['dob']=='')
+    $app->error('Please enter Date of Birth with format [mm/dd/YYYY]');
+  else if( !empty($_REQUEST['dob']) && $error == true)
+    $app->error('## Please enter valid Date of Birth mm/dd/YYYY##');   
   if (empty($_REQUEST['country']))
      $app->error('##Please enter country##');
   if (empty($_REQUEST['state']))
@@ -45,6 +68,8 @@ if ($app->is_post()) {
       $user->pass = $_REQUEST['pass'];
       $user->first_name = $_REQUEST['first_name'];
       $user->last_name = $_REQUEST['last_name'];
+      $user->dob = $_REQUEST['dob'];
+      $user->age = calculateAge($_REQUEST['dob']);
       $user->country = $_REQUEST['country'];
       $user->state = $_REQUEST['state'];
       $user->city = $_REQUEST['city'];

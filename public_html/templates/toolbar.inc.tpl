@@ -9,7 +9,7 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" style="padding:3px;"><img height="50" alt="Brand" src="images/logo.png"></a>
+            <a class="navbar-brand" style="padding:3px;"><img height="50" alt="Brand" src="images/million2.jpg"></a>
           </div>
           <div class="collapse navbar-collapse" id="navbar-ex-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -37,9 +37,9 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
                 </li>
               {else}
                 <li><a href="{url|escape href='/login.php'}">##Log In##</a> </li>
-                &nbsp;&nbsp;
+                
                 <li><a href="{url|escape href='/signup.php'}">##Register##</a></li>
-                &nbsp;&nbsp;
+                
                 {/if}
               {/if} 
             </ul>

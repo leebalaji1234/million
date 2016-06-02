@@ -275,6 +275,11 @@ html1 = html1.replace('[placeholder]',url);
                     
                  }
                  var btext = "Country :"+val;
+
+                 if(val == 'Choose country'){
+                    btext = "-";
+                 }
+                 
                  dobreadcrumb(btext,'country');
                  $scope.andOperateSearch();
              }

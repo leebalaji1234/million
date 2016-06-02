@@ -98,6 +98,7 @@ function getVolunteercode(email){
  function dobreadcrumb(val,type){ 
     $('#breadcrumb').show();
    $('.'+type+"_all").show();
+   
    $('.'+type).html(val);
  }
 
@@ -117,6 +118,13 @@ function ownThemeOptionEnabler(){
   // });
    
 $(document).ready(function() { 
+
+ $('.trimtext').each(function(){
+    var str = $(this).text();
+    var obfuscated = str.substring(0, 16);
+    $(this).text(obfuscated+'...');
+ });
+
   //$('.toolinfo').hide();
   $('.pixelboard').mouseover(function() {
     // alert("testtt");
@@ -145,7 +153,7 @@ var ext = $('#picture').val().split('.').pop().toLowerCase();
     if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1)
     { $('#pic_error1').slideDown("slow"); $('#pic_error2').slideUp("slow"); a=0;} else { 
     var picsize = (this.files[0].size);
-    if (picsize > 1000000)
+    if (picsize > 2000000)
     { $('#pic_error2').slideDown("slow"); a=0;} else { a=1; $('#pic_error2').slideUp("slow"); }
 $('#pic_error1').slideUp("slow");
 if (a==1) {$('input:submit').attr('disabled',false);}

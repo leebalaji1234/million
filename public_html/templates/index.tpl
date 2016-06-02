@@ -38,8 +38,8 @@
  
 <!-- twitter page starts here-->
   
-<div class="col-md-2  feedswidget" style="display:none;padding-left:0px;">
-  <div class="panel panel-primary" {if $smarty.session.magnify} style="height:1000px;overflow-y:auto;"{else} style="max-height:1084px;overflow-y:auto;"{/if}>
+<div class="col-md-2  feedswidget" style="padding-left:0px;">
+  <div class="panel panel-primary" {if $smarty.session.magnify} style="height:1000px;overflow-y:auto;"{else} style="height:1084px;overflow-y:auto;"{/if}>
               <div class="panel-heading">
                 <h3 class="panel-title">
                   <i class="fa fa-fw fa-twitter"></i>Sponsor Feeds</h3>

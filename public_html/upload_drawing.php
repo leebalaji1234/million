@@ -59,7 +59,7 @@ if ($app->is_post()) {
 // 
 $error = false;
  
-    if(isset($_REQUEST['dob']) && !empty($_REQUEST['dob']) && $user->dob == ''){
+    if(isset($_REQUEST['dob']) && !empty($_REQUEST['dob'])){
       
        $req_age  = calculateAge($_REQUEST['dob']);
        if($req_age < 13){
@@ -70,7 +70,7 @@ $error = false;
        //          $error = true;
        //  }
     } else{
-      $req_age  =  $user->age;
+      $req_age  =  calculateAge($user->dob); //$user->age;
        if($req_age < 13){
         $parent_field_display = 'enable';
        }
@@ -138,8 +138,8 @@ $error = false;
         $tbl_drawings->save();
         // volunteer drawing count updation
         // user details updation 
-        $user->dob = $_REQUEST['dob'];
-        $user->age = $req_age;
+        // $user->dob = $_REQUEST['dob'];
+        // $user->age = $req_age;
         $user->uploads = $user->uploads+1;
         $user->save();
         $tbl_parent->user_id = $_SESSION['user_id'];

@@ -1,5 +1,13 @@
 {assign var="page_title" value="##Sign Up##"}
 {include file="header.inc.tpl"}
+<link rel="stylesheet" href="custom_lib/datepicker/css/datepicker.css" type="text/css" />
+ 
+ 
+
+<script type="text/javascript" src="custom_lib/datepicker/js/datepicker.js"></script>
+<script type="text/javascript" src="custom_lib/datepicker/js/eye.js"></script>
+<script type="text/javascript" src="custom_lib/datepicker/js/utils.js"></script>
+<script type="text/javascript" src="custom_lib/datepicker/js/layout.js?ver=1.0.2"></script>
 <div class="section">
   <div class="container">
   <div class="row">
@@ -58,7 +66,7 @@
                       <label   class="control-label">##Password##</label> 
                      </div>
                       <div class="col-md-5">
-                      <input type="password" name="pass" size="20" class="form-control" palceholder="password here ..." value="{$smarty.request.pass|escape}"  />##(Must be at least 5 characters long)##
+                      <input type="password" name="pass" size="20" class="form-control" palceholder="password here ..." value="{$smarty.request.pass|escape}"  />##(Must be at least 8 characters long)##
                     </div>
                   </div>
                   <div class="form-group required">
@@ -66,9 +74,21 @@
                       <label   class="control-label">##Confirm Password##</label> 
                      </div>
                       <div class="col-md-5">
-                      <input type="password" name="pass_confirm" size="20" class="form-control" palceholder="confirm password here ..." value="{$smarty.request.pass_confirm|escape}"  />##(Must be at least 5 characters long)##
+                      <input type="password" name="pass_confirm" size="20" class="form-control" palceholder="confirm password here ..." value="{$smarty.request.pass_confirm|escape}"  />##(Must be at least 8 characters long)##
                     </div>
                   </div>
+                   <!-- dob -->
+                   
+                  <div class="form-group required">
+                    <div class="col-sm-2">
+                      <label for="inputDate" class="control-label">## Date of Birth##</label>
+                    </div>
+                    <div class="col-sm-5">  
+                     <input name="dob"   id="inputDate" class="form-control inputDate" placeholder="mm/dd/YYYY"  value="01/01/2016" onchange="ajaxCallToCreateAge(this.value);"   />
+                     <small>mm/dd/YYYY</small>
+                    </div>
+                  </div>
+                    
                   <div class="form-group required">
                      <div class="col-md-2">
                       <label   class="control-label">##Country##</label> 

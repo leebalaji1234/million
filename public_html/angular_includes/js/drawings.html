@@ -11,7 +11,7 @@
           <h4 ng-click="onDoClick(drawing.id)"><a class="text-primary" data-toggle="modal" data-target="#model_{{drawing.id}}" >{{drawing.title}}</a><span ng-class="{'sponsor-success':drawing.is_sponsored}" ng-show="drawing.is_sponsored"><i class="fa fa-fw fa-graduation-cap fa-1x"></i></span></h4>
          <!--  <p style="word-wrap: break-word;">{{drawing.description}}
           </p> -->
-          <p class="text-left text-success"><i class="fa fa-fw fa-child "></i> {{drawing.username}}</p>
+          <p class="text-left text-success trimtext" style="min-height:71px;" ><i class="fa fa-fw fa-child "></i> {{drawing.username}}</p>
           <p class="text-default">
             <i class="mentioncaption fa fa-fw fa-hand-o-up " onmouseout="$(this).removeClass('text-primary');" ng-click="onDoClick(drawing.id)" onmouseover="$(this).addClass('text-primary');"></i><span id="click_{{drawing.id}}">{{drawing.clicks}}</span> 
             &nbsp; &nbsp;&nbsp;

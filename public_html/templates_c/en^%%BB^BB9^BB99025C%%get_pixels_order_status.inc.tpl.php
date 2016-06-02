@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-18 23:39:35
+<?php /* Smarty version 2.6.12, created on 2016-06-01 23:55:15
          compiled from get_pixels_order_status.inc.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'snippet', 'get_pixels_order_status.inc.tpl', 7, false),array('function', 'url', 'get_pixels_order_status.inc.tpl', 45, false),array('modifier', 'escape', 'get_pixels_order_status.inc.tpl', 7, false),array('modifier', 'number_format', 'get_pixels_order_status.inc.tpl', 8, false),)), $this); ?>
@@ -59,7 +59,10 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'snippet', '
 </div>
 </div>
 <?php endif; ?>
-<!-- <p class="text-right"><button class="btn btn-primary" onclick="window.history.back();">Back</button></p> -->
+<?php $this->assign('c', $this->_tpl_vars['order_status']['step']-1); ?>
+<p class="text-right"> <a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => "/get_pixels.php"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
+?step=<?php echo ((is_array($_tmp=$this->_tpl_vars['c'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+" class="btn btn-primary">Back</a></p>
 
 <!-- 
 

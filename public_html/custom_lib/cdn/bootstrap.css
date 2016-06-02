@@ -4061,7 +4061,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
+  min-height: 54px;
   margin-bottom: 0px;
   border: 1px solid transparent;
 }
@@ -6769,4 +6769,14 @@ body {
 .form-group.required .control-label:after {
   content:"*";
   color:red;
+}
+
+.text-white {
+  color: white;
+  font-weight: 400;
+}
+.text-white-heading {
+  color: white;
+  font-weight: 900;
+  font-style: italic;
 }

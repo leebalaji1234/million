@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-21 13:10:33
+<?php /* Smarty version 2.6.12, created on 2016-05-22 13:52:41
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'number_format', 'index.tpl', 15, false),array('modifier', 'escape', 'index.tpl', 15, false),)), $this); ?>
@@ -14,7 +14,7 @@ unset($_smarty_tpl_vars);
   <div class="row" >
      
 <div class="col-md-12 label label-info text-muted toolinfo" style="font-weight:bold; ">
-<h5>1 Million Pixels . $1 Per Pixel . 50% sponsorship to Drawings</h5>
+<h5 style="font-weight: 900;">1 Million Pixels . $1 Per Pixel . 50% sponsorship to Drawings</h5>
 <?php if ($this->_tpl_vars['links']): ?>
 <?php $_from = $this->_tpl_vars['links']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['link']):
@@ -68,13 +68,13 @@ unset($_smarty_tpl_vars);
  
 <!-- twitter page starts here-->
   
-<div class="col-md-2  feedswidget" style="display:none;padding-left:0px;">
-  <div class="panel panel-primary" <?php if ($_SESSION['magnify']): ?> style="height:1000px;overflow-y:auto;"<?php else: ?> style="overflow-y:auto;"<?php endif; ?>>
+<div class="col-md-2  feedswidget" style="padding-left:0px;">
+  <div class="panel panel-primary" <?php if ($_SESSION['magnify']): ?> style="height:1000px;overflow-y:auto;"<?php else: ?> style="height:1084px;overflow-y:auto;"<?php endif; ?>>
               <div class="panel-heading">
                 <h3 class="panel-title">
                   <i class="fa fa-fw fa-twitter"></i>Sponsor Feeds</h3>
               </div>
-              <div class="panel-body" style="height: calc(178vh - 100px);">
+              <div class="panel-body"  >
                 <div id="tweecool"></div>
               </div>
  </div>

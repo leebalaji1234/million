@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-18 23:46:59
+<?php /* Smarty version 2.6.12, created on 2016-06-01 23:09:39
          compiled from account_details.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'account_details.tpl', 7, false),array('function', 'show_errors', 'account_details.tpl', 11, false),array('function', 'start_form', 'account_details.tpl', 12, false),array('function', 'end_form', 'account_details.tpl', 83, false),)), $this); ?>
@@ -26,8 +26,8 @@ unset($_smarty_tpl_vars);
     <label class="control-label" >First Name:</label>
   </div>
   <div class="col-sm-5"> 
-   <input name="first_name" class="form-control" size="20" value="<?php echo ((is_array($_tmp=$_REQUEST['first_name'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-" />
+  <p   class="form-control" ><?php echo ((is_array($_tmp=$_REQUEST['first_name'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</p>
   </div>
 </div>
 <div class="form-group">
@@ -35,8 +35,8 @@ unset($_smarty_tpl_vars);
     <label class="control-label" >Last Name:</label>
   </div>
   <div class="col-sm-5"> 
-   <input name="last_name" class="form-control" size="20" value="<?php echo ((is_array($_tmp=$_REQUEST['last_name'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-" />
+   <p   class="form-control" ><?php echo ((is_array($_tmp=$_REQUEST['last_name'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</p>
   </div>
 </div>
 <div class="form-group">

@@ -15,7 +15,7 @@
     <label class="control-label" >##First Name##:</label>
   </div>
   <div class="col-sm-5"> 
-   <input name="first_name" class="form-control" size="20" value="{$smarty.request.first_name|escape}" />
+  <p   class="form-control" >{$smarty.request.first_name|escape}</p>
   </div>
 </div>
 <div class="form-group">
@@ -23,7 +23,7 @@
     <label class="control-label" >##Last Name##:</label>
   </div>
   <div class="col-sm-5"> 
-   <input name="last_name" class="form-control" size="20" value="{$smarty.request.last_name|escape}" />
+   <p   class="form-control" >{$smarty.request.last_name|escape}</p>
   </div>
 </div>
 <div class="form-group">

@@ -46,7 +46,8 @@
 </div>
 </div>
 {/if}
-<!-- <p class="text-right"><button class="btn btn-primary" onclick="window.history.back();">Back</button></p> -->
+{assign var='c' value=$order_status.step-1}
+<p class="text-right"> <a href="{url|escape href='/get_pixels.php}?step={$c|escape}" class="btn btn-primary">Back</a></p>
 
 <!-- 
 

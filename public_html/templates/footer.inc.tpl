@@ -1,13 +1,13 @@
 <!-- footer -->
 <div class="section">
-  <div class="navbar navbar-default navbar-fixed-bottom" style="-webkit-box-shadow:inset 22px 22px 22px 22px #FC3059;
-box-shadow:inset 22px 22px 22px 22px #ffffff;">
+  <div class="navbar navbar-default navbar-fixed-bottom"  style="font-size:7pt;">
         <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand"><span>Copyright@2016 milliondollardrawings.com</span></a>
-          </div>
-          <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+           
+          <div class="collapse navbar-collapse" id="navbar-ex-collapse" >
             <ul class="nav navbar-nav navbar-right">
+            <li>
+             <a  ><span>Copyright@2016 milliondollardrawings.com</span></a>
+            </li>
               <li>
                 <a href="index.php#drawings">Top Drawings</a>
               </li>
@@ -18,25 +18,36 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
                 <a href="index.php#volunteers">Top Volunteers</a>
               </li>
               <li>
-                <a href="#">Press</a>
+                <a href="about.php">About</a>
+              </li>
+               <li>
+                <a href="themes.php">Theme Descriptions</a>
+              </li> 
+             
+              <li>
+                <a href="faq.php">FAQ</a>
+              </li>
+               
+              <li>
+                <a href="press.php">Press</a>
               </li>
               <li>
-                <a href="#">FAQ</a>
+                <a href="testimonials.php">Testimonials</a>
+              </li>
+               <li>
+                <a href="privacy.php">Privacy Policy </a>
+              </li>
+               <li>
+                <a href="terms.php">Terms & Conditions </a>
               </li>
               <li>
-                <a href="#">Press</a>
-              </li>
-              <li>
-                <a href="#">Testimonials</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
+                <a href="contact.php">Contact</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
       </div>
-    </div>
+     
   </body>
 </html>

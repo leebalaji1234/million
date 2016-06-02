@@ -101,7 +101,7 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
               </li>
               <?php if($app->setting->user_accounts) {?>
                 <?php if($_SESSION['user_id']) {?>
-                <li> <a href="account.php">Welcome, <strong><?php echo $_SESSION['first_name']."  ". $_SESSION['last_name']; ?></strong></a>
+                <li> <a href="account.php" class="trimtext">Welcome, <strong><?php echo $_SESSION['first_name']."  ". $_SESSION['last_name']; ?></strong></a>
                 </li>
                  
                 <li>

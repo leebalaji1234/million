@@ -1,8 +1,14 @@
+<ul class="nav nav-pills nav-stacked">
+<li class="label-default" >
+ <a href="#" class="text-white-heading"  > <u>Drawing Themes</u> </a>
+</li>
+<li class="divider"></li>  
+</ul>
 <ul class="nav nav-pills nav-stacked" ng-repeat="theme in themes">
           <!-- {foreach item=theme from=$themes}  -->
             <li class="hastheme label-default text-default"  onclick="$('.hastheme').removeClass('active');$('.hastheme1').removeClass('active');$(this).addClass('active');" >
               <!-- <a href="#">{$theme->name}</a> -->
-             <a href="#" onclick="getToggle(this);return void(0);"    >{{theme.name}}
+             <a href="#" onclick="getToggle(this);return void(0);"  class="text-white"  >{{theme.name}}
 
              	<span style="float:right;" ng-show="theme.themes"><i class="fa fa-caret-right"></i><span>
 

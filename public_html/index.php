@@ -98,9 +98,9 @@ while (!empty($grids)) {
 }
 $tbldrawings = new Drawing;
 $tblv = new Volunteer;
-$alldrawings = $tbldrawings->find_all('where status !=1 order by likes desc limit 6');
+$alldrawings = $tbldrawings->find_all('where status !=1 order by likes desc limit 10');
 // print_r($alldrawings);exit;
-$allvolunteers = $tblv->find_all('where status =1 order by drawings desc limit 6');
+$allvolunteers = $tblv->find_all('where status =1 order by drawings desc limit 10');
 $smarty->assign_by_ref('alldrawings', $alldrawings);
 $smarty->assign_by_ref('allvolunteers', $allvolunteers);
 

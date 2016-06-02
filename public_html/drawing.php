@@ -11,7 +11,7 @@ require_once('region.class.php');
 require_once('payment.class.php');
 
 
-if (isset($_GET) && $_GET['id']) { 
+if (isset($_REQUEST) && $_REQUEST) { 
 
 $tbl_themes = new Theme;
 $tbl_drawings = new Drawing;
@@ -21,7 +21,7 @@ $tbl_volunteer = new Volunteer;
 $tbl_sponsors = new Payment;
 $tbl_regions = new Region;
   $carr = [];
-  $drawings = $tbl_drawings->get($_GET['id']);  
+  $drawings = $tbl_drawings->get($_REQUEST['id']);  
   if($drawings->id){
     $userdetail = $tbl_user->find(array('id',$drawings->user_id));
   $s = $tbl_sponsors->find_all("where drawing_id=? and is_completed=1",array($drawings->id));
@@ -67,6 +67,7 @@ $tbl_regions = new Region;
 }
   $cobj = (object)$carr;
 
-$smarty->assign_by_ref('drawing',$cobj);  
+$smarty->assign_by_ref('drawing',$cobj); 
+  $smarty->clear_all_cache(); 
 $smarty->display('drawing.tpl'); 
 ?>

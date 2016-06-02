@@ -1,19 +1,12 @@
 {assign var="page_title" value="##Upload Art##"}
 {include file="header.inc.tpl"}
-<link rel="stylesheet" href="custom_lib/datepicker/css/datepicker.css" type="text/css" />
- 
- 
 
-<script type="text/javascript" src="custom_lib/datepicker/js/datepicker.js"></script>
-<script type="text/javascript" src="custom_lib/datepicker/js/eye.js"></script>
-<script type="text/javascript" src="custom_lib/datepicker/js/utils.js"></script>
-<script type="text/javascript" src="custom_lib/datepicker/js/layout.js?ver=1.0.2"></script>
 <div class="section">
   <div class="container">
 <!-- <h1>{$page_title|escape}</h1> -->  
 {show_errors}
 {start_form enctype="multipart/form-data" class="form-horizontal"}
-<input type="hidden" name="MAX_FILE_SIZE" value="100000" /> 
+<input type="hidden" name="MAX_FILE_SIZE" value="200000" /> 
 {if $app->setting->upload_images} 
 <!--  <div class="col-md-12">
             <span class="alert alert-dismissable alert-info">
@@ -42,7 +35,7 @@ format and resized to the region size of## {$smarty.request.w|escape} x
                     <div class="col-sm-5"> 
                       <input  class="form-control"   name="file" type="file" size="180" id="picture" required />
                       <p id="pic_error1" style="display:none; color:#FF0000;">Image formats should be JPG, JPEG, PNG or GIF.</p>
-   <p id="pic_error2" style="display:none; color:#FF0000;">Max file size should be 1MB.</p>
+   <p id="pic_error2" style="display:none; color:#FF0000;">Max file size should be 2MB.</p>
                     </div>
                   </div>
                   <div class="form-group required">
@@ -77,7 +70,7 @@ format and resized to the region size of## {$smarty.request.w|escape} x
                   
                   <!-- dob -->
                   {if $dobdisplay == 'enable'}
-                  <div class="form-group required">
+                  <!-- <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="inputDate" class="control-label">## Date of Birth##</label>
                     </div>
@@ -85,7 +78,7 @@ format and resized to the region size of## {$smarty.request.w|escape} x
                      <input name="dob"   id="inputDate" class="form-control inputDate" placeholder="mm/dd/YYYY"  value="01/01/2016" onchange="ajaxCallToCreateAge(this.value);"   />
                      <small>mm/dd/YYYY</small>
                     </div>
-                  </div>
+                  </div> -->
                    {/if}
                    <!-- parent -->
                     {if $parentdisplay == 'enable'}

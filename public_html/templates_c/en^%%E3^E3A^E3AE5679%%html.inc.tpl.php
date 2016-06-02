@@ -1,13 +1,16 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-18 23:07:09
+<?php /* Smarty version 2.6.12, created on 2016-05-22 13:42:44
          compiled from html.inc.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'html.inc.tpl', 2, false),array('modifier', 'default', 'html.inc.tpl', 2, false),array('function', 'url', 'html.inc.tpl', 13, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'html.inc.tpl', 2, false),array('modifier', 'default', 'html.inc.tpl', 2, false),array('function', 'url', 'html.inc.tpl', 16, false),)), $this); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['language_code'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)))) ? $this->_run_mod_handler('default', true, $_tmp, 'en') : smarty_modifier_default($_tmp, 'en')); ?>
 " lang="<?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['language_code'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)))) ? $this->_run_mod_handler('default', true, $_tmp, 'en') : smarty_modifier_default($_tmp, 'en')); ?>
 ">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php if ($this->_tpl_vars['meta_description']): ?>
   <meta name="description" content="<?php echo ((is_array($_tmp=$this->_tpl_vars['meta_description'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>

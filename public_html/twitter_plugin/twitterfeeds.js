@@ -11,7 +11,7 @@ $(document).ready(function(){
     });
     setTimeout(function(){
         mytweet('@Gazal_Sathiya','1');
-        $('.feedswidget').toggle("slide");
+        // $('.feedswidget').toggle("slide");
         // $('.pixelboard').removeClass('col-md-12'); 
         // $('.pixelboard').addClass('col-md-10');
         $.each(alltwitters,function(i,v){
@@ -42,7 +42,7 @@ function mytweet(screenname,count) {
             html += ' <p style="width:100%;"  > <span style="width:100%;height:100%;float:left" ><a href="https://twitter.com/' + screenname + '/status/'+item.id_str+'" target="_blank"><img style="border-radius:26px;" src="' + data.user.profile_image_url + '">'+ urltag('@' + data.user.screen_name) +'</a> </span><span >'+  urltag(data.tweets[i].text) + ' <span class="created_at">' + xTimeAgo(data.tweets[i].timestamp) + '</span></span></p>';
             html += '<br/><hr />';
         });
-        $('#tweecool').prepend(html);
+        $('#tweecool').hide().prepend(html).fadeIn(500);
     });
 }
 

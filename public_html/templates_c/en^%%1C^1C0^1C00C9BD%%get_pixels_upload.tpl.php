@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-18 23:39:35
+<?php /* Smarty version 2.6.12, created on 2016-06-01 23:46:07
          compiled from get_pixels_upload.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'get_pixels_upload.tpl', 9, false),array('function', 'show_errors', 'get_pixels_upload.tpl', 15, false),array('function', 'start_form', 'get_pixels_upload.tpl', 16, false),array('function', 'end_form', 'get_pixels_upload.tpl', 60, false),)), $this); ?>
@@ -29,7 +29,7 @@ unset($_smarty_tpl_vars);
 
 <?php echo smarty_function_start_form(array('enctype' => "multipart/form-data",'class' => "form-horizontal"), $this);?>
 
-<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+<input type="hidden" name="MAX_FILE_SIZE" value="200000" />
 <?php if ($this->_tpl_vars['app']->setting->upload_images): ?>
 <blockquote>
 <p class="text-warning">Upload a GIF, JPG, or PNG image. It will automatically be converted to PNG
@@ -46,7 +46,7 @@ format and resized to the region size of <?php echo ((is_array($_tmp=$_REQUEST['
   <div class="col-sm-5"> 
    <input name="file" type="file" size="80" id="picture" required />
    <p id="pic_error1" style="display:none; color:#FF0000;">Image formats should be JPG, JPEG, PNG or GIF.</p>
-   <p id="pic_error2" style="display:none; color:#FF0000;">Max file size should be 1MB.</p>
+   <p id="pic_error2" style="display:none; color:#FF0000;">Max file size should be 2MB.</p>
   </div>
 </div>
  
