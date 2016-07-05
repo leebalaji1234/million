@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-21 13:07:06
+<?php /* Smarty version 2.6.12, created on 2016-06-10 02:47:39
          compiled from header.inc.tpl */ ?>
 <?php $this->assign('stylesheets', '/style.css'); ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;

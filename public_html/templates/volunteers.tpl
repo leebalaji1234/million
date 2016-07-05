@@ -82,7 +82,31 @@
                       </select>
                     </div>
                   </div>
+
                   <div class="form-group required">
+                     <div class="col-md-2">
+                      <label   class="control-label">##State##</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <select name="state" id="state" class="form-control" onchange="stateSelect(this.value);"> 
+                         
+                      </select>
+                    </div>
+                  </div>
+                   <div class="form-group required">
+                     <div class="col-md-2">
+                      <label   class="control-label">##City##</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <select name="city" id="city" class="form-control" onchange="citySelect(this.value);" > 
+                         
+                      </select>
+                       <span id="citymanualoption" > 
+                       
+                       </span>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="desc" class="control-label">##State##  </label>
                     </div>
@@ -112,7 +136,7 @@
                       <input type="text" name="manualcity" class="form-control" placeholder="Enter city" value="{$smarty.request.manualcity|escape}"/>
                       {/if} </span>
                     </div>
-                  </div>
+                  </div> -->
                   
                 {if $captcha_url}
                <div class="form-group ">

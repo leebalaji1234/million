@@ -1,6 +1,5 @@
 233
-a:4:{s:8:"template";a:5:{s:9:"about.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolbar.inc.tpl";b:1;s:14:"header.inc.tpl";b:1;s:14:"footer.inc.tpl";b:1;}s:9:"timestamp";i:1464895191;s:7:"expires";i:1464898791;s:13:"cache_serials";a:0:{}} 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+a:4:{s:8:"template";a:5:{s:9:"login.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolbar.inc.tpl";b:1;s:14:"header.inc.tpl";b:1;s:14:"footer.inc.tpl";b:1;}s:9:"timestamp";i:1467230993;s:7:"expires";i:1467234593;s:13:"cache_serials";a:0:{}}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
@@ -12,7 +11,7 @@ a:4:{s:8:"template";a:5:{s:9:"about.tpl";b:1;s:12:"html.inc.tpl";b:1;s:15:"toolb
   <link rel="alternate" type="application/rss+xml" title= "Latest Pixels" href="http://localhost/gp/public_html/rss_latest_pixels.php" />
   <link rel="alternate" type="application/rss+xml" title= "Top Pixels" href="http://localhost/gp/public_html/rss_top_pixels.php" />
   <link rel="alternate" type="application/rss+xml" title= "Blog Articles" href="http://localhost/gp/public_html/rss_blog_articles.php" />
-  <title>MD - About</title>
+  <title>MD - Login</title>
 
   <!-- drawing module dependencies -->
    <script type="text/javascript" src="custom_lib/cdn/jquery.min.js"></script>
@@ -56,7 +55,7 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
               <li >
                 <a href="http://localhost/gp/public_html/index.php"><i class="fa fa-home"></i></a>
               </li>
-              <li class="active">
+              <li >
                 <a href="get_pixels.php?step=2">Become Sponsor !</a>
               </li>
               <li>
@@ -65,9 +64,9 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
                <li >
                 <a href="http://localhost/gp/public_html/volunteer.php">Volunteers</a>
               </li>
-                                              <li><a href="http://localhost/gp/public_html/login.php">Log In</a> </li>
+                                              <li  class="active" ><a href="http://localhost/gp/public_html/login.php">Log In</a> </li>
                 
-                <li><a href="http://localhost/gp/public_html/signup.php">Register</a></li>
+                <li ><a href="http://localhost/gp/public_html/signup.php">Register</a></li>
                 
                                
             </ul>
@@ -79,13 +78,66 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
 <div>
 <div class="section">
   <div class="container">
-<h3>About</h3>  
+ 	<div class="row">
+ 		<!-- <h3 class="text-center"><strong>Login</strong></h3>
+ 		<hr/> -->
+ 		<div class="col-md-12">
+<p class="text-danger text-center"></p>
+
+
+
+<p class="text-danger text-center"></p>
+<form method="post" action="/gp/public_html/login.php" class="form-horizontal">
+
+ <!--  <div class="alert alert-primary col-md-10 text-center">
+        <button contenteditable="false" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Thanks for Register to us!</strong> You will be receive an email with your code. You can use code on the upload art
+      </div> -->
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <span class="text-primary"> <strong>Login</strong> </span>
+              </div>
+              <div class="panel-body">
+             
+                  <div class="form-group required">
+                     <div class="col-sm-offset-3  col-md-5">
+                      <label   class="control-label">Email</label> 
+                     
+                      <input  name="email"   class="form-control" palceholder="Enter email ..." value="" />
+                    </div>
+                  </div>
+                  <div class="form-group required">
+                    <div class="col-sm-offset-3  col-md-5"> 
+                      <label  class="control-label">Password</label>
+                    
+                    
+                      <input type="password" name="pass"  class="form-control" palceholder="Enter password ..."  />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-10">
+                    <label><input type="checkbox" name="rememberme"></input> Remember Me</label>
+                    </div>
+                  </div>
+                     
+                   
+                  <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-10">
+                      <input name="submit_button" type="submit" class="btn btn-primary" value="Sign In &gt;&gt;" /> 
+                     </br>
+                   <a href="http://localhost/gp/public_html/retrieve_password.php">Forgot your Password?</a>
+                   <p>Don't have an account? <a href="http://localhost/gp/public_html/signup.php">Sign Up Now</a>.</p>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          
  
-  
-<div class="row">
-  <div class="col-md-12 well">
-         <p>loreum ipsum text loreum ipsum text loreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum textloreum ipsum text</p>  
-  </div> 
+ 
+</form>
+</div>
 </div>
 </div>
 </div>
@@ -141,4 +193,4 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
       </div>
      
   </body>
-</html> 
+</html>

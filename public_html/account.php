@@ -53,10 +53,11 @@ foreach($drawings as $drawing){
  // 	}
  // }
 // print_r($allSponsor);exit;
- 
+$smarty->clear_cache('account.tpl'); 
+$smarty->clear_all_cache(); 
 $smarty->assign_by_ref('allSponsor', $allSponsor); 
 $smarty->assign_by_ref('drawings', $drawings);
 $smarty->assign_by_ref('user', $user); 
-$smarty->display('account.tpl', 'account|'.$cache_id);
+$smarty->display('account.tpl');
 
 ?>

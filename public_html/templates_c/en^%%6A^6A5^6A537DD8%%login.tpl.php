@@ -1,8 +1,9 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-18 23:36:13
+<?php /* Smarty version 2.6.12, created on 2016-06-30 00:22:02
          compiled from login.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'login.tpl', 6, false),array('function', 'show_errors', 'login.tpl', 13, false),array('function', 'start_form', 'login.tpl', 14, false),array('function', 'url', 'login.tpl', 47, false),array('function', 'end_form', 'login.tpl', 57, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'login.tpl', 7, false),array('function', 'show_errors', 'login.tpl', 14, false),array('function', 'start_form', 'login.tpl', 15, false),array('function', 'url', 'login.tpl', 54, false),array('function', 'end_form', 'login.tpl', 64, false),)), $this); ?>
 <?php $this->assign('page_title', 'Login'); ?>
+<?php $this->assign('pagename', 'login'); ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.inc.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -49,6 +50,12 @@ unset($_smarty_tpl_vars);
                     
                     
                       <input type="password" name="pass"  class="form-control" palceholder="Enter password ..."  />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-10">
+                    <label><input type="checkbox" name="rememberme"></input> Remember Me</label>
                     </div>
                   </div>
                      

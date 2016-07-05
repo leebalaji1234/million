@@ -87,9 +87,10 @@
         </div>
         <div class="row">
        
-          {foreach item=d from=$alldrawings}
+          {foreach item=d from=$allsponsors}
           <div class="col-md-2">
-            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="center-block img-circle img-responsive" class="center-block img-circle img-responsive">
+            
+            <img src="{url|escape href='/session_image.php'}?x={$smarty.now|escape}&r={$d->id|escape}"  class="center-block img-circle img-responsive" class="center-block img-circle img-responsive"/>
             <h3 class="text-center">{$d->title|escape}</h3>
            
             <!-- <p class="text-center">View</a></p> -->

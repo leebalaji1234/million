@@ -1,4 +1,5 @@
 {assign var="page_title" value="##Your Account##"}
+{assign var="pagename" value="account"}
 {include file="header.inc.tpl"}
 <div class="section">
   <div class="container">

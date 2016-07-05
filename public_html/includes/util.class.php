@@ -311,6 +311,7 @@ class Util
       // error_reporting(E_ALL);
       // ini_set('display_errors',1);
       // echo @$_FILES['file']['tmp_name'];exit;
+    
     	if (!is_uploaded_file(@$_FILES[$name]['tmp_name'])
         || @$_FILES[$name]['size'] == 0) {
         $app->error('##Please upload a valid file##');

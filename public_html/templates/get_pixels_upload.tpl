@@ -14,7 +14,7 @@
 
 {show_errors}
 {start_form enctype="multipart/form-data" class="form-horizontal"}
-<input type="hidden" name="MAX_FILE_SIZE" value="200000" />
+ 
 {if $app->setting->upload_images}
 <blockquote>
 <p class="text-warning">##Upload a GIF, JPG, or PNG image. It will automatically be converted to PNG
@@ -27,7 +27,7 @@ format and resized to the region size of## {$smarty.request.w|escape} x
     <label class="control-label" >##Image File##:</label>
   </div>
   <div class="col-sm-5"> 
-   <input name="file" type="file" size="80" id="picture" required />
+   <input name="file" type="file" size="80" id="picture" value="" required />
    <p id="pic_error1" style="display:none; color:#FF0000;">Image formats should be JPG, JPEG, PNG or GIF.</p>
    <p id="pic_error2" style="display:none; color:#FF0000;">Max file size should be 2MB.</p>
   </div>

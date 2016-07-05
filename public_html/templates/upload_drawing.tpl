@@ -6,7 +6,6 @@
 <!-- <h1>{$page_title|escape}</h1> -->  
 {show_errors}
 {start_form enctype="multipart/form-data" class="form-horizontal"}
-<input type="hidden" name="MAX_FILE_SIZE" value="200000" /> 
 {if $app->setting->upload_images} 
 <!--  <div class="col-md-12">
             <span class="alert alert-dismissable alert-info">

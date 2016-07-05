@@ -9,6 +9,10 @@ require_once('config.php');
 require_once('grid.class.php');
 require_once('drawing.class.php');
 require_once('volunteer.class.php');
+require_once('payment.class.php');
+require_once('region.class.php');
+ 
+
 //clean cache init
 unset($grid);
 
@@ -100,9 +104,24 @@ $tbldrawings = new Drawing;
 $tblv = new Volunteer;
 $alldrawings = $tbldrawings->find_all('where status !=1 order by likes desc limit 10');
 // print_r($alldrawings);exit;
+ $tblp = new Payment;
+ $tblr = new Region;
+$res =& $db->query("select r.id,r.email,r.title from mp_payments as p INNER JOIN mp_regions as r ON (p.region_id = r.id) where p.drawing_id != '' group by p.region_id order by p.amount desc limit 10");
+  // $row =& $res->fetchRow(DB_FETCHMODE_ASSOC); 
+// $row =& $res->fetchRow(DB_FETCHMODE_ASSOC); 
+$allSponsors = [];
+  while ($row =& $res->fetchRow(DB_FETCHMODE_OBJECT)) {
+     $allSponsors[] = $row;
+ }
+   
+  
 $allvolunteers = $tblv->find_all('where status =1 order by drawings desc limit 10');
+
+  $smarty->clear_all_cache(); 
+
 $smarty->assign_by_ref('alldrawings', $alldrawings);
 $smarty->assign_by_ref('allvolunteers', $allvolunteers);
+$smarty->assign_by_ref('allsponsors', $allSponsors);
 
 $smarty->assign('rows', $rows);
 $smarty->display('index.tpl', 'index|'.(int)$_SESSION['magnify'].'|'.(int)$grid.'|'.$cache_id);

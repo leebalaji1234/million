@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-22 13:47:48
+<?php /* Smarty version 2.6.12, created on 2016-06-30 01:39:53
          compiled from toolbar.inc.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'toolbar.inc.tpl', 17, false),array('modifier', 'escape', 'toolbar.inc.tpl', 17, false),)), $this); ?>
@@ -21,23 +21,23 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
                 <a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/index.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
 "><i class="fa fa-home"></i></a>
               </li>
-              <li class="active">
+              <li <?php if ($this->_tpl_vars['pagename'] == ''): ?> class="active"<?php endif; ?>>
                 <a href="get_pixels.php?step=2">Become Sponsor !</a>
               </li>
               <li>
                 <a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/drawings.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
 ">Drawings</a>
               </li>
-               <li <?php if (pagename == 'volunteer'): ?> class="active" <?php endif; ?>>
+               <li <?php if ($this->_tpl_vars['pagename'] == 'volunteer'): ?> class="active" <?php endif; ?>>
                 <a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/volunteer.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
 ">Volunteers</a>
               </li>
               <?php if ($this->_tpl_vars['app']->setting->user_accounts): ?>
                 <?php if ($_SESSION['user_id']): ?>
-                <li> <a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/account.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
-">Welcome,  <?php echo $_SESSION['first_name']; ?>
+                <li <?php if ($this->_tpl_vars['pagename'] == 'account'): ?> class="active" <?php endif; ?>> <a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/account.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
+"><!-- Welcome,  <?php echo $_SESSION['first_name']; ?>
  <?php echo $_SESSION['last_name']; ?>
- </a>
+ --> My Profile</a>
                 </li>
                <!--  <li>
                 <a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/account.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
@@ -48,10 +48,10 @@ box-shadow:inset 22px 22px 22px 22px #ffffff;">
 ">Log Out</a>
                 </li>
               <?php else: ?>
-                <li><a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/login.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
+                <li <?php if ($this->_tpl_vars['pagename'] == 'login'): ?> class="active" <?php endif; ?>><a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/login.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
 ">Log In</a> </li>
                 
-                <li><a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/signup.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
+                <li <?php if ($this->_tpl_vars['pagename'] == 'register'): ?> class="active" <?php endif; ?>><a href="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/signup.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
 ">Register</a></li>
                 
                 <?php endif; ?>

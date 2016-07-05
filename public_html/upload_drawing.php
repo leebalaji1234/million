@@ -6,6 +6,16 @@ require_once('drawing.class.php');
 require_once('parent_detail.class.php');
 require_once('volunteer.class.php');
 require_once('user.class.php');
+
+require_once('country.class.php');
+require_once('state.class.php');
+require_once('city.class.php');
+
+
+$tbl_country = new Countrie;
+$tbl_city = new Citie; 
+$tbl_state = new State;
+
 $tbl_themes = new Theme;
 $tbl_drawings = new Drawing;
 $tbl_user = new User;
@@ -100,11 +110,6 @@ $error = false;
       $app->error('## Please enter art title##');
     }else if(empty($_REQUEST['description'])){
       $app->error('## Please enter art description##');
-    }else if($user->dob =='' && $_REQUEST['dob']==''){
-       
-      $app->error('Please enter Date of Birth with format [mm/dd/YYYY]');
-    }else if(!empty($user->dob) &&  !empty($_REQUEST['dob']) && $error == true){
-      $app->error('## Please enter valid Date of Birth mm/dd/YYYY##');
     }else if($parent_field_display == 'enable' && empty($_REQUEST['parent_name'])){      
       $app->error('## Please fill parent name##');
     }else if($parent_field_display == 'enable' && empty($_REQUEST['parent_details'])){ 
@@ -117,7 +122,12 @@ $error = false;
 
     if(isset($_FILES) && $_FILES['file']['tmp_name']){
       list($width, $height, $type, $attr) = getimagesize($_FILES['file']['tmp_name']);
-      $img_name = 'images/drawings/'.time().'.'.'png';
+      $country = $tbl_country->get($user->country);
+      $state = $tbl_state->get($user->state);
+      $city = $tbl_city->get($user->city);
+        
+ 
+      $img_name = 'images/drawings/'.$user->first_name.'_'.$user->last_name.'_'.$country->name.'_'.$state->name.'_'.$city->name.'_'.$_REQUEST['title'].'_'.time().'.'.'png';
       if (Util::process_image_upload($width, $height,'file','drawing_image')){ 
       file_put_contents($img_name, @$_SESSION['drawing_image']);   
       }

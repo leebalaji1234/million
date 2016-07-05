@@ -1,8 +1,9 @@
-<?php /* Smarty version 2.6.12, created on 2016-06-02 00:45:34
+<?php /* Smarty version 2.6.12, created on 2016-06-30 00:22:03
          compiled from signup.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'signup.tpl', 14, false),array('function', 'show_errors', 'signup.tpl', 20, false),array('function', 'start_form', 'signup.tpl', 21, false),array('function', 'url', 'signup.tpl', 133, false),array('function', 'end_form', 'signup.tpl', 138, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'signup.tpl', 15, false),array('function', 'show_errors', 'signup.tpl', 21, false),array('function', 'start_form', 'signup.tpl', 22, false),array('function', 'url', 'signup.tpl', 147, false),array('function', 'end_form', 'signup.tpl', 152, false),)), $this); ?>
 <?php $this->assign('page_title', 'Sign Up'); ?>
+<?php $this->assign('pagename', 'register'); ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.inc.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -102,7 +103,7 @@ unset($_smarty_tpl_vars);
                       <label for="inputDate" class="control-label"> Date of Birth</label>
                     </div>
                     <div class="col-sm-5">  
-                     <input name="dob"   id="inputDate" class="form-control inputDate" placeholder="mm/dd/YYYY"  value="01/01/2016" onchange="ajaxCallToCreateAge(this.value);"   />
+                     <input name="dob"   id="inputDate" class="form-control inputDate" placeholder="mm/dd/YYYY"  value="01/01/2016" readonly="readonly" onchange="ajaxCallToCreateAge(this.value);"   />
                      <small>mm/dd/YYYY</small>
                     </div>
                   </div>
@@ -139,11 +140,25 @@ unset($_smarty_tpl_vars);
                       <label   class="control-label">City</label> 
                      </div>
                       <div class="col-md-5">
-                      <select name="city" id="city" class="form-control" > 
+                      <select name="city" id="city" class="form-control" onchange="citySelect(this.value);" > 
                          
                       </select>
+                       <span id="citymanualoption" > 
+                       
+                       </span>
                     </div>
                   </div>
+                  <?php if ($this->_tpl_vars['captcha_url']): ?>
+               <div class="form-group ">
+                     
+                    <div class="col-sm-5 col-sm-offset-2 well"> 
+                     <input name="phrase" size="10" value="" />&nbsp;
+                     <img id="captcha" src="<?php echo ((is_array($_tmp=$this->_tpl_vars['captcha_url'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+" style="vertical-align: middle;border-radius:20px;border:2px solid grey;" alt="CAPTCHA Image" /> <i class="fa fa-2x fa-refresh" style="margin-left:10px;" onclick="CaptchaRefresh();"></i>
+                      <p class="text-muted">Enter text from image at right</p> 
+                    </div>
+                  </div>
+                <?php endif; ?>
 
                    <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-3">

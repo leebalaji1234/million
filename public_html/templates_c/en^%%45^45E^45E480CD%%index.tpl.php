@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-22 13:52:41
+<?php /* Smarty version 2.6.12, created on 2016-06-10 02:47:39
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'number_format', 'index.tpl', 15, false),array('modifier', 'escape', 'index.tpl', 15, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'number_format', 'index.tpl', 15, false),array('modifier', 'escape', 'index.tpl', 15, false),array('function', 'url', 'index.tpl', 93, false),)), $this); ?>
 <?php $this->assign('meta_description', $this->_tpl_vars['app']->setting->site_description); ?>
 <?php if ($_SESSION['magnify']):  $this->assign('scripts', '/tjpzoom.js');  endif; ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -122,11 +122,15 @@ unset($_smarty_tpl_vars);
         </div>
         <div class="row">
        
-          <?php $_from = $this->_tpl_vars['alldrawings']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+          <?php $_from = $this->_tpl_vars['allsponsors']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['d']):
 ?>
           <div class="col-md-2">
-            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="center-block img-circle img-responsive" class="center-block img-circle img-responsive">
+            
+            <img src="<?php echo ((is_array($_tmp=smarty_function_url(array('href' => '/session_image.php'), $this))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp));?>
+?x=<?php echo ((is_array($_tmp=time())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+&r=<?php echo ((is_array($_tmp=$this->_tpl_vars['d']->id)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+"  class="center-block img-circle img-responsive" class="center-block img-circle img-responsive"/>
             <h3 class="text-center"><?php echo ((is_array($_tmp=$this->_tpl_vars['d']->title)) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 </h3>
            

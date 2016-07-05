@@ -3,6 +3,10 @@
 require_once('config.php');
 require_once('util.class.php');
 require_once('country.class.php');
+require_once('city.class.php');
+
+$tbl_city = new Citie; 
+
 function calculateAge($dob){
 if(isset($dob) && $dob){
   $birthDate = $_POST['dob'];//"12/17/1987"//mm/dd/YYYY; 
@@ -51,7 +55,9 @@ if ($app->is_post()) {
   if (empty($_REQUEST['state']))
      $app->error('##Please enter state##');
   if (empty($_REQUEST['city']))
-     $app->error('##Please enter city##'); 
+     $app->error('##Please enter city##');
+  if (@$_REQUEST['phrase'] != Util::captcha_phrase())
+     $app->error('##The text from the image was not entered correctly ##');      
   if (empty($app->errors)) {
 
     // make sure user doesn't already exist, and create user row.
@@ -59,26 +65,48 @@ if ($app->is_post()) {
     // by the confirmation process.
     require_once('user.class.php');
     $tbl = new User;
-    $tbl->lock();
+    // $tbl->lock();
     $user = $tbl->find('where email=?', array($_REQUEST['email']));
     if (!$user->_new_row)
       $app->error('##An account with that email address already exists.##');
     else {
-      $user->email = $_REQUEST['email'];
-      $user->pass = $_REQUEST['pass'];
-      $user->first_name = $_REQUEST['first_name'];
-      $user->last_name = $_REQUEST['last_name'];
-      $user->dob = $_REQUEST['dob'];
-      $user->age = calculateAge($_REQUEST['dob']);
-      $user->country = $_REQUEST['country'];
-      $user->state = $_REQUEST['state'];
-      $user->city = $_REQUEST['city'];
-      $user->created_at = Util::epoch_to_datetime();
-      $user->is_confirmed = 0;
-      $user->digest = $app->digest(array(rand()));
-      $user->save();
+      if (isset($_REQUEST['city']) && $_REQUEST['city'] == 'addnew' && !empty($_REQUEST['manualcity'])){
+        $cityexists = $tbl_city->find('where name=? and state_id=?', array($_REQUEST['manualcity'],$_REQUEST['state']));
+        if (!$cityexists->_new_row){
+            $cityexists->name = $_REQUEST['manualcity'];
+            $cityexists->state_id = $_REQUEST['state'];
+            $cityexists->save();
+            $_REQUEST['city'] = $cityexists->id;
+        }else{
+            // $tbl->unlock();
+            $tbl_city->lock();
+            $tbl_city->name = $_REQUEST['manualcity'];
+            $tbl_city->state_id = $_REQUEST['state'];
+            $tbl_city->save();
+            $tbl_city->unlock();
+            // $tbl->lock();
+            $_REQUEST['city'] = $tbl_city->id;;
+        }
+        
+      } 
+          $user->email = $_REQUEST['email'];
+          $user->pass = md5($_REQUEST['pass']);
+          $user->first_name = $_REQUEST['first_name'];
+          $user->last_name = $_REQUEST['last_name'];
+          $user->dob = $_REQUEST['dob'];
+          $user->age = calculateAge($_REQUEST['dob']);
+          $user->country = $_REQUEST['country'];
+          $user->state = $_REQUEST['state'];
+          $user->city = $_REQUEST['city'];
+          $user->created_at = Util::epoch_to_datetime();
+          $user->is_confirmed = 0;
+          $user->digest = $app->digest(array(rand()));
+          $user->save();
+          // $tbl->unlock();
+      
+     
     }
-    $tbl->unlock();
+    
 
     if (empty($app->errors)) {
 
@@ -98,6 +126,10 @@ if ($app->is_post()) {
     }
   }
 }
+
+Util::captcha_create();
+$smarty->assign('captcha_url', Util::captcha_url());
+
 $tbl_country = new Countrie;
 $countries = $tbl_country->find_all();  
 $smarty->assign_by_ref('countries', $countries); 

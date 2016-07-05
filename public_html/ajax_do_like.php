@@ -32,7 +32,7 @@ require_once('drawing_like.class.php');
  		 }
  		 
  		 // echo serialize($arrCookie);exit;
- 		setcookie("drawing_like", json_encode($arrCookie), time() + (60 * 60));
+ 		setcookie("drawing_like", json_encode($arrCookie), time() + (365 * 24 * (60 * 60)));
 		$tbl_likes->drawing_id = $_REQUEST['drawing_id'];
 		$tbl_likes->like_ip = $_SERVER['REMOTE_ADDR'];
 		$tbl_likes->created_at = Util::epoch_to_datetime();

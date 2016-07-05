@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-18 23:33:35
+<?php /* Smarty version 2.6.12, created on 2016-06-30 00:19:44
          compiled from volunteers.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'volunteers.tpl', 6, false),array('function', 'show_errors', 'volunteers.tpl', 7, false),array('function', 'start_form', 'volunteers.tpl', 8, false),array('function', 'end_form', 'volunteers.tpl', 142, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'volunteers.tpl', 6, false),array('function', 'show_errors', 'volunteers.tpl', 7, false),array('function', 'start_form', 'volunteers.tpl', 8, false),array('function', 'end_form', 'volunteers.tpl', 166, false),)), $this); ?>
 <?php $this->assign('page_title', 'Volunteer Register ');  $this->assign('pagename', 'volunteer');  $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.inc.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -99,7 +99,31 @@ unset($_smarty_tpl_vars);
                       </select>
                     </div>
                   </div>
+
                   <div class="form-group required">
+                     <div class="col-md-2">
+                      <label   class="control-label">State</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <select name="state" id="state" class="form-control" onchange="stateSelect(this.value);"> 
+                         
+                      </select>
+                    </div>
+                  </div>
+                   <div class="form-group required">
+                     <div class="col-md-2">
+                      <label   class="control-label">City</label> 
+                     </div>
+                      <div class="col-md-5">
+                      <select name="city" id="city" class="form-control" onchange="citySelect(this.value);" > 
+                         
+                      </select>
+                       <span id="citymanualoption" > 
+                       
+                       </span>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="desc" class="control-label">State  </label>
                     </div>
@@ -138,7 +162,7 @@ unset($_smarty_tpl_vars);
 "/>
                       <?php endif; ?> </span>
                     </div>
-                  </div>
+                  </div> -->
                   
                 <?php if ($this->_tpl_vars['captcha_url']): ?>
                <div class="form-group ">

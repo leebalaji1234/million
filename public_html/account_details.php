@@ -10,12 +10,12 @@ $tbl_user = new User;
 $user = $tbl_user->get($_SESSION['user_id']);
 
 if ($app->is_post()) {
-	$smarty->clear_cache(null, 'rss');
-	$smarty->clear_all_cache();
-	if (empty($_REQUEST['first_name']))
-    $app->error('##Please enter your first name##');
-  if (empty($_REQUEST['last_name']))
-    $app->error('##Please enter your last name##');
+	// $smarty->clear_cache(null, 'rss');
+	 
+	// if (empty($_REQUEST['first_name']))
+ //    $app->error('##Please enter your first name##');
+ //  if (empty($_REQUEST['last_name']))
+ //    $app->error('##Please enter your last name##');
   if (!empty($_REQUEST['email'])) {
     if (!Util::valid_email($_REQUEST['email']))
       $app->error('##That does not appear to be a valid e-mail address##');
@@ -30,12 +30,12 @@ if ($app->is_post()) {
   }
   if (empty($app->errors)) {
     // update user account
-    $user->first_name = $_REQUEST['first_name'];
-    $user->last_name = $_REQUEST['last_name'];
+    // $user->first_name = $_REQUEST['first_name'];
+    // $user->last_name = $_REQUEST['last_name'];
     if (!empty($_REQUEST['email']))
       $user->email = $_REQUEST['email'];
     if (!empty($_REQUEST['pass']))
-      $user->pass = $_REQUEST['pass'];
+      $user->pass = md5($_REQUEST['pass']);
     $user->save();
 
     // update login values in session
@@ -50,7 +50,7 @@ else {
   $_REQUEST['first_name'] = $user->first_name;
   $_REQUEST['last_name'] = $user->last_name;
 }
-
+$smarty->clear_all_cache();
 $smarty->assign_by_ref('user', $user);
 $smarty->display('account_details.tpl', 'account|'.$cache_id);
 

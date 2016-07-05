@@ -1,4 +1,5 @@
 {assign var="page_title" value="##Login##"}
+{assign var="pagename" value="login"}
 {include file="header.inc.tpl"}
 <div class="section">
   <div class="container">
@@ -36,6 +37,12 @@
                     
                     
                       <input type="password" name="pass"  class="form-control" palceholder="Enter password ..."  />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-10">
+                    <label><input type="checkbox" name="rememberme"></input> Remember Me</label>
                     </div>
                   </div>
                      

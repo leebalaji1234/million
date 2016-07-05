@@ -31,14 +31,40 @@
 <!-- AddToAny END -->
 
 <!-- AddToAny BEGIN with share link page-->
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="http://{{sitehost}}/drawing.php?id={{drawing.id}}" data-a2a-title="{{drawing.title}}">
+<!-- <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="http://{{sitehost}}/drawing.php?id={{drawing.id}}" data-a2a-title="{{drawing.title}}">
 <a class="a2a_dd"  ></a>
 <a class="a2a_button_facebook" ></a>
 <a class="a2a_button_twitter"   ></a>
 <a class="a2a_button_google_plus" ></a>
-</div>
+</div> -->
 
 <!-- AddToAny END -->
+<!-- angualr share -->
+<a href="#" class="btn btn-info" 
+socialshare
+socialshare-provider="twitter"
+socialshare-text="{{drawing.title}}"
+socialshare-url="http://{{sitehost}}/drawing.php?id={{drawing.id}}">
+<i class="fa fa-twitter fa-1x"></i>
+</a>
+
+<a href="#" class="btn btn-primary"
+socialshare
+socialshare-provider="facebook"
+socialshare-text="{{drawing.title}}"
+socialshare-url="http://{{sitehost}}/drawing.php?id={{drawing.id}}">
+<i class="fa fa-facebook fa-1x"></i>
+</a>
+
+<a href="#" class="btn btn-danger" 
+socialshare
+socialshare-provider="google"
+socialshare-text="{{drawing.title}}"
+socialshare-url="http://{{sitehost}}/drawing.php?id={{drawing.id}}">
+<i class="fa fa-google fa-1x"></i>
+</a>
+
+<!-- angular shre end -->
 </p>
            
         <p>
@@ -57,7 +83,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             
-            <p class="text-center text-primary"><i class="fa fa-fw fa-child fa-3x"></i> {{drawing.username}}  <i class="fa fa-fw fa-hand-o-up fa-3x"></i>Clicks : <span id="click1_{{drawing.id}}">{{drawing.clicks}}</span> <i class="fa fa-fw fa-heart fa-3x"></i>Likes : <span id="like1_{{drawing.id}}">{{drawing.likes}}</span> </p>
+            <p class="text-center text-primary"><i class="fa fa-fw fa-child fa-3x"></i> {{drawing.username}}  <i class="fa fa-fw fa-hand-o-up fa-3x"></i>Clicks : <span id="click1_{{drawing.id}}">{{drawing.clicks}}</span> <i class="fa fa-fw fa-eye fa-3x"></i>Views :  {{drawing.clicks}}  <i class="fa fa-fw fa-heart fa-3x"></i>Likes : <span id="like1_{{drawing.id}}">{{drawing.likes}}</span> </p>
             <p class="text-left text-warning"><i class="fa fa-fw fa-graduation-cap fa-3x"></i>Sponsors : {{drawing.sponsors.title.join(", ")}}</p>
           </div>
           <div class="modal-body " >
@@ -202,4 +228,4 @@
 <p class="text-center"><button class="btn btn-warning"  ng-click="loadMore()"><i class="fa fa-arrow-down"></i>Load more</button></p>  
      </div>   
  
-<script async src="https://static.addtoany.com/menu/page.js"></script> 
+<!-- <script async src="https://static.addtoany.com/menu/page.js"></script>  -->

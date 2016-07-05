@@ -1,4 +1,5 @@
 {assign var="page_title" value="##Sign Up##"}
+{assign var="pagename" value="register"}
 {include file="header.inc.tpl"}
 <link rel="stylesheet" href="custom_lib/datepicker/css/datepicker.css" type="text/css" />
  
@@ -84,7 +85,7 @@
                       <label for="inputDate" class="control-label">## Date of Birth##</label>
                     </div>
                     <div class="col-sm-5">  
-                     <input name="dob"   id="inputDate" class="form-control inputDate" placeholder="mm/dd/YYYY"  value="01/01/2016" onchange="ajaxCallToCreateAge(this.value);"   />
+                     <input name="dob"   id="inputDate" class="form-control inputDate" placeholder="mm/dd/YYYY"  value="01/01/2016" readonly="readonly" onchange="ajaxCallToCreateAge(this.value);"   />
                      <small>mm/dd/YYYY</small>
                     </div>
                   </div>
@@ -117,11 +118,24 @@
                       <label   class="control-label">##City##</label> 
                      </div>
                       <div class="col-md-5">
-                      <select name="city" id="city" class="form-control" > 
+                      <select name="city" id="city" class="form-control" onchange="citySelect(this.value);" > 
                          
                       </select>
+                       <span id="citymanualoption" > 
+                       
+                       </span>
                     </div>
                   </div>
+                  {if $captcha_url}
+               <div class="form-group ">
+                     
+                    <div class="col-sm-5 col-sm-offset-2 well"> 
+                     <input name="phrase" size="10" value="" />&nbsp;
+                     <img id="captcha" src="{$captcha_url|escape}" style="vertical-align: middle;border-radius:20px;border:2px solid grey;" alt="##CAPTCHA Image##" /> <i class="fa fa-2x fa-refresh" style="margin-left:10px;" onclick="CaptchaRefresh();"></i>
+                      <p class="text-muted">##Enter text from image at right##</p> 
+                    </div>
+                  </div>
+                {/if}
 
                    <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-3">

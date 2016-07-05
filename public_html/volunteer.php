@@ -46,19 +46,20 @@ if ($app->is_post()) {
       $app->error('##An account with that email address already exists.##');
     else {
       if (isset($_REQUEST['city']) && $_REQUEST['city'] == 'addnew' && !empty($_REQUEST['manualcity'])){
-        $cityexists = $tbl_city->find('where name=?', array($_REQUEST['manualcity']));
-    if (!$user->_new_row){
-        $cityexists->name = $_REQUEST['manualcity'];
-        $cityexists->state_id = $_REQUEST['state'];
-        $cityexists->save();
-    }else{
-        $tbl_city->lock();
-        $tbl_city->name = $_REQUEST['manualcity'];
-        $tbl_city->state_id = $_REQUEST['state'];
-        $tbl_city->save();
-        $tbl_city->unlock();
-        $_REQUEST['city'] = $_REQUEST['manualcity'];
-    }
+        $cityexists = $tbl_city->find('where name=? and state_id=?', array($_REQUEST['manualcity'],$_REQUEST['state']));
+        if (!$cityexists->_new_row){
+            $cityexists->name = $_REQUEST['manualcity'];
+            $cityexists->state_id = $_REQUEST['state'];
+            $cityexists->save();
+            $_REQUEST['city'] = $cityexists->id;
+        }else{
+            $tbl_city->lock();
+            $tbl_city->name = $_REQUEST['manualcity'];
+            $tbl_city->state_id = $_REQUEST['state'];
+            $tbl_city->save();
+            $tbl_city->unlock();
+            $_REQUEST['city'] = $tbl_city->id;
+        }
         
       }
       $tbl->lock();
@@ -98,11 +99,11 @@ Util::captcha_create();
 $smarty->assign('captcha_url', Util::captcha_url());
 
 $countries = $tbl_country->find_all(); 
-$states = $tbl_state->find_all(); 
-$cities = $tbl_city->find_all(); 
+// $states = $tbl_state->find_all(); 
+// $cities = $tbl_city->find_all(); 
 $smarty->assign_by_ref('countries', $countries); 
-$smarty->assign_by_ref('states', $states);
-$smarty->assign_by_ref('cities', $cities);
+// $smarty->assign_by_ref('states', $states);
+// $smarty->assign_by_ref('cities', $cities);
   
  $pagename = 'volunteer'; 
 $smarty->display('volunteers.tpl'); 

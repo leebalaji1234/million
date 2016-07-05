@@ -260,6 +260,7 @@ function store_region() {
   $region->title = param('title');
   $region->alt = param('alt');
   $region->email = param('email');
+  $region->type = param('sponsortype');
 
   // set the expiration-related dates if necessary
   $now = time();

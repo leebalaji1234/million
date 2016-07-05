@@ -1,20 +1,13 @@
-<?php /* Smarty version 2.6.12, created on 2016-06-02 00:25:06
+<?php /* Smarty version 2.6.12, created on 2016-06-18 02:28:20
          compiled from upload_drawing.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'upload_drawing.tpl', 13, false),array('function', 'show_errors', 'upload_drawing.tpl', 14, false),array('function', 'start_form', 'upload_drawing.tpl', 15, false),array('function', 'end_form', 'upload_drawing.tpl', 252, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'upload_drawing.tpl', 6, false),array('function', 'show_errors', 'upload_drawing.tpl', 7, false),array('function', 'start_form', 'upload_drawing.tpl', 8, false),array('function', 'end_form', 'upload_drawing.tpl', 244, false),)), $this); ?>
 <?php $this->assign('page_title', 'Upload Art');  $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.inc.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
-<link rel="stylesheet" href="custom_lib/datepicker/css/datepicker.css" type="text/css" />
- 
- 
 
-<script type="text/javascript" src="custom_lib/datepicker/js/datepicker.js"></script>
-<script type="text/javascript" src="custom_lib/datepicker/js/eye.js"></script>
-<script type="text/javascript" src="custom_lib/datepicker/js/utils.js"></script>
-<script type="text/javascript" src="custom_lib/datepicker/js/layout.js?ver=1.0.2"></script>
 <div class="section">
   <div class="container">
 <!-- <h1><?php echo ((is_array($_tmp=$this->_tpl_vars['page_title'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
@@ -23,7 +16,6 @@ unset($_smarty_tpl_vars);
 
 <?php echo smarty_function_start_form(array('enctype' => "multipart/form-data",'class' => "form-horizontal"), $this);?>
 
-<input type="hidden" name="MAX_FILE_SIZE" value="200000" /> 
 <?php if ($this->_tpl_vars['app']->setting->upload_images): ?> 
 <!--  <div class="col-md-12">
             <span class="alert alert-dismissable alert-info">
@@ -97,7 +89,7 @@ format and resized to the region size of <?php echo ((is_array($_tmp=$_REQUEST['
                   
                   <!-- dob -->
                   <?php if ($this->_tpl_vars['dobdisplay'] == 'enable'): ?>
-                  <div class="form-group required">
+                  <!-- <div class="form-group required">
                     <div class="col-sm-2">
                       <label for="inputDate" class="control-label"> Date of Birth</label>
                     </div>
@@ -105,7 +97,7 @@ format and resized to the region size of <?php echo ((is_array($_tmp=$_REQUEST['
                      <input name="dob"   id="inputDate" class="form-control inputDate" placeholder="mm/dd/YYYY"  value="01/01/2016" onchange="ajaxCallToCreateAge(this.value);"   />
                      <small>mm/dd/YYYY</small>
                     </div>
-                  </div>
+                  </div> -->
                    <?php endif; ?>
                    <!-- parent -->
                     <?php if ($this->_tpl_vars['parentdisplay'] == 'enable'): ?>

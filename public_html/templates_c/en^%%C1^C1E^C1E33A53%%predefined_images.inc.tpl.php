@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-05-18 23:39:35
+<?php /* Smarty version 2.6.12, created on 2016-06-18 01:52:57
          compiled from predefined_images.inc.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'predefined_images.inc.tpl', 5, false),array('function', 'url', 'predefined_images.inc.tpl', 8, false),)), $this); ?>

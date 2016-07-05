@@ -69,6 +69,7 @@ $smarty->assign('grid', $grid);
  
 // step 2: select pixels
 if ($step == 2) {
+
   $smarty->caching = 0;
   if ($app->is_post()) {
     if ($_REQUEST['w'] == 0){
@@ -197,7 +198,8 @@ if ($step == 5) {
       save_params('realamount');  
     if(isset($_REQUEST['own_theme']) && !empty($_REQUEST['theme_name'])){
       require('theme_category.class.php');
-      
+      $_REQUEST['sponsortype'] = "Sponsor";
+      save_params('sponsortype');
       $tblcategory = new Theme_categorie;
       $spcategory = $tblcategory->find('where id=?', array($_REQUEST['category_id']));
        $famount = param('amount')+ $spcategory->amount;
@@ -238,13 +240,21 @@ if ($step == 5) {
         $tbl->unlock();
      }
 
-
+ 
         if(!isset($_REQUEST['own_theme']) && $_REQUEST['submit_button'] == 'Continue >>'){
+          $_REQUEST['sponsortype'] = "Regular";
+          save_params('sponsortype');
+           
           next_step();
         }else{ 
-
+          if(!isset($_REQUEST['own_theme'])){
+            $_REQUEST['sponsortype'] = "Just";
+               save_params('sponsortype');
+          }
+          
           clear_params('drawing_id'); 
           $order_status['step'] = 6; 
+
           header('Location:'.next_step_url());
         }
       
@@ -351,6 +361,7 @@ thank:
 // step 8: thank you
 if ($step == 8) {
   load_params('region_id');
+
   unset($_SESSION['payment_id']);
   unset($_SESSION['order_status']);        // we can't go back from this step
   unset($_SESSION['current_order_status']);

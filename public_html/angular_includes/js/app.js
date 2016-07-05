@@ -4,7 +4,7 @@
  //  }]).
  var md = {};
  window.md = {};
- md = angular.module('md', ['ngSanitize']) //'ui.router'
+ md = angular.module('md', ['ngSanitize','720kb.socialshare']) //'ui.router'
      .config(function($sceDelegateProvider) {
          $sceDelegateProvider.resourceUrlWhitelist([
              'self',
@@ -50,12 +50,32 @@
               sitehostname = $location.host();
              $scope.totalDisplayed = $scope.defaultload;
              $scope.sort = function(keyname) {
+
+                // Resetting all filters only for recents
+
+            $scope.search = undefined;
+            $scope.searcher.theme = undefined;
+            $scope.searcher.country = undefined;
+            $scope.searcherAge.ageMin = -1;
+            $scope.searcherAge.ageMax = 100;
+
+            dobreadcrumb('','country');
+             dobreadcrumb('','theme');
+              dobreadcrumb('','age');
+
+              $('#breadcrumb').hide();
+// ends
                  $scope.sortKey = keyname;
                  $scope.reverse = !$scope.reverse;
              };
-
+//                 console.log($scope.search);
+// console.log($scope.searcher.theme);
+// console.log($scope.searcher.country);
+// console.log($scope.searcherAge.ageMin);
+// console.log($scope.searcherAge.ageMax);
              $scope.loadMore = function() {
                  $scope.totalDisplayed += $scope.defaultload;
+                  
              };
              $scope.onDoClick = function(did) {
                  $.post('ajax_do_click.php', {

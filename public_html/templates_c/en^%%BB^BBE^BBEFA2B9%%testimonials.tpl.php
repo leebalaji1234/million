@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.12, created on 2016-06-03 00:32:00
+<?php /* Smarty version 2.6.12, created on 2016-06-30 00:22:10
          compiled from testimonials.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'testimonials.tpl', 5, false),)), $this); ?>
